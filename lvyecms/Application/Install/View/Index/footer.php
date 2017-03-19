@@ -1,1 +1,0 @@
-<div class="footer"> &copy; 2012 - {:date("Y")} <a href="http://www.lvyecms.com" target="_blank">http://www.lvyecms.com</a>（LvyeCMS内容管理系统） </div>
