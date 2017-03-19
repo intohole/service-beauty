@@ -1,0 +1,2 @@
+2013/10/24 by zhuangzhenhua: 移槙支持YAF框架，仍赖于Zend_Config, Zend_Filter, Zend_Validate, Zend_Paginator
+2013/10/25 by zhuangzhenhua: 增加自动加载ini配置文件，单一主从配置支持。

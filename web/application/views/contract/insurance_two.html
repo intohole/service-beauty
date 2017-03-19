@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>保单</title>
+
+	<style media=print>
+        .pButton{
+            margin-left:auto;
+            margin-right:auto;
+            display:none;
+        }
+        
+    </style>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/insurance_reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/insurance_style.css">
+	<link rel="stylesheet" type="text/css" href="/css/insurance_index.css">
+	<script type="text/javascript" src="https://dn-ybk-static.qbox.me/js/common/jquery-1.8.0.min.js"></script>
+	<style type="text/css" media="screen">
+		ul {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		}
+		.btm3 input, .btm4 input {
+		    background-color: #888 !important;
+		}
+	</style>
+</head>
+<body>
+<p align="center" class="pButton" > 
+        <BUTTON id="batch_print" name="batch_print" title=打印 onclick="printDate()">打印</BUTTON>      
+    </p> 
+<div class="bdr content">
+	<div class="box content" style="height:30px;margin-top:10px">
+		<div style="height:30px" class="lf bg"></div>
+		<div class="rt bordertop">
+            <span class="wd200">家人是否知晓此贷款</span><span class="wd200"><label><input type="radio" name="shifouzhixiao" value="">是</label><label><input type="radio" name="shifouzhixiao" value="">否</label></span><span class="wd100 bg">邮寄地址</span><span class="wd600"><label><input checked="true" type="radio" name="youjidizhi" value="">单位地址</label><label><input type="radio" name="youjidizhi" value="">住宅地址</label></span>
+		</div>
+	</div>
+	<div class="divborder"></div>
+	<div class="content box" style="height:149px;">
+		<div class="lf bg" style="padding-top:50px">贷款担保方式信息</div>
+		<div class="rt bordertop">
+			<span class="wd100 bg">担保人名称</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">担保合同号</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd150 bg">组织机构代码/身份证</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">许可/资质情况</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">抵押物名称</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">抵押合同号</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd150 bg">抵押物评估金额</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">抵押物评估人</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">质押物名称</span><span class="wd100"><input class="input100" type="text" name="" value="应收账款"></span><span class="wd100 bg">质押合同号</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd150 bg">抵押物评估金额</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">抵押物评估人</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd150 bg">抵(质)押授权人名称</span><span class="wd950"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">备注:</span><span class="wd1000"><input class="input100" type="text" name="" value=""></span>
+		</div>
+	</div>
+	<div class="divborder"></div>
+	<div class="box content" style="height:59px;">
+		<div class="lf bg" style="height:59px;padding-top:20px">被保险人信息</div>
+		<div class="rt bordertop">
+			<span class="wd100 bg">被保险人名称</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">借款合同编号</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">联系人</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">固定电话</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">详细地址</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">身份证号码</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+	</div>
+	<div class="divborder"></div>
+	<div class="box content" style="height:30px;">
+		<div style="width:200px" class="lf bg width29">贷款期间</div>
+		<div class="rt special bordertop" style="width:1000px">
+			<span class="wd1000">	
+				<input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">保险期间</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000">	
+				<input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">约定期间</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000">	
+				<input value="" type="text"/>天
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">贷款利息</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				人民币(大写)<input style="width:600px" value="<?php echo $data['rate_cp_'.$cent];?>" type="text"/>￥<input style="width:200px" value="<?php echo $data['rate'.$cent];?>" type="text"/>
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">贷款本金</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				人民币(大写)<input style="width:600px" value="<?php echo $data['amount_cp_'.$cent];?>" type="text"/>￥<input style="width:200px" value="<?php echo $data['amount'.$cent];?>" type="text"/>
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">保险金额</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				人民币(大写)<input style="width:600px" value="<?php echo $data['baoxian_cp_'.$cent];?>" type="text"/>￥<input style="width:200px" value="<?php echo $data['baoxian'.$cent];?>" type="text"/>
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">贷款利率</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				<input style="width:100%;" class="input100" type="text" name="" value="<?php echo $data['rate'];?>">
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">还本付息方式</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				<input style="width:100%;" class="input100" type="text" name="" value="">
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">总保费</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				人民币(大写)<input style="width:600px" value="<?php echo $data['total_cp_'.$cent];?>" type="text"/>￥<input style="width:200px" value="<?php echo $data['total'.$cent];?>" type="text"/>
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">还本付息方式</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000" style="text-align: left;padding-left:10px">	
+				<input style="width:100%;" class="input100" type="text" name="" value="">
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:700px" class="lf bg width29">请特别注意：本保险金额是否包含贷款本金、贷款利息、逾期罚息。未说明，本保险金额仅包含贷款本金</div>
+		<div class="rt special" style="width:500px">
+			<span class="wd500" style="text-align: left;padding-left:10px">	
+				<input style="width:100%;" class="input100" type="text" name="" value="">
+			</span>
+		</div>
+	</div>
+	<div class="box content" style="height:30px">
+		<div style="width:200px" class="lf bg width29">免赔率(额)</div>
+		<div class="rt special" style="width:1000px">
+			<span class="wd1000">	
+				<input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔率为损失的<input class="input100" type="text" name="" value="">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔额为（人民币）:<input class="input100" type="text" name="" value="">%
+			</span>
+		</div>
+	</div>
+	<div class="divborder"></div>
+	<div class="content">
+		<ul class="ul">
+			<li class="bg" style="text-align: center;padding-top:50px">贷&nbsp;&nbsp;&nbsp;&nbsp;款<br/>用&nbsp;&nbsp;&nbsp;&nbsp;途</li>
+			<li style="width:700px">本人了解并声明：<br/>A、本人申请贷款用途为本人真实意愿表达；B贷款用途保证符合国家监管部门和贵公司的以下规定与要求：a).贷款资金不会以任何形式进入证券市场，或用于股本权益性投资；b).贷款资金不会不会用于国家明令禁止或限制的经营活动；c).贷款资金不会用于房地产项目开发；C、该笔贷款发放账户未开通第三方存管功能（即该结算账户为开通用于股票、基金、期权、期货等资金往来结算功能）<br/>其他请说明____________</li>
+			<li class="bg" style="width:40px;text-align: center">争<br/>议<br/>处<br/>理<br/>方<br/>式</li>
+			<li style="width:360px;">因履行本保险合同发生的争议，由当事人协商解决，协商解决不曾的当事人可约定采取下列法师之一解决：<br/><br>
+			<input style="width:20px" type="checkbox" name="" value="">向被告住所地人民法院提起诉讼<br/><input style="width:20px" type="checkbox" name="" value="">___________仲裁委员会仲裁</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="btm">
+			特别约定<br/>
+			1.请投保人/被保险人收到保单后，及时核对保单信息是否正确，所条款是否齐全，如有问题，请立即与本公司联系。同时仔细阅读条款，特别是条款中注明的责任免除及限制性条款等内容。<br/>
+			2.本保险适用《长安责任保险股份有限公司贷款履约保证保险条款（2014版）》。<br/>
+			3.当投保人拖欠任何一期的应偿而未偿还贷款本金或利息达到保险合同约定期限，保险人同意对实际被保险人的实际损失在保险金额的范围内进行全额赔付。<br/>
+			4.本保单一经发出未征得被保险人同意不得退保。<br/>
+		</div>
+		<div class="btm2">
+			<b>投保人承诺声明</b><br/>
+			本人作如下声明：<br/>
+			1.本申请表内所载一切资料均发属真实、正确及完整。<br/>
+			2.长安责任保险股份有限公司已向本人详细介绍其《贷款履约保证条款》，并对其中免除保险人责任的条款和关于投保人、被保险人义务的规定进行了明确说明。本人接受上述内容，自愿投保本保险。<br/>
+			3.本人已取得本投保单中联系人同意，提供他们之资料作为此项保险申请之用。<br/>
+			4.本人已清楚长安责任保险股份有限公司不会授权给任何人或单位收取保险合同约定之外的任何费用。<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;<b>信息收集及使用授权</b><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;本人同意并授权长安责任保险股份有限公司（以下简称“贵公司”）可：<br/>
+			1.向任何征信机构、银行、财务机构或其他资料来源透露和交换本投保单内有关本人之一切资料，以为本人提供保险服务。<br/>
+			2.接触有关征集机构查阅本人食用信息及索取有关报告以作此项保险申请审查之用，包括但不限于本人其所向贵公司以电话、网上、传真或其他贵公司认可之什么再交申请保险或对贵公司已承担或理赔的保险进行之用。<br/>
+			3.有权批核或拒绝本人之保险申请而无须提出任何理由及无须退回有关申请文件之副本予本人。<br/>
+			4.收集本人的有关资料以作为本次保险申请之用。<br/>
+			5.本人同意提供给长安责任保险股份有限公司推诿上，及本人享受长安责任保险股份有限公司金融服务产生的信息（包括本单证签署之前提供和产生的），可用于长安责任保险股份有限公司及因服务必要而委托的第三方为本人提供服务及推荐产品，法律禁止的除外，长安责任保险股份有限公司及其委托的第三言对上述信息钢梁有保密义务。<br/><br/>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;<b>以上承诺、声明及授权自本投保单签署时生效，不受合同成产及效力状态变化的影响。</b>
+
+		</div>
+	</div>
+	<div class="content">
+		<div class="btm3 bg">
+			投保人签署<br/>
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;本人具有完全民事行为能力签署本投保单并承担相应责任。本公司及授权代表人已阅读并完全同意遵守及履行本投保单所载之所有承诺、申明及条款。本人完全同意投保单中的所有授权，特此确认。</b><br/><br/><br/><br/>
+			<p>投保人签名<input type="text">日期：<input type="text">年 <input type="text" name="" value="">月<input type="text">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		</div>
+		<div class="btm4 bg">
+			<br/><br/>
+			&nbsp;&nbsp;见证人签名：<br/><br/><br/>
+			&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">年 <input type="text" name="" value="">月<input type="text">日
+		</div>
+	</div>
+</div>
+	<div class="divborder"></div>
+	<div class="content">
+		<div class="btm5">
+			获悉产品渠道:
+		</div>
+		<div class="btm6 bg">
+			<label><input type="radio" name="bankzichan" value="">朋友介绍</label><label><input type="radio" name="bankzichan" value="">宣传单页</label><label><input type="radio" name="bankzichan" value="">推广活动</label><label><input type="radio" name="bankzichan" value="">外部媒体短信</label><label><input type="radio" name="bankzichan" value="">网络</label><label><input type="radio" name="bankzichan" value="">其他____________</label>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+    function printDate(){
+        window.print();
+    }
+</script>

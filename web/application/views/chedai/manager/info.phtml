@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>
+<?php if($data['flow'] == $flow):?>
+待审核详情
+<?php else: ?>
+已审核详情
+<?php endif;?>
+</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+<link rel="stylesheet" type="text/css" href="/css/photoswipe.css">
+<link rel="stylesheet" type="text/css" href="/css/default-skin/default-skin.css">
+</head>
+<body data-id="<?php echo $id;?>" class="managerinfo-page" data-level="<?php if($flow==4) echo 1; elseif($flow==6) echo 2; else echo 0;?>">
+<script type="text/javascript" src="/js/rem.js"></script>
+<?php ?>
+<input type="hidden" name="launch" value="<?php echo $launch;?>">
+<div class="extra-text">
+    客户信息
+</div>
+<section class="wrap-list-block dpb">
+    <a class="item item-link" href="/chedai/salesman_customerinfo?id=<?php echo $data['customer'];?>&from=salesman">
+        <p class="clearfix">
+            <span>客户编号：<b><?php echo $data['customer'];?></b></span>
+            <span>录入时间：<b><?php echo date("Y-m-d",$data['created']); ?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>客户姓名：<b><?php echo $data['cu_name'];?></b></span>
+            <span>客户年龄：<b><?php echo $data['age'];?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>婚姻状况：<b><?php if($launch==1):?><?php if($data['marriage']): ?>已婚 <?php else: ?> 未婚 <?php endif; ?><?php endif; ?></b></span>
+            <span>客户手机：<b><?php echo $data['phone'];?></b></span>
+        </p>
+    </a>
+</section>
+<div class="extra-text">
+    车辆信息
+</div>
+<section class="wrap-list-block dpb">
+    <a class="item item-link" href="/chedai/salesman_carinfo?id=<?php echo $data['car'];?>&from=salesman">
+        <p class="clearfix">
+            <span>车辆编号：<b><?php echo $data['car'];?></b></span>
+            <span>录入时间：<b><?php echo date("Y-m-d",$data['car_created']); ?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>车辆品牌：<b><?php echo $data['brand'];?></b></span>
+            <span>车辆车系：<b><?php echo $data['series'];?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>车辆型号：<b><?php echo $data['item'];?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>车架号：<b><?php echo $data['auto_id'];?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>评估结果：<b><?php echo $data['result'];?></b></span>
+        </p>
+        <p class="clearfix">
+            <span>评估价值：<b class="orange"><?php echo $data['total'];?>万元</b></span>
+        </p>
+    </a>
+</section>
+<div class="extra-text">
+    业务信息
+</div>
+<ul class="wrap-list checkinfo-top">
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">业务人员</span>
+            <span class="list-item-value"><?php echo $data['name'];?></span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">业务类型</span>
+            <span class="list-item-value"><?php echo $data['type'];?></span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">所属区域</span>
+            <span class="list-item-value"><?php echo $data['area'];?></span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">评估结果</span>
+            <span class="list-item-value blue"><?php echo $data['result'];?></span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">业务详情</span>
+            <span class="list-item-value">贷款金额:<?php echo $data['amount'];?>，利率:<?php echo $data['rate'];?>，期限:<?php echo $data['deadline'];?>个月</span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">客户姓名</span>
+            <span class="list-item-value"><?php echo $data['cu_name'];?></span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">客户年龄</span>
+            <span class="list-item-value"><?php echo $data['age'];?></span>
+        </div>
+    </li>
+</ul>
+<ul class="wrap-list">
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">该车价值评估</span>
+            <span class="list-item-value orange"><?php echo $data['total'];?>万元</span>
+        </div>
+    </li>
+</ul>
+<?php /*此处为被驳回样式 S*/ ?>
+<!-- <ul class="wrap-list">
+    <li>
+        <div class="list-item">
+            <span class="list-item-key">业务经理意见</span>
+            <span class="list-item-value red">被驳回</span>
+        </div>
+    </li>
+    <li>
+        <div class="list-item list-item-reject clearfix">
+            <small>驳回原因：</small>
+            <p>贷款金额:12万元，利率:0.98，期限:3个月<br>贷款金额:12万元，利率:0.98，期限:3个月</p>
+        </div>
+    </li>
+</ul> -->
+<?php /*此处为被驳回样式 E*/ ?>
+<?php foreach($data['audit'] as $value):?>
+<div class="extra-text">
+    <?php echo $value['name'];?>意见
+</div>
+<div class="textarea-show">
+    <?php echo $value['comment'];?>
+</div>
+<?php endforeach;?>
+<!----此处为业务人员意见---->
+<div class="extra-text">
+    业务员意见<?php echo $launch;?>
+</div>
+<div class="textarea-show">
+    <?php echo $data['creator_comment'] ? $data['creator_comment'] : '业务员未添加意见';?>
+</div>
+<!----业务人员意见结束---->
+
+<?php if($flow==6):?>
+<!--------     法院信息审核结果       -------->
+    <?php if($list==1):?>
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal" style="width: 5rem">法律信息审核结果</label>
+                <div class="radio-group clearfix tar" style="width: 10.5rem">
+                    <label style="width: 44%"><input type="radio" name="result" value="1" <?php if($data['legal_info']['leader']['court_result']==1 || $data['legal_info']['leader']==NULL) echo "checked='checked'";?>><span>正常</span></label>
+                    <label style="width: 44%"><input type="radio" name="result" value="0" <?php if($data['legal_info']['leader']['court_result']==0 && $data['legal_info']['leader']!=NULL) echo "checked='checked'";?>><span>不正常　</span></label>
+                </div>
+            </li>
+        </ul>
+    <?php else:?>
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal" style="width: 5rem">法律信息审核结果</label>
+                <div class="radio-group clearfix tar" style="width: 10.5rem">
+                    <label style="width: 44%"><input type="radio" name="result" value="1"><span>正常</span></label>
+                    <label style="width: 44%"><input type="radio" name="result" value="0"><span>不正常　</span></label>
+                </div>
+            </li>
+        </ul>
+    <?php endif;?>
+<?php endif;?>
+<!---------     法院信息审核结果结束       ------------>
+
+
+<!--分公司风控经理待审核列表-->
+<?php if($flow==4&&$list==0):?>
+<div class="extra-text">
+    法院信息审核结果
+</div>
+<div class="wrap-reply wrap-reply-wait clearfix" data-role="courtimg">
+    <div class="img-uploader">
+        <div class="img-uploader-box img-uploader-box-wait">
+            <img src=""  class="active">
+            <div class="img-uploader-btn-ap">
+                <!-- <i class="icon-plus"></i> 请上传 -->
+            </div>
+            <input class="input-file" type="file">
+        </div>
+        <input type="hidden" name="courtimg" value="">
+        <!--<p class="tac">法院网查询截图</p>-->
+    </div>
+    <div class="radio-group">
+        <label><input class="radio" type="radio" name="court" value="1" checked="true"> <span>正常</span></label>
+        <label><input class="radio" type="radio" name="court" value="0"> <span>不正常</span></label>
+    </div>
+    <textarea placeholder="请在这里填写不正常原因" name="courtreason"></textarea>
+</div>
+<div class="extra-text" style="line-height: .8rem;padding: .35rem .5rem;">
+    评估价值信息审核结果<br><small>(上传瓜子网、人人车网等网站评估结果截图 )</small>
+</div>
+<div class="wrap-reply wrap-reply-wait clearfix" data-role="valueimg1">
+    <div class="img-uploader">
+        <div class="img-uploader-box img-uploader-box-wait">
+            <img src=""  class="active">
+            <div class="img-uploader-btn-ap">
+                <!-- <i class="icon-plus"></i> 请上传 -->
+            </div>
+            <input class="input-file" type="file">
+        </div>
+        <input type="hidden" name="valueimg1" value="">
+    </div>
+</div>
+
+<?php if($launch==2):?>
+<div class="extra-text" style="line-height: .8rem;padding: .35rem .5rem;">
+    违章信息<br><small>(上传违章结果截图 )</small>
+</div>
+<div class="wrap-reply wrap-reply-wait clearfix" data-role="illegal">
+    <div class="img-uploader">
+        <div class="img-uploader-box img-uploader-box-wait">
+            <img src=""  class="active">
+            <div class="img-uploader-btn-ap">
+                <!-- <i class="icon-plus"></i> 请上传 -->
+            </div>
+            <input class="input-file" type="file">
+        </div>
+        <input type="hidden" name="illegal" value="">
+    </div>
+</div>
+<?php endif;?>
+
+<div class="reply-more-btn clearfix">
+    <div class="fl">完善更多信息</div>
+    <div class="fr">（征信信息审核结果、银行流水信息审核结果电话核实结果)</div>
+</div>
+<div class="wrap-reply-more">
+    <div class="extra-text">
+        征信信息审核结果(选填)
+    </div>
+    <div class="wrap-reply wrap-reply-wait clearfix" data-role="creditimg">
+        <div class="img-uploader">
+            <div class="img-uploader-box img-uploader-box-wait">
+                <img src=""  class="active">
+                <div class="img-uploader-btn-ap">
+                    <!-- <i class="icon-plus"></i> 请上传 -->
+                </div>
+                <input class="input-file" type="file" multiple>
+            </div>
+            <input type="hidden" name="creditimg" value="">
+            <!-- <p class="tac">上传征信报告</p> -->
+        </div>
+        <div class="radio-group">
+            <label><input class="radio" type="radio" name="credit" value="1"> <span>正常</span></label>
+            <label><input class="radio" type="radio" name="credit" value="0"> <span>不正常</span></label>
+        </div>
+        <textarea placeholder="请在这里填写不正常原因" name="creditreason"></textarea>
+    </div>
+    <div class="extra-text">
+        银行流水信息审核结果(选填)
+    </div>
+    <div class="wrap-reply wrap-reply-wait clearfix" data-role="bankimg">
+        <div class="img-uploader">
+            <div class="img-uploader-box img-uploader-box-wait">
+                <img src="<?php echo $data['legal_info']['bank'];?>"  class="active">
+                <div class="img-uploader-btn-ap">
+                    <!-- <i class="icon-plus"></i> 请上传 -->
+                </div>
+                <input class="input-file" type="file" multiple>
+            </div>  
+            <input type="hidden" name="bankimg" value="">
+            <!-- <p class="tac">上传
+            </p> -->
+        </div>
+    </div>
+    <ul class="form no-mgb">
+        <li class="clearfix">
+            <label class="label-normal">月均流入(万元)</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="请输入金额" value="" name="monthin">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">月均流出(万元)</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="请输入金额" value="" name="monthout">
+        </li>
+    </ul>
+    <div class="extra-text">
+        电话核实结果(选填)
+    </div>
+    <div class="wrap-reply clearfix">
+        <textarea placeholder="请在这里填写已电话核实借款人及联系人" name="confirmreason"></textarea>
+        <label><input class="radio" type="radio" name="confirm" value="1"> <span>正常</span></label>
+        <label><input class="radio" type="radio" name="confirm" value="0"> <span>不正常</span></label>
+    </div>
+</div>
+<?php endif;?>
+<!-- 分公司风控经理待审核列表结束 -->
+
+
+<!-- 风控总监待审核/已审核列表  或  分公司风控经理已审核列表 -->
+<?php if($flow==6 || ($flow==4&&$list==1)):?>
+<div class="extra-text">
+    法院信息审核结果
+</div>
+<div class="wrap-reply clearfix" >
+    <div class="list-img">
+        <?php if($data['legal_info']['court']):?>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['legal_info']['court'];?>" data-size="<?php echo $data['legal_info']['courtsize'];?>">
+                        <img src="<?php echo $data['legal_info']['court'];?>" class="active">
+                    </a>
+                </div>
+            </div>
+        <?php elseif($data['legal_info']['courtcnt']):?>
+            <?php for($a=0; $a<$data['legal_info']['courtcnt']; $a++):?>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <a href="<?php echo $data['legal_info']['court'.$a];?>" data-size="<?php echo $data['legal_info']['courtsize'.$a];?>">
+                            <img src="<?php echo $data['legal_info']['court'.$a];?>" class="active">
+                        </a>
+                    </div>
+                </div>
+            <?php endfor;?>
+        <?php endif;?>
+            <!-- <p class="tac">法院网查询截图</p> -->
+    </div>
+    <div class="radio-group">
+        <label><input class="radio" type="radio" name="court" value="1" <?php if($data['legal_info']['court_result']==1) echo "checked='checked'";?> disabled> <span>正常</span></label>
+        <label><input class="radio" type="radio" name="court" value="0" <?php if($data['legal_info']['court_result']==0) echo "checked='checked'";?> disabled> <span>不正常</span></label>
+    </div>
+    <textarea placeholder="请在这里填写不正常原因" name="courtreason" disabled><?php echo $data['legal_info']['court_result_reason'];?></textarea>
+</div>
+<div class="extra-text" style="line-height: .8rem;padding: .35rem .5rem;">
+    评估价值信息审核结果<br><small>(上传瓜子网、人人车网等网站评估结果截图 )</small>
+</div>
+<div class="wrap-reply clearfix list-img">
+    <?php if($data['legal_info']['assess']):?>
+        <div class="img-uploader">
+            <div class="img-uploader-box">
+                <a href="<?php echo $data['legal_info']['assess'];?>" data-size="<?php echo $data['legal_info']['assesssize'];?>">
+                    <img src="<?php echo $data['legal_info']['assess'];?>" class="active">
+                </a>
+            </div>
+        </div>
+    <?php elseif($data['legal_info']['assesscnt']):?>
+        <?php for($b=0; $b<$data['legal_info']['assesscnt']; $b++):?>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['legal_info']['assess'.$b];?>" data-size="<?php echo $data['legal_info']['assesssize'.$b];?>">
+                        <img src="<?php echo $data['legal_info']['assess'.$b];?>" class="active">
+                    </a>
+                </div>
+            </div>
+        <?php endfor;?>
+    <?php endif;?>
+</div>
+
+<?php if($launch==2):?>
+<div class="extra-text" style="line-height: .8rem;padding: .35rem .5rem;">
+    违章信息<br><small>(上传违章结果截图 )</small>
+</div>
+<div class="wrap-reply clearfix list-img">
+    <?php if($data['legal_info']['illegal']):?>
+        <div class="img-uploader">
+            <div class="img-uploader-box">
+                <a href="<?php echo $data['legal_info']['illegal'];?>" data-size="<?php echo $data['legal_info']['illegalsize'];?>">
+                    <img src="<?php echo $data['legal_info']['illegal'];?>" class="active">
+                </a>
+            </div>
+        </div>
+    <?php elseif($data['legal_info']['illegalcnt']):?>
+        <?php for($b=0; $b<$data['legal_info']['illegalcnt']; $b++):?>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['legal_info']['illegal'.$b];?>" data-size="<?php echo $data['legal_info']['illegalsize'.$b];?>">
+                        <img src="<?php echo $data['legal_info']['illegal'.$b];?>" class="active">
+                    </a>
+                </div>
+            </div>
+        <?php endfor;?>
+    <?php endif;?>
+</div>
+<?php endif;?>
+
+<div class="reply-more-btn clearfix">
+    <div class="fl">完善更多信息</div>
+    <div class="fr">（征信信息审核结果、银行流水信息审核结果电话核实结果)</div>
+</div>
+<div class="wrap-reply-more">
+    <div class="extra-text">
+        征信信息审核结果(选填)
+    </div>
+    <div class="wrap-reply clearfix">
+        <div class="list-img">
+            <!-- <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['legal_info']['credit'];?>" data-size="<?php echo $data['legal_info']['creditsize'];?>">
+                        <img src="<?php echo $data['legal_info']['credit'];?>" class="active">
+                    </a>
+                </div>
+                <p class="tac">上传征信报告</p>
+            </div> -->
+            <?php if($data['legal_info']['credit']):?>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <a href="<?php echo $data['legal_info']['credit'];?>" data-size="<?php echo $data['legal_info']['creditsize'];?>">
+                            <img src="<?php echo $data['legal_info']['credit'];?>" class="active">
+                        </a>
+                    </div>
+                </div>
+            <?php elseif($data['legal_info']['creditcnt']):?>
+                <?php for($c=0; $c<$data['legal_info']['creditcnt']; $c++):?>
+                    <div class="img-uploader">
+                        <div class="img-uploader-box">
+                            <a href="<?php echo $data['legal_info']['credit'.$c];?>" data-size="<?php echo $data['legal_info']['creditsize'.$c];?>">
+                                <img src="<?php echo $data['legal_info']['credit'.$c];?>" class="active">
+                            </a>
+                        </div>
+                    </div>
+                <?php endfor;?>
+            <?php endif;?>
+        </div>
+        <div class="radio-group">
+            <label><input class="radio" type="radio" name="credit" value="1" <?php if($data['legal_info']['credit_result']==1) echo "checked='checked'";?> disabled> <span>正常</span></label>
+            <label><input class="radio" type="radio" name="credit" value="0" <?php if($data['legal_info']['credit_result']==0) echo "checked='checked'";?> disabled> <span>不正常</span></label>
+        </div>
+        <textarea placeholder="请在这里填写不正常原因" name="creditreason" disabled><?php echo $data['legal_info']['credit_result_reason'];?></textarea>
+    </div>
+    <div class="extra-text">
+        银行流水信息审核结果(选填)
+    </div>
+    <div class="wrap-reply clearfix">
+        <div class="list-img">
+            <!-- <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['legal_info']['bank'];?>" data-size="<?php echo $data['legal_info']['banksize'];?>">
+                        <img src="<?php echo $data['legal_info']['bank'];?>" class="active">
+                    </a>
+                </div>
+                <p class="tac">上传流水单</p>
+            </div> -->
+            <?php if($data['legal_info']['bank']):?>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <a href="<?php echo $data['legal_info']['bank'];?>" data-size="<?php echo $data['legal_info']['banksize'];?>">
+                            <img src="<?php echo $data['legal_info']['bank'];?>" class="active">
+                        </a>
+                    </div>
+                </div>
+            <?php elseif($data['legal_info']['bankcnt']):?>
+                <?php for($d=0; $d<$data['legal_info']['bankcnt']; $d++):?>
+                    <div class="img-uploader">
+                        <div class="img-uploader-box">
+                            <a href="<?php echo $data['legal_info']['bank'.$d];?>" data-size="<?php echo $data['legal_info']['banksize'.$d];?>">
+                                <img src="<?php echo $data['legal_info']['bank'.$d];?>" class="active">
+                            </a>
+                        </div>
+                    </div>
+                <?php endfor;?>
+            <?php endif;?>
+        </div>
+    </div>
+    <ul class="form no-mgb">
+        <li class="clearfix">
+            <label class="label-normal">月均流入(万元)</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="请输入金额" value="<?php echo $data['legal_info']['month_income'];?>" name="monthin" disabled>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">月均流出(万元)</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="请输入金额" value="<?php echo $data['legal_info']['month_outflow'];?>" name="monthout" disabled>
+        </li>
+    </ul>
+    <div class="extra-text">
+        电话核实结果(选填)
+    </div>
+    <div class="wrap-reply clearfix">
+        <textarea placeholder="请在这里填写已电话核实借款人及联系人" name="confirmreason" disabled><?php echo $data['legal_info']['phone_verify'];?></textarea>
+        <label><input class="radio" type="radio" name="confirm" value="1" <?php if($data['legal_info']['phone_verify_result']==1) echo "checked='checked'";?> disabled> <span>正常</span></label>
+        <label><input class="radio" type="radio" name="confirm" value="0" <?php if($data['legal_info']['phone_verify_result']==0) echo "checked='checked'";?> disabled> <span>不正常</span></label>
+    </div>
+</div>
+<?php endif;?>
+<!-- 风控总监待审核/已审核列表  或  分公司风控经理已审核列表 结束 -->
+
+
+<div class="extra-text">
+    审核记录
+</div>
+<div class="time-line">
+    <!-- <div class="bar-line-box">
+        <p class="bar-dot bar-dot-top"></p>
+        <p class="bar-line"></p>
+        <p class="bar-dot bar-dot-bottom"></p>
+    </div>
+    <ul>
+        <li>
+            <em></em><b></b>
+            <div>
+                <p>经办人：<?php echo $row['realname']; ?></p>
+                <p>审核结果：同意执行</p>
+                <p>审核意见：以租代购</p>
+                <p>贷款金额：12万元，利率：0.98%，期限：3个月</p>
+                <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$row['auditcreated']); ?></p>
+            </div>
+        </li>
+    </ul> -->
+    <?php if(!empty($audits) && $info['status'] != 2): ?>
+        <div class="bar-line-box">
+            <p class="bar-dot bar-dot-top"></p>
+            <p class="bar-line"></p>
+            <p class="bar-dot bar-dot-bottom"></p>
+        </div>
+    
+        <!-- 已审核列表 -->
+        <ul>
+                <!------业务员意见单独显示------>
+                <li>
+                    <div>
+                        <p>经办人：<?php echo $data['name']; ?></p>
+                        <p>审核结果：同意执行</p>
+                            <p>审核意见：<?php echo empty($data['creator_comment']) ? '未填写意见' : $data['creator_comment']; ?></p>
+                            <p>贷款金额：<?php echo $data['amount']; ?>万元, 利率：<?php echo $data['rate']; ?>%, 期限：<?php echo $data['deadline']; ?>个月 </p>
+                        <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$data['created']); ?></p>
+                    </div>
+                </li>
+                <!------业务员意见单独显示完毕------>
+            <?php foreach($audits as $row): ?>
+                <li>
+                    <em></em><b></b>
+                    
+                    <?php if($row['result'] == 1): ?>
+                        <div>
+                            <p>经办人：<?php echo $row['realname']; ?></p>
+                            <p>审核结果：同意执行</p>
+                            <p>审核意见：<?php echo $row['comment']; ?></p>
+                            <?php if($row['flow'] != 2): ?>
+                                <p>贷款金额：<?php echo $row['agree_amount']; ?>万元, 利率：<?php echo $row['agree_rate']; ?>%, 期限：<?php echo $row['agree_deadline']; ?>个月 </p>
+                            <?php endif; ?>
+                            <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$row['auditcreated']); ?></p>
+                        </div>
+                    <?php elseif($row['result'] == 0): ?>
+                        <div>
+                            <p>经办人：<?php echo $row['realname']; ?></p>
+                            <p>驳回理由：<?php echo $row['comment']; ?></p>
+                            <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$row['auditcreated']); ?></p>
+                        </div>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+</div>
+
+
+<!-- <?php if($flow!=7): ?>
+    <?php if($data['flow'] == $flow):?>
+        <div class="wrapper wrapper-doublebtn clearfix">
+            <a class="btn btn-default" href="/chedai/manager_reject?id=<?php echo $id;?>">驳回</a>
+            <a class="btn btn-blue" id="btn-agree" href="javascript:;">同意</a>
+        </div>
+    <?php endif;?>
+<?php else:?>
+    <?php if($data['status'] == 1):?>
+        <div class="wrapper wrapper-doublebtn clearfix">
+            <a class="btn btn-default" href="/chedai/manager_reject?id=<?php echo $id;?>">驳回</a>
+            <a class="btn btn-blue" id="btn-agree" href="javascript:;">同意</a>
+        </div>
+    <?php endif;?>
+<?php endif;?> -->
+<?php if($list==0):?>
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-default" href="/chedai/manager_reject?id=<?php echo $id;?>">驳回</a>
+        <a class="btn btn-blue" id="btn-agree" href="javascript:;">同意</a>
+    </div>
+<?php endif;?>
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <!-- <button class="pswp__button pswp__button--share" title="Share"></button> -->
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--图片放大功能实现-->
+<div class="managerinfo_image_big">
+    <div class="managerinfo_image_box">
+        <span></span>
+        <img src="" alt=""/>
+    </div>
+    <div class="managerinfo_image_box_c">
+       <p><span>删除照片</span><i></i></p>
+    </div>
+    <div class="managerinfo_image_box_que">
+        <p>确定要删除这张照片吗？</p>
+        <a class="managerinfo_image_box_que_submit" href="javaScript:;">删除</a>
+        <a class="managerinfo_image_box_que_bottom" href="javaScript:;">取消</a>
+    </div>
+</div>
+<!--                                  -->
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+<script src="/js/photoscale.js"></script>
+<script src="/js/lrz.all.bundle.js"></script>
+<script type="text/javascript" src="/js/chedai/managerinfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>客户信息详情</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+<link rel="stylesheet" type="text/css" href="/css/photoswipe.css">
+<link rel="stylesheet" type="text/css" href="/css/default-skin/default-skin.css">
+</head>
+<body class="customerinfo-page">
+<script type="text/javascript" src="/js/rem.js"></script>
+<div <?php if($launch==2) echo 'class="dpn"';?>>
+    <div class="extra-text">
+        基本信息
+    </div>
+    <ul class="wrap-list">
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">业务类型</span>
+                <span class="list-item-value"><?php echo $data['type'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">姓名</span>
+                <span class="list-item-value"><?php echo $data['name'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">身份证照片</span>
+            </div>
+        </li>
+        <li class="clearfix no-bt list-img">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['idcardfront'];?>" data-size="<?php echo $data['idcardfrontsize'];?>" data-author="身份证正面照">
+                    <img src="<?php echo $data['idcardfront'];?>" alt="身份证正面照" class="active">
+                    </a>
+                </div>
+                <p class="tac">身份证正面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['idcardback'];?>" data-size="<?php echo $data['idcardbacksize'];?>" data-author="身份证背面照">
+                    <img src="<?php echo $data['idcardback'];?>" alt="身份证背面照" class="active">
+                    </a>
+                </div>
+                <p class="tac">身份证背面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['drivinglicence'];?>" data-size="<?php echo $data['drivinglicencesize'];?>" data-author="驾驶证照片">
+                    <img src="<?php echo $data['drivinglicence'];?>" alt="驾驶证照片" data-src="" class="active">
+                    </a>
+                </div>
+                <p class="tac">驾驶证照片</p>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">性别</span>
+                <span class="list-item-value"><?php echo $data['gender'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">身份证号码</span>
+                <span class="list-item-value"><?php echo $data['idcard'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">出生日期</span>
+                <span class="list-item-value"><?php echo $data['birthday'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">婚姻状况</span>
+                <span class="list-item-value"><?php echo $data['marriage'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">手机号码</span>
+                <span class="list-item-value"><?php echo $data['phone'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">常用邮箱</span>
+                <span class="list-item-value"><?php echo $data['email'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">最高学历</span>
+                <span class="list-item-value"><?php echo $data['edu'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">工作单位</span>
+                <span class="list-item-value"><?php echo $data['work_address'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">户籍地址</span>
+                <span class="list-item-value"><?php echo $data['census_register'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">户口性质</span>
+                <span class="list-item-value"><?php echo $data['hukou_type'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">暂住地址</span>
+                <span class="list-item-value"><?php echo $data['temp_address'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">驾龄</span>
+                <span class="list-item-value"><?php echo $data['driving_years'];?></span>
+            </div>
+        </li>
+    </ul>
+    <div class="extra-text">
+        职业及财产情况
+    </div>
+    <ul class="wrap-list">
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">职业类型</span>
+                <span class="list-item-value"><?php echo $data['work_type'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">现单位工作年限</span>
+                <span class="list-item-value"><?php echo $data['work_years'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">现单位岗位性质</span>
+                <span class="list-item-value"><?php echo $data['work_cate'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">现单位岗位级别</span>
+                <span class="list-item-value"><?php echo $data['work_level'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">个人月收入状况</span>
+                <span class="list-item-value"><?php echo $data['income'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">个人住房状况</span>
+                <span class="list-item-value"><?php echo $data['house'];?></span>
+            </div>
+        </li>
+    </ul>
+    <div class="extra-text">
+        信用记录
+    </div>
+    <ul class="wrap-list">
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">是否为我司员工</span>
+                <span class="list-item-value"><?php echo $data['isstaff'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">是否为我司客户</span>
+                <span class="list-item-value"><?php echo $data['isclient'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">信用记录</span>
+                <span class="list-item-value"><?php echo $data['credit'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">诉讼执行记录</span>
+                <span class="list-item-value"><?php echo $data['sue'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">犯罪记录</span>
+                <span class="list-item-value"><?php echo $data['crime'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">面谈主管印象</span>
+                <span class="list-item-value"><?php echo $data['interview'];?></span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div <?php if($launch==1) echo 'class="dpn"';?>>
+    <div class="extra-text">
+        基本信息
+    </div>
+    <ul class="wrap-list">
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">业务类型</span>
+                <span class="list-item-value"><?php echo $data['type'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">姓名</span>
+                <span class="list-item-value"><?php echo $data['name'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">身份证照片</span>
+            </div>
+        </li>
+        <li class="clearfix no-bt list-img">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['idcardfront'];?>" data-size="<?php echo $data['idcardfrontsize'];?>" data-author="身份证正面照">
+                    <img src="<?php echo $data['idcardfront'];?>" alt="身份证正面照" class="active">
+                    </a>
+                </div>
+                <p class="tac">身份证正面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['idcardback'];?>" data-size="<?php echo $data['idcardbacksize'];?>" data-author="身份证背面照">
+                    <img src="<?php echo $data['idcardback'];?>" alt="身份证背面照" class="active">
+                    </a>
+                </div>
+                <p class="tac">身份证背面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $data['drivinglicence'];?>" data-size="<?php echo $data['drivinglicencesize'];?>" data-author="驾驶证照片">
+                    <img src="<?php echo $data['drivinglicence'];?>" alt="驾驶证照片" data-src="" class="active">
+                    </a>
+                </div>
+                <p class="tac">驾驶证照片</p>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">性别</span>
+                <span class="list-item-value"><?php echo $data['gender'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">身份证号码</span>
+                <span class="list-item-value"><?php echo $data['idcard'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">出生日期</span>
+                <span class="list-item-value"><?php echo $data['birthday'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">手机号码</span>
+                <span class="list-item-value"><?php echo $data['phone'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">常用邮箱</span>
+                <span class="list-item-value"><?php echo $data['email'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">工作单位</span>
+                <span class="list-item-value"><?php echo $data['work_address'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">户籍地址</span>
+                <span class="list-item-value"><?php echo $data['census_register'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">暂住地址</span>
+                <span class="list-item-value"><?php echo $data['temp_address'];?></span>
+            </div>
+        </li>
+         <li>
+            <div class="list-item">
+                <span class="list-item-key">个人月收入状况</span>
+                <span class="list-item-value"><?php echo $data['income'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">违章记录</span>
+                <span class="list-item-value"><?php echo $data['illegal'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">诉讼执行记录</span>
+                <span class="list-item-value"><?php echo $data['litigation_car'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">犯罪记录</span>
+                <span class="list-item-value"><?php echo $data['crime'];?></span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="wrapper">
+<?php if($from == 'salesman'):?>
+    <?php if($data['status'] == 1):?>
+        <a class="btn btn-block btn-default" href="/chedai/salesman_customeradd?id=<?php echo $uid; ?>">重新编辑</a>
+    <?php endif;?>
+<?php endif;?>
+</div>
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <!-- <button class="pswp__button pswp__button--share" title="Share"></button> -->
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+<script src="/js/photoscale.js"></script>
+</body>
+</html>

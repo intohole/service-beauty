@@ -1,0 +1,29 @@
+<div id="role_assign_user" class="portlet-body form" style="width: 100%">
+    <div style="margin-left: 5px ;width: 30%" >
+        <p style="width:100%;height:30px;">筛选 <input type="text" name="user_filter" id="user_filter" style="width:70%"></p>
+        <select multiple="multiple" class="fc-field-list" id="not_assign_users">
+            <?php foreach ($not_assign_users as $u):?>
+                <option class="fc-field" user_id="<?php echo $u['id'];?>" user_name="<?php echo $u['realname'];?>" user_true_name="<?php echo $u['phone'];?>">
+                    <?php echo $u['realname'];?>
+                </option>
+            <?php endforeach;?>
+        </select>
+    </div>
+    <div style="margin-top: -15%;margin-left:44%">
+        <p style=""><input id="assign_btn" type="button" value="&gt&gt"></p>
+        <p style=""><input id="unassign_btn" type="button" value="&lt&lt"></p>
+    </div>
+    <div style="margin-top: -21%;margin-left:51%">
+        <p style="">已分配用户</p>
+        <select multiple="multiple" name="" class="fc-field-list" id="assign_users">
+            <?php foreach ($role_users as $u):?>
+                <option class="fc-field" data-options="" user_id="<?php echo $u['id'];?>" user_name="<?php echo $u['realname'];?>" user_true_name="<?php echo $u['phone'];?>">
+                    <?php echo $u['realname'];?>
+                </option>
+            <?php endforeach;?>
+        </select>
+    </div>
+    <div class="form-actions">
+        <a href="javascript:void(0)" class="btn green saveAssignUserLnk" iconCls="icon-ok">保存</a>
+        <button type="button"  class="btn jDialog-cancel-btn">取消</button>
+    </div>

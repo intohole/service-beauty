@@ -1,0 +1,16 @@
+body {
+    /*font-family: "Microsoft YaHei", "Arial", "Verdana", "Tahoma";
+    color: #424242;*/
+    color: #222;
+    font-family: "helvetica neue","Microsoft YaHei",arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Arial", "Verdana", "Tahoma";
+    font-weight: 500;
+}
+.fancybox-outer{
+	z-index: 999999!important;
+}

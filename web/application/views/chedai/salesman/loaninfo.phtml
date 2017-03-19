@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>业务发起详情</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body class="loaninfo-page">
+<script type="text/javascript" src="/js/rem.js"></script>
+<div class="extra-text">客户信息</div>
+<div class="wrap-list-block dpb">
+    <a class="item item-link" href="/chedai/salesman_customerinfo?id=<?php echo $info['customer'];?>">
+    <p class="clearfix"><span>客户编号：<b><?php echo $info['customer'];?></b></span><span>录入时间：<b><?php echo date("Y-m-d",$info['created']); ?></b></span></p>
+    <p class="clearfix"><span>客户姓名：<b><?php echo $info['name'];?></b></span><span>客户年龄：<b><?php echo $info['age'];?></b></span></p>
+    <p class="clearfix">
+    <span>婚姻状况：
+    <b>
+    <?php if($info['marriage']==1): ?>
+        已婚 
+    <?php elseif($info['marriage']==0): ?> 
+        未婚 
+    <?php else:?>
+        
+    <?php endif; ?> 
+    </b>
+    </span><span>客户手机：<b><?php echo $info['phone'];?></b></span></p>
+    </a>
+</div>
+<div class="extra-text">车辆信息</div>
+<div class="wrap-list-block dpb">
+    <a class="item item-link" href="/chedai/salesman_carinfo?id=<?php echo $info['car'];?>">
+    <p class="clearfix"><span>车辆编号：<b><?php echo $info['car_id'];?></b></span><span>录入时间：<b><?php echo date("Y-m-d",$info['car_created']); ?></b></span></p>
+    <p class="clearfix"><span>车辆品牌：<b><?php echo $info['brand'];?></b></span><span>车辆车系：<b><?php echo $info['series'];?></b></span></p>
+    <p class="clearfix"><span>车辆型号：<b><?php echo $info['item'];?></b></span></p>
+    <!-- <p class="clearfix"><span>车架号：<b><?php echo $info['frame_id'];?></b></span></p> -->
+    <p class="clearfix"><span>车架号：<b><?php echo $info['auto_id'];?></b></span></p>
+    </a>
+</div>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款额度(万元)</label>
+        <input class="input-normal" value="<?php echo $info['amount'];?>" disabled>
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款利率(%)</label>
+        <input class="input-normal" value="<?php echo $info['rate'];?>" disabled>
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款期限(月)</label>
+        <input class="input-normal" value="<?php echo $info['deadline'];?>" disabled>
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">已选评估师</label>
+        <input class="input-normal" value="<?php echo $info['appraiser_name'];?>" disabled>
+    </li>
+</ul>
+
+<div class="time-line">
+        <div class="bar-line-box">
+            <p class="bar-dot bar-dot-top"></p>
+            <p class="bar-line"></p>
+            <p class="bar-dot bar-dot-bottom"></p>
+        </div>
+    
+        <!-- 已审核列表 -->
+        <ul>
+                        <!------业务员意见单独显示------>
+                        <li>
+                            <div>
+                                <p>经办人：<?php echo $info['creator_name']; ?></p>
+                                <p>审核结果：同意执行</p>
+                                    <p>审核意见：<?php echo empty($info['creator_comment']) ? '未填写意见' : $info['creator_comment']; ?></p>
+                                    <p>贷款金额：<?php echo $info['amount']; ?>万元, 利率：<?php echo $info['rate']; ?>%, 期限：<?php echo $info['deadline']; ?>个月 </p>
+                                <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$info['created']); ?></p>
+                            </div>
+                        </li>
+                        <!------业务员意见单独显示完毕------>
+    <?php if(!empty($audits) && $info['status'] != 2): ?>
+            <?php foreach($audits as $row): ?>
+                <li>
+                    <em></em><b></b>
+                    <?php if($row['result'] == 1): ?>
+                        <div>
+                            <p>经办人：<?php echo $row['realname']; ?></p>
+                            <p>审核结果：同意执行</p>
+                            <p>审核意见：<?php echo $row['comment']; ?></p>
+                            <?php if($row['flow'] != 2): ?>
+                                <p>贷款金额：<?php echo $row['agree_amount']; ?>万元, 利率：<?php echo $row['agree_rate']; ?>%, 期限：<?php echo $row['agree_deadline']; ?>个月 </p>
+                            <?php endif; ?>
+                            <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$row['auditcreated']); ?></p>
+                        </div>
+                    <?php elseif($row['result'] == 0): ?>
+                        <div>
+                            <p>经办人：<?php echo $row['realname']; ?></p>
+                            <p>驳回理由：<?php echo $row['comment']; ?></p>
+                            <p>经办时间：<?php echo date("Y年m月d日H时i分s秒",$row['auditcreated']); ?></p>
+                        </div>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </ul>
+        
+        <!-- 待审核环节 -->
+        
+        <?php if(!empty($wait_nodes)): ?>
+            <div class="bar-line-box">
+                <p class="bar-dot bar-dot-top"></p>
+                <p class="bar-line"></p>
+                <p class="bar-dot bar-dot-bottom"></p>
+            </div>
+            <ul>
+                <?php foreach($wait_nodes as $row): ?>
+                    <li class='time-line-on'>
+                        <em></em><b></b>
+                        <div>
+                            <p>待办人：<?php echo $row['name']; ?></p>
+
+                            <!-- 车贷评估师因为可能存在多个,所以不显示电话 -->
+                            <?php if($row['name'] != '车贷评估师'): ?>
+                                <p>电话号码：<?php echo $row['phone']; ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    
+</div>
+
+
+<script type="text/javascript" src="/js/chedai/customerinfo.js"></script>
+
+</body>
+</html>

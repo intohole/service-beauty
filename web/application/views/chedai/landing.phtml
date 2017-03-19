@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>名片</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body class="idcard-page">
+<script type="text/javascript" src="/js/rem.js"></script>
+<div class="fill-2rem"></div>
+<div class="wrap-idcard">
+	<i class="card-logo"></i>
+	<div class="card-info">
+		<p><span>姓名：</span><b><?php echo $user['realname']; ?></b></p>
+		<p><span>职位：</span><b>业务人员/业务经理</b></p>
+		<p><span>手机号：</span><b><?php echo $user['phone']; ?></b></p>
+	</div>
+</div>
+<div class="qrcode"></div>
+<div class="hot-line">
+	<p>如有问题及建议请拨打</p>
+	<p>客服电话：<a href="tel:440-245-4343">440-245-4343</a></p>
+</div>
+</body>
+</html>

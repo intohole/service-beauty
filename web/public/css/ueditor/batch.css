@@ -1,0 +1,19 @@
+/*
+    为批量打印定义的样式,主要用于table标签
+*/
+
+
+table td{
+  border: 1px solid #000; 
+  
+}
+table{
+     border-collapse: collapse;
+     //width:1024px;
+     margin:0 auto;
+}
+
+/*table span{
+     font-size:16px !important;
+}*/
+

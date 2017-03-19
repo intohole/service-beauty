@@ -1,0 +1,133 @@
+body{
+    background-color: #F0F2F5;
+}
+p{
+    margin:0;
+    padding:0;
+}
+.progress{
+    padding:.6rem;
+    font-size: .6rem;
+    color:#666;
+}
+.time-line .bar-line-box {
+    position: absolute;
+    top: .5rem;
+    left: .75rem;
+    width: .125rem;
+}
+.bar-line-box{
+    margin-bottom:.1rem;
+}
+.bar-line-box .bar-dot {
+    width: .125rem;
+    height: .125rem;
+    background-color: #b1ceee;
+    border-radius: 50%;
+}
+.bar-line-box .bar-line {
+    width: .15rem;
+    background-color: #8ABAEC;
+    border-radius: .15rem;
+}
+.bar-line-bottom{
+    width:.15rem;
+    height:.15rem;
+    border-radius: 50%;
+    /*margin-top:-.75rem;*/
+    margin-top:.25rem;
+    background-color: #b1ceee;
+}
+.time-line .bar-line-box{
+    margin-top: .8rem;
+}
+.time-line .bar-line-box .bar-dot {
+    width: .125rem;
+    height: .125rem;
+    background-color: #b1ceee;
+    border-radius: 50%;
+}
+/*p{
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}*/
+.time-line{
+    position: relative;
+}
+.time-line ul {
+    padding: .7rem 0 0 1.5rem;
+    margin-left: 0.3rem;
+}
+.time-line li>p{
+    margin:0;
+    font-size: .5rem;
+    color:#666;
+}
+.time-line li div{
+    box-sizing: border-box;
+    width:13rem;
+    border:1px solid #D0D0D0;
+    background-color: #fff;
+    border-radius: .175rem;
+    padding:.15rem 0 0 .4rem;
+    margin-top:.3rem;
+    position:relative;
+}
+.time-line li div p{
+    font-size:.6rem;
+    color:#868686;
+    margin:.5rem 0;
+}
+.time-line li div p.fs{
+    font-size:.7rem;
+}
+.time-line li em{
+    position: absolute;
+    top: .48rem;
+    left: -.175rem;
+    width: .25rem;
+    height: .25rem;
+    border-top: 1px solid #D0D0D0;
+    border-left: 1px solid #D0D0D0;
+    transform: rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg); 
+    background-color: #fff;
+}
+.time-line li b{
+    width:.35rem;
+    height:.35rem;
+    border-radius:50%;
+    background-color: #2583E3;
+    position:absolute;
+    top: .48rem;
+    left: -1.19rem;
+}
+.time-line li .daiban i{
+    width:.20rem;
+    height:.20rem;
+    border-radius:50%;
+    background-color: #fff;
+    position:absolute;
+    top: .54rem;
+    left: -1.15rem;
+}
+.time-line li strong{
+    color:#333;
+}
+.time-line li i{
+    color:#FF6868;
+}
+.time-line li .daiban p{
+    font-size: .6rem;
+    color:#333;
+    font-weight:700;
+}
+.time-line li{
+    margin-bottom:.8rem;
+}

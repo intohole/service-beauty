@@ -1,0 +1,1741 @@
+﻿<?php new Ui_Common_Header();?>
+<style>
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.div-a{ float:left;width:49%;} 
+.div-b{ float:left;width:49%;}
+
+.div-as{ float:left;width:69%;} 
+.div-bs{ float:left;width:29%;}
+
+.div-diva{ float:left;width:45%;}
+.div-divb{ float:left;width:54%;}
+.div-diva input{ width:60;overflow-x:visible;overflow-y:visible;}
+.div-divb input{ width:60;overflow-x:visible;overflow-y:visible;}
+
+.div-tua{ float:left;width:93%;}
+.div-tub{ float:left;width:5%;margin-top:40px;}
+
+
+.div-aa{ float:left;width:24%;} 
+.div-ab{ float:left;width:19%;}
+.div-ac{ float:left;width:24%;}
+.div-ad{ float:left;width:14%;}
+.div-ae{ float:left;width:14%;}
+
+.minfo0{ float:left;width:19%;} 
+.minfo1{ float:left;width:19%;}
+.minfo2{ float:left;width:19%;}
+.minfo3{ float:left;width:19%;}
+.minfo4{ float:left;width:19%;}
+
+.before:before{
+	content:"";
+	display:table;
+}
+.bt:after{
+	content:"";
+	display:content;
+	clear:both;
+}
+.wordred{
+	color:red;
+	display:none;
+	margin-left:3%;
+	font-size:14px;
+}
+</style>
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<?php new Ui_Common_Navi();?>
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+<?php new Ui_Common_Sidebar();?>
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN PAGE CONTAINER-->        
+	<div class="container-fluid">
+
+		<div class="row-fluid">
+			<div class="span12">
+			<div class="portlet box light-grey">
+				<!-- <div class="portlet-title">
+					<div class="caption"><i class="icon-globe"></i>详情</div>
+				</div> -->
+
+				<div class="portlet-body">
+					<!-- <div class="clearfix">
+						<div style="font-size:20px">
+							<a href = "/chedai/salesman_customerinfo?id=<?php echo $salesman[0]['customer'];?>">
+								<div class="div-a">客户信息
+									<div class = "div-tua">
+										<div>
+											<div class="div-a">客户编号:<?php echo $salesman[0]['customer'];?></div>
+											<div class="div-b">录入时间:<?php echo $salesman[0]['custom_time'];?></div>
+										</div>
+										
+										<div>
+											<div class="div-a">客户姓名:<?php echo $salesman[0]['name'];?></div>
+											<div class="div-b">客户年龄:<?php echo $salesman[0]['age'];?></div>
+										</div>
+										
+										<div>
+											<div class="div-a">婚姻状态:<?php echo $salesman[0]['marriage_name'];?></div>
+											<div class="div-b">客户手机:<?php echo $salesman[0]['phone'];?></div>
+										</div>
+									</div>
+									<div class = "div-tub" ><img src="/image/contu.png"></img></div>
+								</div>
+							</a>
+							<a href = "/chedai/salesman_carinfo?id=<?php echo $salesman[0]['car_id'];?>">
+								<div class="div-b">车辆信息
+									<div class = "div-tua">
+										<div>
+										<div class="div-a">车辆编号:<?php echo $salesman[0]['car_id'];?></div>
+										<div class="div-b">录入时间:<?php echo $salesman[0]['car_time'];?></div>
+										</div>
+										
+										<div>
+										<div class="div-a">车辆品牌:<?php echo $salesman[0]['brand'];?></div>
+										<div class="div-b">车辆车系:<?php echo $salesman[0]['series'];?></div>
+										</div>
+										
+										<div>
+										<div class="div-a">车架号:<?php echo $salesman[0]['auto_id'];?></div>
+										<div class="div-b">车辆型号:<?php echo $salesman[0]['item'];?></div>
+										</div>
+									</div>
+									<div class = "div-tub" ><img src="/image/contu.png"></img></div>
+								</div>
+							</a>
+						</div>
+					
+					</div> -->
+
+				</div>
+					
+					<!-- <div style="margin-left:0.5rem;margin-top:0.5rem;font-size:20px;overflow:hidden">
+						<div style="margin-top:0.5rem;">
+							<div class = "div-aa">经办人：<?php echo $salesman[0]['creator_name']?></div>
+							<div class = "div-ab">审核结果：同意执行</div>
+							<div class = "div-ac">贷款金额：<?php echo $salesman[0]['amount']?>万元</div>
+							<div class = "div-ad">利率：<?php echo $salesman[0]['rate']?>%</div>
+							<div class = "div-ae">期限：<?php echo $salesman[0]['deadline']?>个月</div>
+						</div>
+						<div>
+							<div class = "div-as">审核意见：<?php echo $salesman[0]['creator_comment']?></div>
+							<div class = "div-bs">经办时间：<?php echo $salesman[0]['custom_time']?></div>
+						</div>
+					</div> -->
+					<!-- <p class="before" style="border-top:1px solid #555555;"></p>
+					
+					
+					<?php foreach($app as $aa){?>
+					<div style="margin-left:0.5rem;margin-top:0.5rem;font-size:20px;overflow:hidden">
+						<div style="margin-top:0.5rem;">
+							<div class = "div-aa">经办人：<?php echo $aa['name']?></div>
+							<div class = "div-ab">审核结果：同意执行</div>
+							<div class = "div-ac">贷款金额：<?php if($aa['flow']==2){echo $salesman[0]['amount'];}else{echo $aa['agree_amount'];}?>万元</div>
+							<div class = "div-ad">利率：<?php if($aa['flow']==2){echo $salesman[0]['rate'];}else{echo $aa['agree_rate'];}?>%</div>
+							<div class = "div-ae">期限：<?php if($aa['flow']==2){echo $salesman[0]['deadline'];}else{echo $aa['agree_deadline'];}?>个月</div>
+						</div>
+						<div>
+							<div class = "div-as">审核意见：<?php echo $aa['comment']?></div>
+							<div class = "div-bs">经办时间：<?php echo $aa['creat_time']?></div>
+						</div>
+					</div>
+					<p class="before" style="border-top:1px solid #555555;"></p>
+					
+					<?php 
+						if($aa['flow']==7){//总经理
+							$zong["amount"] = $aa['agree_amount'];
+							$zong["rate"] = $aa['agree_rate'];
+							$zong["deadline"] = $aa['agree_deadline'];
+						}
+					
+					}?> -->
+					
+					<!--
+					<table class="table table-striped table-bordered table-hover" id="assignList">
+						
+					</table>-->
+					
+					
+					<!--选择框-->
+					<div style="font-size:20px;width:100%" id = "dingwei">
+					<div style="border:2px solid #DDDDDD;text-align:center;vertical-align:middle;" >
+					<div class= "minfo0" style="border:2px solid #DDDDDD;text-align:center;vertical-align:middle;" onclick = "get(this,0)">订单信息<?php if(!empty($con_order)){echo "(已提交)";$orderstatus = 1;}else{$orderstatus = 0;}?></div>
+					<div class= "minfo1" style="border:2px solid #DDDDDD;text-align:center;vertical-align:middle;" onclick = "get(this,1)">保险<?php if(!empty($con_risk)){echo "(已提交)";$riskstatus = 1;}else{$orderstatus = 0;}?></div>
+					<div class= "minfo2" style="border:2px solid #DDDDDD;text-align:center;vertical-align:middle;" onclick = "get(this,2)">GPS<?php if(!empty($con_gps)){echo "(已提交)";$gpsstatus = 1;}else{$orderstatus = 0;}?></div>
+					<div class= "minfo3" style="border:2px solid #DDDDDD;text-align:center;vertical-align:middle;" onclick = "get(this,3)">服务费用<?php if(!empty($con_service)){echo "(已提交)";$servicestatus = 1;}else{$orderstatus = 0;}?></div>
+					<div class= "minfo4" style="border:2px solid #DDDDDD;text-align:center;vertical-align:middle;" onclick = "get(this,4)">放款相关账户<?php if(!empty($con_account)){echo "(已提交)";$accountstatus = 1;}else{$orderstatus = 0;}?></div>
+					</div>
+					<div>
+					
+					<div style="display:none" class="info0">
+					
+					<div class="row-fluid">
+					<div class="span12">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-globe"></i>订单信息</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<!--
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>-->
+							</div>
+						</div>
+
+						<div class="portlet-body form" style="overflow:hidden">
+							<form name="forma" class="form-horizontal">
+							<input type="hidden" name="app_id" value="<?php echo $salesman[0]['id'];?>">
+							<input type="hidden" name="order_id" value="<?php if(!empty($con_order)){echo $con_order['id'];}else{echo "0";}?>">
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">贷款本金<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="loan" value="<?php if(!empty($con_order)){echo $con_order['loan'];}else{echo $zong['amount'];}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" onkeyup="value=value.replace(/[^\d.]/g,'')" />
+									万元<span class = "wordred">*请填写贷款本金</span>
+									</div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">期限<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="deadline" value="<?php if(!empty($con_order)){echo $con_order['deadline'];}else{echo $zong['deadline'];} ?>" onblur = "liftinput(this)"  onfocus = "liftin(this)"  onkeyup="value=value.replace(/[^\d.]/g,'')" />
+									月<span class = "wordred">*请填写贷款期限</span>
+									</div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">利率<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="rate" value="<?php if(!empty($con_order)){echo $con_order['rate'];}else{echo $zong['rate'];} ?>" onblur = "liftinput(this)" onfocus = "liftin(this)"  onkeyup="value=value.replace(/[^\d.]/g,'')" />
+									%<span class = "wordred">*请填写贷款利率</span>
+									</div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">合同签订日期<span class="required">*</span></label>
+									<div class="input-append date form_datetime">
+										<input id="start_time" class="m-wrap date-picker app_form_field" style="width:100px;margin-left:14%" type="text" name="signcreated"  app_form_type="date" value="<?php if(!empty($con_order)){echo $con_order['created_time'];}else{echo date("Y-m-d",time());}?>"/>
+									<span class="add-on"><i class="icon-calendar"></i></span><span class = "wordred" id="signcreatedzk">*请填写合同签订日期</span>
+								</div>
+							</div>
+
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">紧急联系人</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="emergency_one" value="<?php if(!empty($con_order)){echo $con_order['emergency_one'];}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<!-- <span class = "wordred">*请填写联系人姓名</span> -->
+									</div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">联系电话</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="emergency_one_phone" value="<?php if(!empty($con_order)){echo $con_order['emergency_one_phone'];} ?>" onblur = "liftinput(this)"  onfocus = "liftin(this)" maxlength="11" onkeyup='this.value=this.value.replace(/\D/gi,"")'/>
+									<!-- <span class = "wordred">*请填写联系电话</span> -->
+									</div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">紧急联系人</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="emergency_two" value="<?php if(!empty($con_order)){echo $con_order['emergency_two'];}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<!-- <span class = "wordred">*请填写联系人姓名</span> -->
+									</div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">联系电话</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="emergency_two_phone" value="<?php if(!empty($con_order)){echo $con_order['emergency_two_phone'];} ?>" onblur = "liftinput(this)"  onfocus = "liftin(this)" maxlength="11" onkeyup='this.value=this.value.replace(/\D/gi,"")'/>
+									<!-- <span class = "wordred">*请填写联系电话</span> -->
+									</div>
+								</div>
+							</div>
+								<!--
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="created" app_form_type="date" value="<?php if(!empty($con_order)){echo $con_order['created_time'];}?>"  />
+									<span class="add-on"><i class="icon-calendar"></i></span>
+								</div>-->
+							</div>
+							合同甲方信息
+							<?php //if($xiamen == 1){?>
+							<!--<div class="control-group">
+								<label class="control-label"></label>
+								<div class="controls">
+									<label class="radio">
+										<input type="radio" name="xiamen" value="1" />
+										福建成融
+									</label>
+									<label class="radio">
+										<input type="radio" name="xiamen" value="0"  />
+										厦门银代代
+									</label>
+								</div>
+							</div>-->
+							<?php //}?>
+							<div class= "before">
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">公司名称<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" name="company" value="<?php if(!empty($con_order)){echo $con_order['company'];}else{ echo $con_order_cache['company'];}//else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['company'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写公司名称</span></div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">公司电话<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="tel" value="<?php if(!empty($con_order)){echo $con_order['tel'];}else{ echo $con_order_cache['tel'];}//else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['tel'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写公司电话</span></div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">电子邮箱<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="email" value="<?php if(!empty($con_order)){echo $con_order['email'];}else{ echo $con_order_cache['email'];} //else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['email'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写电子邮箱</span></div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">公司地址<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="address" value="<?php if(!empty($con_order)){echo $con_order['address'];}else{ echo $con_order_cache['address'];} //else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['address'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写公司地址</span></div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">甲方代表人<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="represen" value="<?php if(!empty($con_order)){echo $con_order['represen'];}else{ echo $con_order_cache['represen'];} //else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['represen'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写甲方代表人</span></div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">账户户名<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="accountname" value="<?php if(!empty($con_order)){echo $con_order['accountname'];}else{ echo $con_order_cache['accountname'];}//else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['accountname'];}}?>"onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写账户户名</span></div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">开户行<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="openbank" value="<?php if(!empty($con_order)){echo $con_order['openbank'];}else{ echo $con_order_cache['openbank'];}//else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['openbank'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)"  />
+									<span class = "wordred">*请填写开户行</span></div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">银行卡号<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" maxlength = "19"  name="cardno" value="<?php if(!empty($con_order)){echo $con_order['cardno'];}else{ echo $con_order_cache['cardno'];}//else{if($xiamen == 0 && !empty($con_order_last)){echo $con_order_last['cardno'];}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)"/>
+									<span class = "wordred">*请填写银行卡号</span></div>
+								</div>
+							</div>
+							</div>
+							</form>
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+					</div>
+					</div>
+					</div>
+					
+					<?php //echo $last_status;//echo "<pre>";print_r($con_risk);?>
+					<div style="display:none" class="info1">
+					<div class="row-fluid">
+					<div class="span12">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-globe"></i>保险</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<!--
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>-->
+							</div>
+						</div>
+						<div class="portlet-body form" style="overflow:hidden">
+							<form name="formb" class="form-horizontal">
+							<input type="hidden" name="app_id" value="<?php echo $salesman[0]['id'];?>">
+							<input type="hidden" name="risk_id" value="<?php if(!empty($con_risk)){echo $con_risk['id'];}else{echo "0";}?>">
+							<div class="control-group">
+								<label class="control-label">是否投保<span class="required">*</span></label>
+								<div class="controls">
+									<?php ?>
+									<label class="radio">
+										<?php if(!empty($con_risk) && $con_risk['status']==0){?>
+										<input type="radio" name="fromchannel" value="0" checked="checked"/>
+										<?php }else if($last_status == 0){?>
+										<input type="radio" name="fromchannel" value="0" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="fromchannel" value="0" />
+										<?php }?>
+										是
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_risk) && $con_risk['status']==1){?>
+										<input type="radio" name="fromchannel" value="1" checked="checked"/>
+										<?php }else if($last_status == 1){?>
+										<input type="radio" name="fromchannel" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="fromchannel" value="1" />
+										<?php }?>
+										否
+									</label>
+								</div>
+							</div>
+							<div class="control-group" id="channel_fields">
+							<div class="control-group">
+								<label class="control-label">保险公司名称<span class="required">*</span></label>
+								<div class="controls">
+									<input  type="text"  name="insurancename" value="<?php if(!empty($con_risk) && $con_risk['status']==0){ echo $con_risk['insurancename'];} else if(empty($con_risk)) {echo $con_risk_cache['insurancename'];}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+								<span class = "wordred">*请填写保险公司名称</span></div>
+							</div>
+							
+							
+							<div class="control-group">
+								<label class="control-label">强险是否到期<span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+										<?php if(empty($con_risk)){?>
+										<input type="radio" name="strongrisk" value="1" checked="checked"/>
+										<?php }else{?>
+											<?php if(!empty($con_risk) && $con_risk['strongrisk']==1){//&& $con_risk['status']==0?>
+											<input type="radio" name="strongrisk" value="1" checked="checked"/>
+											<?php }else{?>
+											<input type="radio" name="strongrisk" value="1" />
+											<?php }?>
+										<?php }?>
+										是
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_risk) && $con_risk['strongrisk']==0){?>
+										<input type="radio" name="strongrisk" value="0" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="strongrisk" value="0" />
+										<?php }?>
+										否
+									</label>
+								</div>
+							</div>
+					
+							<div class="control-group" id="strongrisk1">
+								<div class="control-group">
+									<label class="control-label">交强险金额<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="strongriskamount" value="<?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 1) echo $con_risk['strongriskamount'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写交强险金额</span></div>
+								</div>
+								<div class="bt">
+									<div class="control-group div-a">
+										<label class="control-label">交强险生效日期<span class="required">*</span></label>
+										
+										<div class="input-append date form_datetime">
+										<input id="start_time" class="m-wrap date-picker app_form_field" style="width:100px;margin-left:14%" type="text" name="strongriskdate"  app_form_type="date" value="<?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 1) echo $con_risk['strongriskdate'];?>"  />
+										<span class="add-on"><i class="icon-calendar"></i></span>
+										</div>
+										<!--<div class="controls">
+											<input type="text" class="small m-wrap" name="strongriskdate"/>
+										</div>-->
+									</div>
+									<div class="control-group div-b">
+										<label class="control-label">有效期<span class="required">*</span></label>
+										<div class="controls">
+											<input style ="display:none" type="text" class="small m-wrap" name="strongriskvalidity" value="<?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 1){ echo $con_risk['strongriskvalidity'];}else{echo 1;}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+											<select id="strongriskvalidity" onChange="chg(this)" value = "1">
+											<option value="1" <?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 1 && $con_risk['strongriskvalidity'] <=1) echo "selected";?> >1</option>
+											<option value="2" <?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 1 && $con_risk['strongriskvalidity'] ==2) echo "selected";?> >2</option>
+											<option value="3" <?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 1 && $con_risk['strongriskvalidity'] ==3) echo "selected";?> >3</option>
+											</select>年
+										
+										<span class = "wordred">*请填写交强险有效期</span></div>
+									</div>
+								</div>
+							</div>
+							<div class="control-group" id="strongrisk0" style="display:none">
+								<div class="control-group">
+								<div class="control-group">
+									<label class="control-label">交强险变更费<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="costchange" value="<?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 0) echo $con_risk['costchange'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写交强险变更费</span></div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">交强险到期日期<span class="required">*</span></label>
+									<div class="input-append date form_datetime">
+									<input id="start_time" class="m-wrap date-picker app_form_field" style="width:100px;margin-left:14%" type="text" name="changeterm"  app_form_type="date" value="<?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['strongrisk'] == 0) echo $con_risk['changeterm'];?>" />
+									<span class="add-on"><i class="icon-calendar"></i></span>
+									</div>
+								</div>
+							</div>
+							</div>
+							
+							<div class="control-group">
+								<label class="control-label">商业险金额<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="businessriskamount" value="<?php if(!empty($con_risk) && $con_risk['status']==0) echo $con_risk['businessriskamount'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+								<span class = "wordred">*请填写商业险金额</span></div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-a">
+									<label class="control-label">商业险生效日期<span class="required">*</span></label>
+									
+									<div class="input-append date form_datetime">
+									<input id="start_time" class="m-wrap date-picker app_form_field" style="width:100px;margin-left:14%" type="text" name="businessriskdate"  app_form_type="date" value="<?php if(!empty($con_risk) && $con_risk['status']==0) echo $con_risk['businessriskdate'];?>" />
+									<span class="add-on"><i class="icon-calendar"></i></span>
+									</div>
+									<!--<div class="controls">
+										<input type="text" class="small m-wrap" name="strongriskdate"/>
+									</div>-->
+								</div>
+								<div class="control-group div-b">
+									<label class="control-label">有效期<span class="required">*</span></label>
+									<div class="controls">
+										<input style ="display:none" type="text" class="small m-wrap" name="businessriskvalidity" value="<?php if(!empty($con_risk) && $con_risk['status']==0){ echo $con_risk['businessriskvalidity'];}else{echo 1;}?>" onblur = "liftinput(this)" onfocus = "liftin(this)"/>
+										<select id="businessriskvalidity" onChange="chg(this)">
+										<option value="1" <?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['businessriskvalidity'] <=1){ echo "selected";}?>  >1</option>
+										<option value="2" <?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['businessriskvalidity'] ==2){ echo "selected";}?>  >2</option>
+										<option value="3" <?php if(!empty($con_risk) && $con_risk['status']==0 && $con_risk['businessriskvalidity'] ==3){ echo "selected";}?> >3</option>
+										</select>年
+									<span class = "wordred">*请填写商业险有效期</span></div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label"></label>
+								<div class="controls">
+									</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">商业险支出<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="businessriskout" value="<?php if(!empty($con_risk) && $con_risk['status']==0) echo $con_risk['businessriskout']; else echo $con_risk_cache['businessriskout']; ?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />%
+								<span class = "wordred">*请填写商业险支出</span></div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">商业险返费<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="businessriskback" value="<?php if(!empty($con_risk) && $con_risk['status']==0) echo $con_risk['businessriskback']; else echo $con_risk_cache['businessriskback']; ?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />%
+								<span class = "wordred">*请填写商业险返费</span></div>
+							</div>
+							
+							
+							<div class="control-group">
+								<label class="control-label">商业险投保信息<span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['carlossrisk']==1) || (empty($con_risk) && $con_risk_cache['carlossrisk']==1)){?>
+										<input type="checkbox" name="carlossrisk" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="carlossrisk" value="0" />
+										<?php }?>
+										车辆损失险
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['thirdrisk']==1) || (empty($con_risk) && $con_risk_cache['thirdrisk']==1)){?>
+										<input type="checkbox" name="thirdrisk" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="thirdrisk" value="0" />
+										<?php }?>
+										第三者责任险
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['pilfer']==1) || (empty($con_risk) && $con_risk_cache['pilfer']==1)){?>
+										<input type="checkbox" name="pilfer" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="pilfer" value="0" />
+										<?php }?>
+										盗抢险
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['compensate']==1) || (empty($con_risk) && $con_risk_cache['compensate']==1)){?>
+										<input type="checkbox" name="compensate" value="1" checked="checked" />
+										<?php }else{?>
+										<input type="checkbox" name="compensate" value="0" />
+										<?php }?>
+										不计免赔
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['carpersonrisk']==1) || (empty($con_risk) && $con_risk_cache['carpersonrisk']==1)){?>
+										<input type="checkbox" name="carpersonrisk" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="carpersonrisk" value="0" />
+										<?php }?>
+										车商人员责任险
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['glassrisk']==1) || (empty($con_risk) && $con_risk_cache['glassrisk']==1)){?>
+										<input type="checkbox" name="glassrisk" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="glassrisk" value="0" />
+										<?php }?>
+										玻璃险
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['majorrisk']==1) || (empty($con_risk) && $con_risk_cache['majorrisk']==1)){?>
+										<input type="checkbox" name="majorrisk" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="majorrisk" value="0" />
+										<?php }?>
+										制定专修险
+									</label>
+									<label class="radio">
+										<?php if((!empty($con_risk) && $con_risk['status']==0 && $con_risk['other']==1) || (empty($con_risk) && $con_risk_cache['other']==1)){?>
+										<input type="checkbox" name="other" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="other" value="0" />
+										<?php }?>
+										其他
+									</label>
+								</div>
+							</div>
+							
+							<div class="control-group">
+								<label class="control-label">商业险是否分期<span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+									<?php if(empty($con_risk)){?>
+									<input type="radio" name="installment" value="1" checked="checked"/>
+									<?php }else{?>
+										<?php if(!empty($con_risk) && $con_risk['installment']==1){?>
+										<input type="radio" name="installment" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="installment" value="1" />
+										<?php }?>
+									<?php }?>
+										是
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_risk) && $con_risk['installment']==0){?>
+										<input type="radio" name="installment" value="0" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="installment" value="0" />
+										<?php }?>
+										否
+									</label>
+								</div>
+							</div>
+							</div>
+							</form>
+						</div>
+					</div>
+					
+						<!-- END EXAMPLE TABLE PORTLET-->
+					</div>
+					</div>
+					</div>
+				
+					<div style="display:none" class="info2">
+					
+					<div class="row-fluid">
+					<div class="span12">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-globe"></i>GPS</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<!--
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>-->
+							</div>
+						</div>
+						
+						<div class="portlet-body form">
+							<form name="formc" class="form-horizontal">
+							<input type="hidden" name="app_id" value="<?php echo $salesman[0]['id'];?>">
+							<input type="hidden" name="gps_id" value="<?php if(!empty($con_gps)){echo $con_gps['id'];}else{echo "0";}?>">
+							<div class="control-group">
+								<label class="control-label">GPS是否分期<span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+									<?php if(empty($con_gps)){?>
+									<input type="radio" name="isgpsstages" value="1" checked="checked"/>
+									<?php }else{?>
+										<?php if(!empty($con_gps) && $con_gps['isgpsstages']==1){?>
+										<input type="radio" name="isgpsstages" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="isgpsstages" value="1" />
+										<?php }?>
+									<?php }?>
+										是
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_gps) && $con_gps['isgpsstages']==0){?>
+										<input type="radio" name="isgpsstages" value="0" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="isgpsstages" value="0" />
+										<?php }?>
+										否
+									</label>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">GPS费用<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="gpsacount" value="<?php  if(!empty($con_gps)) echo $con_gps['gpsacount']; else  echo $con_gps_cache['gpsacount'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+								<span class = "wordred">*请填写GPS费用</span></div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">GPS成本<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="gpscost" value="<?php if(!empty($con_gps)) echo $con_gps['gpscost']; else echo $con_gps_cache['gpscost'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+								<span class = "wordred">*请填写GPS成本</span></div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">GPS安装费<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="gpsinstall" value="<?php  if(!empty($con_gps)) echo $con_gps['gpsinstall']; else echo $con_gps_cache['gpsinstall']; ?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+								<span class = "wordred">*请填写GPS安装费</span></div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">GPS是否返费<span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+									<?php if(empty($con_gps)){?>
+									<input type="radio" name="isgpsback" value="1" checked="checked"/>
+									<?php }else{?>
+										<?php if(!empty($con_gps) && $con_gps['isgpsback']==1){?>
+										<input type="radio" name="isgpsback" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="isgpsback" value="1" />
+										<?php }?>
+									<?php }?>
+										是
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_gps) && $con_gps['isgpsback']==0){?>
+										<input type="radio" name="isgpsback" value="0" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="isgpsback" value="0" />
+										<?php }?>
+										否
+									</label>
+								</div>
+								
+							</div>
+							<div id = "isgpsback" style = "<?php if(!empty($con_gps) && $con_gps['isgpsback']==0) echo "display:none"?>">
+								<div class="control-group">
+								<label class="control-label">GPS返费金额<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="gpsback" value="<?php if(!empty($con_gps) && $con_gps['isgpsback']==1 ) echo $con_gps['gpsback']; else if(empty($con_gps)) echo $con_gps_cache['gpsback'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+								<span class = "wordred">*请填写GPS返费金额</span></div>
+							</div>
+							</div>
+							</form>
+						</div>
+						
+						
+						
+					<!-- END EXAMPLE TABLE PORTLET-->
+					</div>
+					</div>
+					</div>
+					</div>					
+					<div style="display:none" class="info3">
+					<div class="row-fluid">
+					<div class="span12">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-globe"></i>服务费用</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<!--
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>-->
+							</div>
+						</div>
+						
+						
+						<div class="portlet-body form" style="overflow:hidden">
+							<form name="formd" class="form-horizontal">
+							<input type="hidden" name="app_id" value="<?php echo $salesman[0]['id'];?>">
+							<input type="hidden" name="service_id" value="<?php if(!empty($con_service)){echo $con_service['id'];}else{echo "0";}?>">
+							收取/支出
+							<div class="bt">
+								<div class="control-group div-a">
+									<label class="control-label">贷款手续费：收取费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="managefeeinput" value="<?php  if(!empty($con_service)) echo $con_service['managefeeinput']; else echo $con_service_cache['managefeeinput'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+								<div class="control-group div-b">
+									<label class="control-label">贷款手续费：支出费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="managefeeout" value="<?php if(!empty($con_service)) echo $con_service['managefeeout']; else echo $con_service_cache['managefeeout'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+							</div>
+							<div class="bt"> 
+								<div class="control-group div-a">
+									<label class="control-label">交强险：收取费用</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="strongriskinput" value="<?php  if(!empty($con_service)) echo $con_service['strongriskinput']; else if ($con_risk['status']==0 && $con_risk['strongrisk'] == 1) echo $con_risk['strongriskamount'] ; else if($con_risk['status']==0 && $con_risk['strongrisk'] == 0) echo 0;else echo $con_service_cache['strongriskinput'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div> 
+								</div>
+								<div class="control-group div-b">
+									<label class="control-label">交强险：支出费用</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="strongriskout" value="<?php  if(!empty($con_service)) echo $con_service['strongriskout']; else echo $con_service_cache['strongriskout'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-a">
+									<label class="control-label">交强险变更：收取费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="strongchangeinput" value="<?php  if(!empty($con_service)) echo $con_service['strongchangeinput'];  else if($con_risk['status']==0 && $con_risk['strongrisk'] == 0) echo $con_risk['costchange']; else if ($con_risk['status']==0 && $con_risk['strongrisk'] == 1) echo 0; else echo $con_service_cache['strongchangeinput'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+								<div class="control-group div-b">
+									<label class="control-label">交强险变更：支出费用</span></label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="strongchangeout" value="<?php  if(!empty($con_service)) echo $con_service['strongchangeout']; else echo $con_service_cache['strongchangeout'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-a">
+									<label class="control-label">过户费：收取费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="transferfeeinput" value="<?php  if(!empty($con_service)) echo $con_service['transferfeeinput']; else echo $con_service_cache['transferfeeinput'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+								<div class="control-group div-b">
+									<label class="control-label">过户费：支出费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="transferfeeout" value="<?php  if(!empty($con_service)) echo $con_service['transferfeeout']; else echo $con_service_cache['transferfeeout'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+							</div>
+							<div class="bt">
+								<div class="control-group div-a">
+									<label class="control-label">征信费：收取费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="adfeeinput" value="<?php  if(!empty($con_service)) echo $con_service['adfeeinput']; else echo $con_service_cache['adfeeinput'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+								<div class="control-group div-b">
+									<label class="control-label">征信费：支出费用</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="adfeeout" value="<?php  if(!empty($con_service)) echo $con_service['adfeeout']; else echo $con_service_cache['adfeeout'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred"></span></div>
+								</div>
+							</div>
+							
+							<div class="bt">
+								<div class="control-group div-a">
+									<label class="control-label">押金</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="depositamount" value="<?php  if(!empty($con_service)) echo $con_service['depositamount']; else echo $con_service_cache['depositamount']; ?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />%
+									<span class = "wordred"></span></div>
+								</div>
+								<div class="control-group div-b">
+
+									<label class="control-label">渠道返点</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="channelrebate" value="<?php  if(!empty($con_service)) echo $con_service['channelrebate']; else echo $con_service_cache['channelrebate'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />%
+										<span class = "wordred"></span>
+									</div>
+									
+									
+								</div>
+								<div class="control-group div-c">
+									<label class="control-label">每单返点</label>
+									<div class="controls">
+										<input type="text" class="small m-wrap" name="single_point" value="<?php  if(!empty($con_service)) echo $con_service['single_point']; else echo $con_service_cache['single_point'];?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />%
+										<span class = "wordred"></span>
+									</div>
+								</div>
+							</div>
+							
+							
+							<?php $first = round($con_order['loan']*10000/$con_order['deadline'] + $con_order['loan']*100*$con_order['rate']);?>
+							<!--<div class="control-group">
+								<label class="control-label">首月本息</label>
+								<div class="controls">
+									<input type="text" class="small m-wrap" name="firstamount" value="<?php  if(!empty($con_service) && $con_service['firstamount'] == $first){echo $con_service['firstamount'];}else{if(!empty($con_order)){echo $first;}}?>" onblur = "liftinput(this)" onfocus = "liftin(this)"  readonly = "readonly"/>元
+								<span class = "wordred" style = "<?php if(!empty($con_service) && $con_service['firstamount'] == $first){echo "display:";}else{echo "display:none";}?>"></span></div>
+							</div>
+							-->
+
+						
+							<div class="control-group" style="display:none">
+								<label class="control-label">服务费用<span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['serbusinessrisk']==1 ){?>
+										<input type="checkbox" name="serbusinessrisk" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="serbusinessrisk" value="0" />
+										<?php }?>
+										商业险
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['gpsservicefee']==1){?>
+										<input type="checkbox" name="gpsservicefee" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="gpsservicefee" value="0" />
+										<?php }?>
+										GPS
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['managefee']==1){?>
+										<input type="checkbox" name="managefee" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="managefee" value="0" />
+										<?php }?>
+										管理费
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['serstrongrisk']==1){?>
+										<input type="checkbox" name="serstrongrisk" value="1" checked="checked" />
+										<?php }else{?>
+										<input type="checkbox" name="serstrongrisk" value="0" />
+										<?php }?>
+										交强险
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['serstrongchange']==1){?>
+										<input type="checkbox" name="serstrongchange" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="checkbox" name="serstrongchange" value="0" />
+										<?php }?>
+										交强险变更费
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['transferfee']==1){?>
+										<input type="checkbox" name="transferfee" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="transferfee" value="0" />
+										<?php }?>
+										过户费
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['adfee']==1){?>
+										<input type="checkbox" name="adfee" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="adfee" value="0" />
+										<?php }?>
+										征信费
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['first']==1){?>
+										<input type="checkbox" name="first" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="first" value="0" />
+										<?php }?>
+										首月本息
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_service) && $con_service['deposit']==1){?>
+										<input type="checkbox" name="deposit" value="1" checked = "checked" />
+										<?php }else{?>
+										<input type="checkbox" name="deposit" value="0" />
+										<?php }?>
+										押金
+									</label>
+								</div>
+							</div>
+							</form>
+						</div>
+						
+						
+						
+					<!-- END EXAMPLE TABLE PORTLET-->
+					</div>
+					</div>
+					</div>
+					</div>					
+					<div style="display:none" class="info4">
+					<div class="row-fluid">
+					<div class="span12">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-globe"></i>放款相关账户</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<!--
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>-->
+							</div>
+						</div>
+						
+						<div class="portlet-body form" style = "overflow:hidden">
+							<form name="forme" class="form-horizontal">
+							<input type="hidden" name="app_id" value="<?php echo $salesman[0]['id'];?>">
+							<input type="hidden" name="account_id" value="<?php if(!empty($con_account)){echo $con_account['id'];}else{echo "0";}?>">
+							
+							<?php 
+							foreach( $accountarr as $key=>$valacc){
+							?>
+							<div class="control-group">
+								<label class="control-label"><?php echo $valacc['name']?><span class="required">*</span></label>
+								<div class="controls">
+									<label class="radio">
+									<?php if(empty($con_account["$key"]) && $valacc['type'] == 0){?>
+									<input type="radio" name="<?php echo $key?>" value="1" checked="checked"/>
+									<?php }else{?>
+										<?php if(!empty($con_account["$key"])){?>
+										<input type="radio" name="<?php echo $key?>" value="1" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="<?php echo $key?>" value="1" />
+										<?php }?>
+									<?php }?>
+										是
+									</label>
+									<label class="radio">
+										<?php if(!empty($con_account["$key"]) && ($con_account["$key"]["carall"]==0) || (empty($con_account) && $valacc['type'] == 1) ){?>
+										<input type="radio" name="<?php echo $key?>" value="0" checked="checked"/>
+										<?php }else{?>
+										<input type="radio" name="<?php echo $key?>" value="0" />
+										<?php }?>
+										否
+									</label>
+								</div>
+							</div>
+							<div id = "<?php echo $key;?>" style = "<?php if((!empty($con_account["$key"]) && $con_account["$key"]["carall"]==0) || (empty($con_account) && $valacc['type'] == 1)) echo "display:none"?>">
+							<div class="bt">
+								<div class="control-group div-diva">
+									<label class="control-label">账户户名<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="<?php echo $key."accountname"?>" value="<?php if($con_account["$key"]["carall"] == 1){echo $con_account["$key"]["accountname"];}else{echo $con_account_cache["$key"]["accountname"];}?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写<?php echo $valacc['name'];?>账户户名</span></div>
+								</div>
+								<div class="control-group div-divb">
+									<label class="control-label">开户行<span class="required">*</span></label>
+									<div class="controls">
+										<input type="text"  name="<?php echo $key."openbank"?>" value="<?php if($con_account["$key"]["carall"] == 1) {echo $con_account["$key"]["openbank"];}else{echo $con_account_cache["$key"]["openbank"]; }?>" onblur = "liftinput(this)" onfocus = "liftin(this)" />
+									<span class = "wordred">*请填写<?php echo $valacc['name'];?>开户行</span></div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">银行卡号<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text"  name="<?php echo $key."cardno"?>" value="<?php if($con_account["$key"]["carall"] == 1) {echo $con_account["$key"]["cardno"];}else{echo $con_account_cache["$key"]["cardno"];}?>"  onblur = "liftinput(this)" onfocus = "liftin(this)" maxlength = "19"/>
+								<span class = "wordred">*请填写<?php echo $valacc['name'];?>银行卡号</span></div>
+							</div>
+							</div>
+							<?php }?>
+						</div>
+						
+					<!-- END EXAMPLE TABLE PORTLET-->
+					</div>
+					</div>
+					</div>	
+					</div>
+					
+					</div>
+					
+					</div>
+					<?php if($type==""){?>
+					<div class="form-actions">
+						<button type="button" id="createAppBtn" class="btn blue"><?php echo $_type;?>提交</button>
+					</div>
+					<?php }?>
+				</div>
+			</div>
+			<!-- END EXAMPLE TABLE PORTLET-->
+		</div>
+
+		</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+<?php new Ui_Common_Footer();?>
+<script src="/script/jquery-messager.js"></script>
+<script src="/script/jquery-dialog.js"></script>
+<script type="text/javascript" src="/js/select2.min.js"></script>
+<script type="text/javascript" src="/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="/js/DT_bootstrap.js"></script>
+
+<!-- 选择时间的JS -->
+<script src="/script/IDValidator.js"></script> 
+<script type="text/javascript" src="/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datepicker.zh-CN.js"></script>
+<script type="text/javascript" src="/script/form.js"></script>
+<script>
+ var pglobal = {
+	dt: null
+}
+	//是否投保
+	var con_risk = '<?php echo $con_risk['status']?>';
+	//是否强险
+	var firststrongrisk = '<?php echo $con_risk['strongrisk']?>';
+	if(firststrongrisk == null || firststrongrisk ==""){
+		firststrongrisk = 1;
+	}
+	//操作人最后操作状态
+	var last_status = '<?php echo $last_status?>';
+	var aid ='<?php echo $salesman[0]['id']?>';
+	
+	
+	//if(){}
+	
+	//$('input[name=other]').attr("checked","checked");
+	
+	function liftin(obj,type){
+		$(obj).next().hide();
+	}
+	
+	
+	function liftinput(obj,type){
+		//alert(0);
+		//alert($(obj).attr("name"));
+		/* var inputword = $(obj).val().trim();
+		
+		if(inputword == "" || inputword == null){
+			$(obj).next().show();
+		}else{
+			$(obj).next().hide();
+		} */
+	}
+	function chg(_this){
+		var id = $(_this).attr("id");
+		var Name = $('#'+id).val();
+		$('[name="'+id+'"]').attr('value', Name);
+		
+		//alert(id);
+	}
+	
+$(document).ready(function(){
+	
+	
+
+	$("html,body").animate({scrollTop:$("#dingwei").offset().top},1000);
+	
+	
+	
+
+	/* $('input[name=xiamen]').change(function(){
+		var requiredx = [
+		        'company','address','email','tel','represen','accountname','openbank','cardno'];
+		var names1 = {
+			company:'福建成融汽车服务有限公司',
+            address:'福建省厦门市莲花南路',
+			email:'245942549@qq.com',
+            tel:'0592-5552536',
+            represen:'葛艳',
+			accountname:'葛艳',
+            openbank:'中信银行厦门分行',
+            cardno:'6226984900100371'
+		}
+		
+		var names0 = {
+            company:'厦门银代代汽车服务有限公司',
+            address:'福建省厦门市湖里区江顺利',
+            tel:'0592-5552536',
+			email:'245942549@qq.com',
+            represen:'吴涛 ',
+			accountname:'吴涛 ',
+            openbank:'招商银行厦门分行',
+            cardno:'6214835928341591'
+		}
+        
+		
+		if ($(this).val() == 0) {
+			for (var i in requiredx) {
+				var field = $('input[name='+requiredx[i]+']');
+				field.val(names0[requiredx[i]]);
+			}
+		} else {
+			for (var i in requiredx) {
+				var field = $('input[name='+requiredx[i]+']');
+				field.val(names1[requiredx[i]]);
+			}
+		}
+	}) */
+	/* localStorage.setItem("a"+aid,0);
+	alert("a"+aid);
+	alert(localStorage.getItem("a"+aid)); */
+	if(localStorage.getItem("aid") == aid){
+		if(localStorage.getItem("a"+aid)>=0){
+			$(".minfo"+localStorage.getItem("a"+aid)).trigger('click');
+		}else{
+			$(".minfo0").trigger('click');
+		}
+	}else{
+		$(".minfo0").trigger('click');
+		localStorage.setItem("aid",aid);
+		//localStorage.setItem("a"+aid,0);
+	}
+	//保险
+	//var firststrongrisk = $('input[name=strongrisk]').val();
+	
+	if (firststrongrisk == 0) {
+		$('#strongrisk0').show();
+		$('#strongrisk1').hide();
+	} else {
+		$('#strongrisk1').show();
+		$('#strongrisk0').hide();
+	}
+	if (con_risk == "" || con_risk == null) {
+			if(last_status == 1){
+				$('#channel_fields').hide();
+			} else if(last_status == 0){
+				$('#channel_fields').show();
+			}
+	} else {
+		if(con_risk == 1){
+			$('#channel_fields').hide();
+		} else {
+			$('#channel_fields').show();
+		}
+	}
+	
+	
+	
+	//账户行
+	
+			
+	//for (var i in reaccount) {
+		$('input[name=car]').change(function(){
+			if ($(this).val() == 0) {
+				$('#car').hide();
+			} else {
+				$('#car').show();
+			}
+		})
+		
+		$('input[name=managefeeacc]').change(function(){
+			if ($(this).val() == 0) {
+				$('#managefeeacc').hide();
+			} else {
+				$('#managefeeacc').show();
+			}
+		})
+		$('input[name=adfee]').change(function(){
+			if ($(this).val() == 0) {
+				$('#adfee').hide();
+			} else {
+				$('#adfee').show();
+			}
+		})
+		$('input[name=input]').change(function(){
+			if ($(this).val() == 0) {
+				$('#input').hide();
+			} else {
+				$('#input').show();
+			}
+		})
+		$('input[name=back]').change(function(){
+			if ($(this).val() == 0) {
+				$('#back').hide();
+			} else {
+				$('#back').show();
+			}
+		})
+		$('input[name=strong]').change(function(){
+			if ($(this).val() == 0) {
+				$('#strong').hide();
+			} else {
+				$('#strong').show();
+			}
+		})
+		$('input[name=getin]').change(function(){
+			if ($(this).val() == 0) {
+				$('#getin').hide();
+			} else {
+				$('#getin').show();
+			}
+		})
+		$('input[name=install]').change(function(){
+			if ($(this).val() == 0) {
+				$('#install').hide();
+			} else {
+				$('#install').show();
+			}
+		})
+		$('input[name=strongchange]').change(function(){
+			if ($(this).val() == 0) {
+				$('#strongchange').hide();
+			} else {
+				$('#strongchange').show();
+			}
+		})
+		
+		//gps
+		$('input[name=isgpsback]').change(function(){
+			if ($(this).val() == 0) {
+				$('#isgpsback').hide();
+			} else {
+				$('#isgpsback').show();
+			}
+		})
+		
+		$('input[name=gpsbackacc]').change(function(){
+			if ($(this).val() == 0) {
+				$('#gpsbackacc').hide();
+			} else {
+				$('#gpsbackacc').show();
+			}
+		})
+		
+		$('input[name=marginbackacc]').change(function(){
+			if ($(this).val() == 0) {
+				$('#marginbackacc').hide();
+			} else {
+				$('#marginbackacc').show();
+			}
+		})
+	//}
+	
+	
+	
+});
+var status = 0;
+function get(obj,a){
+	$("html,body").animate({scrollTop:$("#dingwei").offset().top},1000);
+	status = a;
+	$(obj).css("background-color", "gray");
+    $($(obj).siblings()).css("background-color", "white");
+	//$(".minfo"+a).css("color","red");
+	$($(".info"+a).siblings()).hide();
+	$(".info"+a).show();
+	//alert(a);
+	localStorage.setItem("a"+aid,a);
+	//alert(localStorage.getItem("a"+aid));
+	
+}
+
+
+$(document).ready(function(){
+	//是否投保
+   $('input[name=fromchannel]').change(function(){
+		var fromchannel = $(this).val();
+		if (fromchannel == 1) {
+			$('#channel_fields').hide();
+		} else {
+			$('#channel_fields').show();
+		}
+	})
+	//强险是否到期
+	$('input[name=strongrisk]').change(function(){
+		var strongrisk = $(this).val();
+		if (strongrisk == 0) {
+			$('#strongrisk0').show();
+			$('#strongrisk1').hide();
+		} else {
+			$('#strongrisk1').show();
+			$('#strongrisk0').hide();
+		}
+	})
+	
+
+	$('#createAppBtn').click(function(){
+		if(status==0){
+			posta();
+		}else if(status==1){
+			postb();
+		}else if(status==2){
+			postc();
+		}else if(status==3){
+			postd();
+		}else if(status==4){
+			poste();
+		}
+	})
+	var riskstatus = 0;
+	function postb(){
+		if(riskstatus == 1){
+			return;
+		}
+		riskstatus = 1;
+		var requiredall = [
+		        'costchange', 'changeterm','insurancename', 'strongriskamount','strongriskdate','strongriskvalidity','businessriskamount','businessriskdate','businessriskvalidity','businessriskout','businessriskback'];
+		var requiredaa = [
+		        'carlossrisk', 'thirdrisk','pilfer','compensate','carpersonrisk','glassrisk','majorrisk','other'];
+			
+		var names = {
+			insurancename: '保险公司名称',
+            strongrisk: '强险是否到期',
+            strongriskamount:'强险金额',
+            strongriskdate:'强险生效日期',
+            strongriskvalidity:'强险有效期',
+            costchange:'交强险变更费',
+            changeterm:'交强险到期日期',
+            businessriskamount:'商业险金额',
+			businessriskdate:'商业险生效日期',
+            businessriskvalidity:'商业险有效期',
+            businessriskout:'商业保险支出',
+			businessriskback:'商业险返费',
+			installment:'是否分期',
+			carlossrisk:'车辆损失险0未选中1选中',
+            thirdrisk:'第三者责任险0未选中1选中',
+            pilfer:'盗抢险0未选中：1选中',
+            compensate:'不计免赔0未选中：1选中',
+			carpersonrisk:'车商人员责任险0未选中：1选中',
+            glassrisk:'玻璃险0未选中：1选中',
+            majorrisk:'制定专修险0未选中：1选中',
+			other:'其他险种0未选中：1选中'
+		}
+		var fromchannel=$("input[name=fromchannel]:checked").val();
+		if(fromchannel==0){//投保
+			var strongrisk=$("input[name=strongrisk]:checked").val();
+			if(strongrisk==1){//到期3
+				var required = [
+		        'insurancename', 'strongriskamount','strongriskdate','strongriskvalidity','businessriskamount','businessriskdate','businessriskvalidity','businessriskout','businessriskback'];
+		
+			}else{//2
+				var required = [
+		        'insurancename', 'costchange','changeterm','businessriskamount','businessriskdate','businessriskvalidity','businessriskout','businessriskback'];
+			}
+			for (var i in required) {
+				var field = $('input[name='+required[i]+']');
+				if (!field.val().trim()) {
+					riskstatus = 0;
+					$.messager.alert('提示', names[required[i]]+'不能为空', function(){field.focus()})
+					return;
+				}
+			}
+			
+			var risktype = 0;
+			for (var i in requiredaa) {
+				var field = $('input[name='+requiredaa[i]+']');
+				if (field.attr("checked")=="checked") {
+					field.attr("value","1");
+					risktype = 1;
+				}else{
+					field.attr("value","0");
+				}
+			}
+			if(risktype == 0){
+				riskstatus =0;
+				$.messager.alert('提示', '商业险投保信息不能为空', function(){field.focus()})
+					return;
+			}
+			
+		}
+		
+		$.post('/contract/riskcreate', $('form[name=formb]').serialize(), function(data){
+			if (data.errcode=='0') {
+				$.messager.alert('提示', '提交成功', function(){
+					riskstatus = 0;
+					localStorage.setItem("a"+aid,((parseInt(status)+1)%5));
+					location.reload(); 
+					//reload();
+					//location.href='/app/mylist/'
+				})
+			} else {
+				riskstatus = 0;
+				$.messager.alert('提示', '提交失败,'+data.errmsg)
+			}
+		}, 'json')
+	}
+	var gpsstatus = 0;
+	function postc(){
+		if(gpsstatus == 1){
+			return;
+		}
+		gpsstatus = 1;
+		var names = {
+			gpsacount: 'gps费用',
+            gpscost: 'gps成本',
+            gpsinstall:'安装费',
+            gpsback:'返费',
+        }
+			
+			var requiredgps = [
+		        'gpsacount', 'gpscost','gpsinstall'];
+			for (var i in requiredgps) {
+				var field = $('input[name='+requiredgps[i]+']');
+				if (!field.val().trim()) {
+					gpsstatus = 0;
+					$.messager.alert('提示', names[requiredgps[i]]+'不能为空', function(){field.focus()})
+					return;
+				}
+			}
+			var isgpsback=$("input[name=isgpsback]:checked").val();
+			if(isgpsback == 1){
+				var field = $('input[name=gpsback]');
+				if (!field.val().trim()) {
+					gpsstatus = 0;
+					$.messager.alert('提示', names["gpsback"]+'不能为空', function(){field.focus()})
+					return;
+				}
+			}
+
+			
+			$.post('/contract/gpscreate', $('form[name=formc]').serialize(), function(data){
+			if (data.errcode=='0') {
+				$.messager.alert('提示', '提交成功', function(){
+					gpsstatus = 0;
+					localStorage.setItem("a"+aid,((parseInt(status)+1)%5));
+					location.reload(); 
+					//reload();
+					//location.href='/app/mylist/'
+				})
+			} else {
+				gpsstatus = 0;
+				$.messager.alert('提示', '提交失败,'+data.errmsg)
+			}
+		}, 'json')
+	}
+	var servicestatus = 0;
+	function postd(){
+		if(servicestatus == 1){
+			return;
+		}
+		servicestatus = 1;
+		var requiredall = [
+			"serbusinessrisk","gpsservicefee","managefee","serstrongrisk","serstrongchange","transferfee","adfee","first","deposit"
+			];
+		
+			for (var i in requiredall) {
+				var field = $('input[name='+requiredall[i]+']');
+				if (field.attr("checked")=="checked") {
+					field.attr("value","1");
+				}else{
+					field.attr("value","0");
+				}
+			}
+			
+		$.post('/contract/servicecreate', $('form[name=formd]').serialize(), function(data){
+			if (data.errcode=='0') {
+				$.messager.alert('提示', '提交成功', function(){
+					servicestatus = 0;
+					localStorage.setItem("a"+aid,((parseInt(status)+1)%5));
+					location.reload(); 
+					//reload();
+					//location.href='/app/mylist/'
+				})
+			} else {
+				servicestatus = 0;
+				$.messager.alert('提示', '提交失败,'+data.errmsg)
+			}
+		}, 'json')
+		
+		
+
+		/* var names = {
+			managefeeinput: '管理费：收取费用',
+            managefeeout: '管理费：支出费用',
+            strongriskinput:'交强险：收取费用',
+			strongriskout:'交强险：支出费用',
+            strongchangeinput:'交强险变更：收取费用',
+            strongchangeout:'交强险变更：支出费用',
+			transferfeeinput:'过户费：收取费用',
+            transferfeeout:'过户费：支出费用',
+			adfeeinput:'征信费：收取费用',
+			adfeeout:'征信费：支出费用',
+            depositamount:'押金',
+			firstamount:'首月本息',
+			serbusinessrisk:'财务放款金额'
+            
+            
+		}
+		var requiredser = [
+			"managefeeinput","managefeeout","strongriskinput","strongriskout","strongchangeinput","strongchangeout","transferfeeinput","transferfeeout","adfeeinput","adfeeout","depositamount","firstamount","serbusinessrisk"
+			];
+		for (var i in requiredser) {
+			var field = $('input[name='+requiredser[i]+']');
+			if (!field.val()) {
+				//orderstatus = 0;
+				$.messager.alert('提示', names[requiredser[i]]+'不能为空', function(){field.focus()})
+				return;
+			}
+		}
+		var requiredall = [
+			"serbusinessrisk","gpsservicefee","managefee","serstrongrisk","serstrongchange","transferfee","adfee","first","deposit"
+			];
+		var servicetype = 0;
+			for (var i in requiredall) {
+				var field = $('input[name='+requiredall[i]+']');
+				if (field.attr("checked")=="checked") {
+					field.attr("value","1");
+					servicetype = 1;
+				}else{
+					field.attr("value","0");
+				}
+			}
+			if(servicetype == 0){
+				//servicestatus =0;
+				$.messager.alert('提示', '财务放款金额不能为空', function(){field.focus()})
+					return;
+			} */	
+	}
+	var accountstatus = 0;
+	function poste(){
+		if(accountstatus == 1){
+			return;
+		}
+		accountstatus = 1;
+		//alert(5);
+		var names = {
+			caraccountname: '车行账户户名',
+            caropenbank: '车行账户开户行',
+            carcardno:'车行账户银行卡号',
+			
+			managefeeaccaccountname: '贷款手续费账户户名',
+            managefeeaccopenbank: '贷款手续费开户行',
+            managefeeacccardno:'贷款手续费银行卡号',
+			
+            freeaccountname:'贷款手续费账户户名',
+            freeopenbank:'贷款手续费开户行',
+            freecardno:'贷款手续费银行卡号',
+			
+            inputaccountname:'商业险支出账户户名',
+            inputopenbank:'商业险支出开户行',
+			inputcardno:'商业险支出银行卡号',
+			
+            backaccountname:'商业险返点账户户名',
+            backopenbank:'商业险返点开户行',
+			backcardno:'商业险返点银行卡号',
+			
+			strongaccountname:'交强险账户户名',
+            strongopenbank:'交强险开户行',
+            strongcardno:'交强险银行卡号',
+			
+			
+			strongchangeaccountname:'交强险变更账户户名',
+            strongchangeopenbank:'交强险变更开户行',
+            strongchangecardno:'交强险变更银行卡号',
+			
+			
+            getinaccountname:'过户费账户户名',
+			getinopenbank:'过户费开户行',
+            getincardno:'过户费银行卡号',
+			
+            installaccountname:'GPS安装费账户户名',
+			installopenbank:'GPS安装费开户行',
+			installcardno:'GPS安装费银行卡号',
+			
+			costaccountname:'GPS成本费账户户名',
+			costopenbank:'GPS成本费开户行',
+			costcardno:'GPS成本费银行卡号',
+			
+			adfeeaccountname:'征信费账户户名',
+			adfeeopenbank:'征信费开户行',
+			adfeecardno:'征信费银行卡号',
+			
+			gpsbackaccaccountname:'GPS返费账户户名',
+			gpsbackaccopenbank:'GPS返费开户行',
+			gpsbackacccardno:'GPS返费银行卡号',
+			
+			marginbackaccaccountname:'押金返费账户户名',
+			marginbackaccopenbank:'押金返费开户行',
+			marginbackacccardno:'押金返费银行卡号'
+		}
+		var reaccount = [
+		        'car','managefeeacc','free', 'input','back','strong','strongchange','getin','install','adfee','gpsbackacc','marginbackacc'];
+		var reaccountzi = [
+		        'accountname', 'openbank','cardno'];
+		var field = "";
+		var fieldzi = "";
+		for (var i in reaccount) {
+			field = $('input[name='+reaccount[i]+']:checked');
+			//alert(reaccount[i]);
+			
+			if(field.val() == 1){
+				for (var j in reaccountzi) {
+					fieldzi = $('input[name='+reaccount[i]+reaccountzi[j]+']');
+					if(!fieldzi.val().trim()){
+						accountstatus = 0;
+						$.messager.alert('提示', names[reaccount[i]+reaccountzi[j]]+'不能为空', function(){field.focus()})
+						return;
+					}else if(reaccountzi[j] == "cardno" &&  (fieldzi.val().trim().length !=19 && fieldzi.val().trim().length !=18 && fieldzi.val().trim().length !=16 && fieldzi.val().trim().length !=12 && fieldzi.val().trim().length !=17)){
+						accountstatus = 0;
+						$.messager.alert('提示', names[reaccount[i]+reaccountzi[j]]+'填写有误', function(){field.focus()})
+						return;
+					}
+				}
+			}
+		}
+		
+		$.post('/contract/accountcreate', $('form[name=forme]').serialize(), function(data){
+			if (data.errcode=='0') {
+				$.messager.alert('提示', '提交成功', function(){
+					accountstatus = 0;
+					localStorage.setItem("a"+aid,((parseInt(status)+1)%5));
+					location.reload(); 
+					//reload();
+					//location.href='/app/mylist/'
+				})
+			} else {
+				accountstatus = 0;
+				$.messager.alert('提示', '提交失败,'+data.errmsg)
+			}
+		}, 'json')
+		
+	}
+	var orderstatus = 0;
+	function posta(){
+		if(orderstatus==1){
+			return;
+		}
+		orderstatus = 1;
+		var required = [
+		        'loan', 'rate','deadline','signcreated','company','address','email','tel','represen','accountname','openbank','cardno'];
+		var names = {
+			loan: '贷款本金',
+            rate: '利率',
+            deadline:'贷款期限',
+            signcreated:'合同创建时间',
+            company:'甲方公司名称',
+            address:'甲方公司地址',
+			email:'电子邮箱',
+            tel:'甲方公司电话',
+            represen:'甲方代表人',
+			accountname:'账户户名',
+            openbank:'开户行',
+            cardno:'银行卡号'
+		}
+        
+		for (var i in required) {
+			var field = $('input[name='+required[i]+']');
+			if (!field.val().trim()) {
+				orderstatus = 0;
+				$.messager.alert('提示', names[required[i]]+'不能为空', function(){field.focus()})
+				return;
+			}else if(required[i] == "email"){
+				var pattern = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;  
+				if (!pattern.test(field.val().trim())) {
+					orderstatus = 0;
+					$.messager.alert('提示', names[required[i]]+'格式不正确', function(){field.focus()})
+					return;
+				}					
+			}else if(required[i] == "cardno" && (field.val().trim().length !=19 && field.val().trim().length !=18 && field.val().trim().length !=16 && fieldzi.val().trim().length !=12 && fieldzi.val().trim().length !=17)){
+				orderstatus = 0;
+				$.messager.alert('提示', names[required[i]]+'填写有误', function(){field.focus()})
+				return;
+			}
+		}
+		
+		$.post('/contract/ordercreate', $('form[name=forma]').serialize(), function(data){
+			if (data.errcode=='0') {
+				$.messager.alert('提示', '提交成功', function(){
+					orderstatus = 0;
+					localStorage.setItem("a"+aid,((parseInt(status)+1)%5));
+					location.reload(); 
+					//reload();
+					//location.href='/app/mylist/'
+				})
+			} else {
+				orderstatus = 0;
+				$.messager.alert('提示', '提交失败,'+data.errmsg)
+			}
+		}, 'json')
+	}
+})
+
+</script>

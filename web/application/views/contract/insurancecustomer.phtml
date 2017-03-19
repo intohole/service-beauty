@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人保险投保单</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/insurancecustomer.css">
+    <style type="text/css" media="screen">
+        
+    </style>
+</head>
+<body>
+    <header id="header" class="head content" >
+        <!-- <img src="/image/insurance/image003.png" alt="logo"> -->
+        <i></i>
+        <div>
+            <h1>长安责任保险股份有限公司</h1>
+            <p>CHANGAN PROPERTY & LIABILITY INSUNRANCE LTD.</p>
+        </div>
+        <h3>个人保险投保单</h3>
+    </header>
+    <div class="bg content hd" style="border-top:1px solid #333">
+        投保提示
+    </div>
+    <div class="content details">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请您仔细阅读保险条款，尤其是黑体字标注部分的条款内容，并听取保险公司业务人员的说明，如对保险公司业务人员的说明不明白或有异议的，请在填写本投保单之前向保险公司业务人员进行询问，如未询问，视同已经对条款内容完全理解并无异议。
+    </div>
+    <div class="bg content hd">
+        基本信息
+    </div>
+    <table class="content">
+        <tbody>
+            <tr>
+                <td colspan="" rowspan="3" headers="">投保人</td>
+                <td colspan="" rowspan="" headers="" style="width:100px !important">姓名或单位</td>
+                <td colspan="5" rowspan="" headers=""><input type="text" value="<?php echo $app['name'];?>"></td>
+                <td colspan="" rowspan="" headers="" style="width:100px !important">与被保险人关系</td>
+                <td colspan="" rowspan="" headers="">本人</td>
+            </tr>
+            <tr>
+                <td colspan="" rowspan="" headers="">通讯地址</td>
+                <td colspan="5" rowspan="" headers=""><input  maxlength="20" type="text" value="<?php echo $app['temp_add'];?>"></td>
+                <td colspan="" rowspan="" headers="">邮编</td>
+                <td colspan="" rowspan="" headers=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="" headers="">联系电话/手机</td>
+                <td colspan="4" rowspan="" headers=""><input type="text" value="<?php echo $app['phone'];?>"></td>
+                <td colspan="" rowspan="" headers="">E-mail</td>
+                <td colspan="" rowspan="" headers="" style="width:170px !important"><input style="width:95%" type="text" value="<?php echo $app['email'];?>"></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td colspan="" rowspan="5" headers="">被保险人</td>
+                <td colspan="" rowspan="" headers="" >姓名</td>
+                <td colspan="" rowspan="" headers="" style="width:90px !important"><input type="text" value="<?php echo $app['name'];?>"></td>
+                <td colspan="" rowspan="" headers="" style="width:80px !important">性别</td>
+                <td colspan="" rowspan="" headers=""><input type="text" value="<?php echo $app['gender']==1 ? '男' : '女';?>"></td>
+                <td colspan="" rowspan="" headers="" style="width:50px">年龄</td>
+                <td colspan="" rowspan="" headers="" style="width:100px"><input type="text" style="width:70%" value="<?php echo $app['age'];?>">周岁</td>
+                <td colspan="" rowspan="" headers="">出生日期</td>
+                <td colspan="" rowspan="" headers=""><input type="text" value="<?php echo $app['birth'];?>"></td>
+            </tr>
+            <tr>
+                <td colspan="" rowspan="" headers="">健康状况</td>
+                <td colspan="" rowspan="" headers="">良好</td>
+                <td colspan="" rowspan="" headers="">职业/工种</td>
+                <td colspan="3" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers="">职业代码</td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="" rowspan="" headers="">证件类型</td>
+                <td colspan="3" rowspan="" headers="">身份证</td>
+                <td colspan="2" rowspan="" headers="">证件号码</td>
+                <td colspan="2" rowspan="" headers=""><input type="text" value="<?php echo $app['idcard'];?>"></td>
+            </tr>
+            <tr>
+                <td colspan="" rowspan="" headers="">家庭住址</td>
+                <td colspan="5" rowspan="" headers=""><input maxlength="20" type="text" value="<?php echo $app['temp_add'];?>"></td>
+                <td colspan="" rowspan="" headers="">邮编</td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="" rowspan="" headers="">联系电话</td>
+                <td colspan="5" rowspan="" headers=""><input type="text" value="<?php echo $app['phone'];?>"></td>
+                <td colspan="" rowspan="" headers="">E-mail</td>
+                <td colspan="" rowspan="" headers=""><input type="text" value="<?php echo $app['email'];?>"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="bg content hd">
+        投保信息
+    </div>
+    <table class="content">
+        <tbody>
+            <tr>
+                <td style="width:40px !important" colspan="" rowspan="3" headers="">主险</td>
+                <td colspan="3" rowspan="" headers="" style="width:224px !important">险种名称</td>
+                <td colspan="2" rowspan="" headers="">保险金额</td>
+                <td colspan="" rowspan="" headers="">费率</td>
+                <td colspan="2" rowspan="" headers="">保险费</td>
+            </tr>
+            <tr>
+                <td colspan="3" rowspan="" headers="">长安个人意外身故保险</td>
+                <td colspan="2" rowspan="" headers="">100000元</td>
+                <td colspan="" rowspan="" headers="">0.05%</td>
+                <td colspan="2" rowspan="" headers="">50元</td>
+            </tr>
+            <tr>
+                <td colspan="3" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td colspan="" rowspan="3" headers="">附加险</td>
+                <td colspan="3" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="3" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="3" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+         <tbody>
+            <tr class="noborder">
+                <td style="width:80px !important" colspan="2" rowspan="" headers="">受益人</td>
+                <td style="width:40px !important" colspan="" rowspan="" headers="">性别</td>
+                <td colspan="" rowspan="" headers="">与被保险人关系</td>
+                <td colspan="" rowspan="" headers="">受益份额</td>
+                <td colspan="" rowspan="" headers="">证件类型</td>
+                <td colspan="2" rowspan="" headers="" style="width:450px !important">证件号码</td>
+            </tr>
+            <tr>
+                <td style="width:80px !important" colspan="2" rowspan="" headers="">长安责任保险股份有限公司上海市分公司</td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="" rowspan="" headers=""><input type="text"></td>
+                <td colspan="2" rowspan="" headers=""><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="" headers="">保险费合计</td>
+                <td style="text-align: left" colspan="6" rowspan="" headers="">人民币<input value="伍拾元整" style="width:360px;text-align: left;padding-left:20px" type="text">（￥50）</td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="" headers="">保险期限</td>
+                <td style="text-align: left" colspan="6" rowspan="" headers="">自【※保险起始时间※】零时起至【※保险终止时间※】24时止</td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="" headers="">保险区域</td>
+                <td style="text-align: left" colspan="6" rowspan="" headers=""><label><input style="width:20px" type="radio" name="area" value="" checked="true">中国境内（不含香港、澳门、台湾）</label><label>&nbsp;&nbsp;&nbsp;<input style="width:20px" type="radio" name="area" value="">其它地区：_______________</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="bg content hd">
+        特殊信息（投保相关险种时需要填写）：
+    </div>
+    <div class="special content teshu"></div>
+
+    <p style="page-break-after: always;"><br></p>
+    <!-- 第二页 -->
+    <div class="box content">
+        <div class="bg content hd" style="border-top:1px solid #333">
+            特别约定
+        </div>
+        <div class="special content"></div>
+        <div class="bg content hd" style="border-top:1px solid #333">
+            合同争议处理方式：
+        </div>
+        <div class="content" style="border:1px solid #333;padding-top:5px;padding-bottom:5px;box-sizing: border-box">
+            <label><input checked="true" style="width:20px" type="radio" name="type" value="">诉讼</label><label>&nbsp;&nbsp;&nbsp;<input style="width:20px" type="radio" name="type" value="">仲裁______________________</label>
+        </div>
+        <div class="bg content hd">
+            告知事项
+        </div>
+        <div class="special content">
+            <p>&nbsp;&nbsp;&nbsp;<span class="specalspan">被保险人是否已投保其他意外保险：</span><label>有<input style="width:20px" type="radio" name="baoxian1" value=""></label>&nbsp;&nbsp;&nbsp;&nbsp;<label>无<input checked="true" style="width:20px" type="radio" name="baoxian1" value=""></label>&nbsp;&nbsp;&nbsp;若有请注明：</p>
+            <p>&nbsp;&nbsp;&nbsp;<span class="specalspan">被保险人投保前是否已有残疾：</span><label>有<input style="width:20px" type="radio" name="baoxian2" value=""></label>&nbsp;&nbsp;&nbsp;&nbsp;<label>无<input checked="true" style="width:20px" type="radio" name="baoxian2" value=""></label>&nbsp;&nbsp;&nbsp;若有请注明：</p>
+            <p>&nbsp;&nbsp;&nbsp;<span class="specalspan">被保险人是否有理赔记录：</span><label>有<input style="width:20px" type="radio" name="baoxian3" value=""></label>&nbsp;&nbsp;&nbsp;&nbsp;<label>无<input checked="true" style="width:20px" type="radio" name="baoxian3" value=""></label>&nbsp;&nbsp;&nbsp;若有请注明：</p>
+        </div>
+        <div class="bg content hd">
+            投保人及被投保人声明：
+        </div>
+        <div class="special content appointment">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本人已经仔细阅读保险条款，尤其是黑色字部分的条款内容，并对保险公司就保险条款内容的说明和提示完全理解，没有异议，申请投保。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投保人签章：</p><br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被保险人或法定监护人签章：<span class="date">投保日期：_______年_______月_______日</span></p>
+        </div>
+        <div class="bg content hd">
+            以下部分由保险公司填写：
+        </div>
+        <div class="special content suggest">
+            <div>
+                <p>&nbsp;&nbsp;&nbsp;核保意见</p><br><br><br><br><br><br><br><br><br><br><br>
+                <p>&nbsp;初核员：<span class="date">_______年_______月_______日</span></p>
+            </div>
+            <div>
+                <p>&nbsp;&nbsp;&nbsp;核保意见</p><br><br><br><br><br><br><br><br><br><br><br>
+                <p>&nbsp;审核人：<span class="date">_______年_______月_______日</span></p>
+            </div>
+        </div>
+        <p class="foot">业务来源：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>直销<input style="width:20px" type="radio" name="yewulaiyuan" value=""></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>代理<input style="width:20px" type="radio" name="yewulaiyuan" value=""></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>经纪<input style="width:20px" type="radio" name="yewulaiyuan" value=""></label></p>
+        <p class="foot">代理/经纪机构名称：</p>
+        <p class="foot">业务员签字：<span class="date3">日期：_______年_______月_______日</span></p>
+    </div>
+</body>
+</html>

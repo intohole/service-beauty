@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>选择职位</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body class="authority-page">
+<script type="text/javascript" src="/js/rem.js"></script>
+	<!-- <a class="btn btn-block btn-blue" href="">业务人员</a>
+	<a class="btn btn-block btn-blue" href="">业务经理</a>
+	<a class="btn btn-block btn-blue" href="">总公司风控经理</a> -->
+	<?php foreach($data as $value):?>
+		<a class="btn btn-block btn-blue" href="<?php echo $value[1];?>"><?php echo $value[0];?></a>
+	<?php endforeach;?>
+</body>
+</html>

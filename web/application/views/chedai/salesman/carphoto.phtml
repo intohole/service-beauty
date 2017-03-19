@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>车辆信息详情</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body data-id="<?php echo $id;?>" class="carphoto">
+<script type="text/javascript" src="/js/rem.js"></script>
+<form>
+    <ul class="form clearfix">
+    	<?php foreach($photo_names as $key=>$name):?>
+    		<li class="img-uploader">
+	            <div class="img-uploader-box">
+	                <img src="" alt="<?php echo $name;?>" data-src="">
+	                <div class="img-uploader-btn">
+	                    <!-- <i class="icon-plus"></i>  -->
+	                </div>
+	                <input class="input-file" type="file">
+	            </div>
+	            <input type="hidden" name="<?php echo $key;?>">
+	            <p class="tac"><?php echo $name;?></p>
+	        </li>
+    	<?php endforeach;?>
+    </ul>
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" id="next-step1">上一步</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" id="next-step3">下一步</a>
+    </div>
+</form>
+<script src="/js/lrz.all.bundle.js"></script>
+<script type="text/javascript" src="/js/chedai/carphoto.js"></script>
+</body>
+</html>

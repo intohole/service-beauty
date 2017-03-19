@@ -1,0 +1,54 @@
+<SCRIPT type="text/javascript">
+
+    var setting = {
+        check: {
+            enable: true,
+            nocheckInherit: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+
+    var zNodes = <?php echo $per_json?>;
+
+    function nocheckNode(e) {
+        var zTree = $.fn.zTree.getZTreeObj("treePermission"),
+            nocheck = e.data.nocheck,
+            nodes = zTree.getSelectedNodes();
+        if (nodes.length == 0) {
+            alert("请先选择一个节点");
+        }
+
+        for (var i=0, l=nodes.length; i<l; i++) {
+            nodes[i].nocheck = nocheck;
+            zTree.updateNode(nodes[i]);
+        }
+    }
+
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treePermission"), setting, zNodes);
+        $("#nocheckTrue").bind("click", {nocheck: true}, nocheckNode);
+        $("#nocheckFalse").bind("click", {nocheck: false}, nocheckNode);
+    });
+
+</SCRIPT>
+
+
+<div class="content_wrap">
+    <div class="zTreeDemoBackground left">
+        <ul id="treePermission" class="ztree"></ul>
+    </div>
+
+</div>
+
+<div class="form-actions">
+
+    <button type="button"  class="btn green saveAssignPerLnk">保存</button>
+
+    <button type="button"  class="btn jDialog-cancel-btn">取消</button>
+
+</div>
+

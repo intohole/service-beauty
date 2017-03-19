@@ -1,0 +1,6 @@
+/** select_single_row */
+table.dataTable tbody tr.selected {
+	background-color: #c5c2c6;
+}
+/** select_single_row */
+

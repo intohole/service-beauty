@@ -1,0 +1,266 @@
+
+
+<style>
+    @media screen and (min-width: 768px) {
+        .modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+        }
+    }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+</style>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+<link href="/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+<!-- END GLOBAL MANDATORY STYLES -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+
+<link rel="stylesheet" type="text/css" href="/css/select2_metro.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/chosen.css" />
+
+<link rel="stylesheet" href="/css/DT_bootstrap.css" />
+
+<!-- 自定义样式 -->
+<link rel="stylesheet" type="text/css" href="/css/mine.css" />
+
+<!-- END PAGE LEVEL STYLES -->
+
+<link rel="shortcut icon" href="/image/favicon.ico" />
+
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+    
+    <?php new Ui_Common_Navi(); ?>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row-fluid">
+        <?php new Ui_Common_Sidebar(); ?>
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <!-- END BEGIN STYLE CUSTOMIZER -->
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title">
+                        <small>合同模板</small>
+                    </h3>
+                    <ul class="breadcrumb">
+                        <?php echo Utils_View::breadcrumb([]); ?>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="portlet box light-grey">
+                            <div class="portlet-body">
+                                <div class="clearfix">
+                                    
+                                    <input type="hidden" id="app_id" name="app_id" value="<?php echo $app_id;?>">
+                                    <input type="hidden" id="is_batch" name="is_batch" value="1" >
+                                    
+                                    <?php if(!empty($cons)): ?>
+                                        <?php $ecnt=1; ?>
+
+                                        <?php foreach ($cons as $key => $val):?>
+                                        <textarea id="editor_<?php echo $ecnt;?>" type="text/plain"  name="myContent_<?php echo $ecnt;?>" style="width:1024px;height:500px;">
+                                            <!-- 循环输出每份合同内容 -->
+                                              
+                                                <?php echo $val; ?> 
+                                                <p style="page-break-after: always; "></p>
+                                                <?php $ecnt++; ?>           
+                                        </textarea>
+                                            <?php endforeach;?>
+
+                                         <textarea id="editor_<?php echo $ecnt;?>" type="text/plain"  name="myContent_<?php echo $ecnt;?>" style="width:1024px;height:500px;">
+                                            <!-- 最后打印出还款日期表,不论哪个订单最后会打印这个 -->   
+                                            <h2 style="width:1024px;margin:0 auto;text-align: center">还款时间表</h2>
+                                            <section style="width:1024px;margin:0 auto;">
+                                                <ul style="list-style:none;border:0;margin:0;padding:0;">
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>租赁合同号: </span><span ><?php echo $payInfo['no']; ?></span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>租赁类型: </span><span >以租代购</span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:280px;"><span>单位: </span><span ><?php echo $payInfo['company']; ?></span></li>           
+                                                </ul>
+                                                <ul style="list-style:none;border:0;margin:0;padding:0;">
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span class=''>客户姓名: </span><span ><?php echo $payInfo['name']; ?></span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>证件号: </span><span ><?php echo $payInfo['idcard']; ?></span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:280px;"><span>还款账户: &nbsp;</span><span ><?php echo $payInfo['cardno']; ?></span></li>        
+                                                </ul>
+                                                <ul style="list-style:none;border:0;margin:0;padding:0;">
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>币种: </span><span >人民币</span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span class=''>租赁金额: </span><span ><?php echo ($payInfo['loan']*10000); ?></span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:280px;"><span>执行月利率（%）:</span><span ><?php echo $payInfo['rate']; ?>%</span></li>           
+                                                </ul>
+                                                <ul style="list-style:none;border:0;margin:0;padding:0;">
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>租赁期限: &nbsp;</span><span ><?php echo $payInfo['deadline']; ?></span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>还款方式: </span><span >转账</span></li>
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:280px;"><span>月租金: </span><span ><?php echo $payInfo['per_account']; ?></span></li>
+                                                </ul>
+                                                <ul style="list-style:none;border:0;margin:0;padding:0;">
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>起租日: </span><span ><?php echo $payInfo['sign_date']; ?></span></li>            
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:370px;"><span>首期付款日: </span><span ><?php echo $payInfo['sign_date']; ?></span></li>   
+                                                    <li style="display: list-item;border: 0;margin: 0;padding: 0;float:left;padding-top:5px;padding-bottom:5px;width:280px;"><span>&nbsp;</span><span ></span></li>
+                                                </ul>
+
+                                                <table class=taa style="border-collapse: collapse;border-spacing: 0;border: 0;margin: 0;padding: 0;">
+                                                    <thead style="border: 0;margin: 0;padding: 0;display: table-header-group;vertical-align: middle;border-color: inherit;">
+                                                        <tr style="border: 0;margin: 0;padding: 0;display: table-row;vertical-align: inherit;border-color: inherit;">
+                                                            <th style="font-weight: normal;vertical-align: top;text-align: left;margin: 0;display: table-cell;border:1px solid #000;text-align: center;width:146px;padding:2px;">期限</th>
+                                                            <th style="font-weight: normal;vertical-align: top;text-align: left;margin: 0;display: table-cell;border:1px solid #000;text-align: center;width:146px;padding:2px;">付款日期</th>
+                                                            <th style="font-weight: normal;vertical-align: top;text-align: left;margin: 0;display: table-cell;border:1px solid #000;text-align: center;width:146px;padding:2px;">还款金额</th>
+                                                            <th style="font-weight: normal;vertical-align: top;text-align: left;margin: 0;display: table-cell;border:1px solid #000;text-align: center;width:146px;padding:2px;">还款本金</th>
+                                                            <th style="font-weight: normal;vertical-align: top;text-align: left;margin: 0;display: table-cell;border:1px solid #000;text-align: center;width:146px;padding:2px;">还款利息</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="border: 0;margin: 0;padding: 0;display: table-row-group;vertical-align: middle;">
+                                                        <?php if(!empty($payDates) && !empty($payInfo)): $i=0; foreach($payDates as $row): $i++; ?>
+                                                        <tr style="border: 0;margin: 0;padding: 0;display: table-row;vertical-align: inherit;border-color: inherit;">
+                                                            <td style="font-weight: normal;margin: 0;text-align: center;padding:2px;width:146px;height:auto;word-break:break-all;vertical-align:middle;border:1px solid #000;"><?php echo $i; ?></td>
+                                                            <?php if($i==1):?>
+                                                                <td style="font-weight: normal;margin: 0;text-align: center;padding:2px;width:146px;height:auto;word-break:break-all;vertical-align:middle;border:1px solid #000;"><?php echo $payInfo['sign_date']; ?></td>
+                                                            <?php else:?>
+                                                                <td style="font-weight: normal;margin: 0;text-align: center;padding:2px;width:146px;height:auto;word-break:break-all;vertical-align:middle;border:1px solid #000;"><?php echo $row['pay_day']; ?></td>                    
+                                                            <?php endif; ?>
+                                                            <td style="font-weight: normal;margin: 0;text-align: center;padding:2px;width:146px;height:auto;word-break:break-all;vertical-align:middle;border:1px solid #000;"><?php echo $row['pay_account']; ?></td>
+                                                            <td style="font-weight: normal;margin: 0;text-align: center;padding:2px;width:146px;height:auto;word-break:break-all;vertical-align:middle;border:1px solid #000;"><?php echo $row['pay_money']; ?></td>
+                                                            <td style="font-weight: normal;margin: 0;text-align: center;padding:2px;width:146px;height:auto;word-break:break-all;vertical-align:middle;border:1px solid #000;"><?php echo $row['pay_rate']; ?></td>                   
+                                                        </tr>
+                                                        <?php endforeach; endif;?>
+                                                    </tbody>
+                                                </table>
+                                                <div style="float:left;margin-top:10px;width:700px;">
+                                                        <p>出租人（盖章）</p>
+                                                        <p>日期</p>
+                                                </div>
+                                                <div style="float:left;margin-top:10px;">
+                                                        <p>承租人（签字或盖章）</p>
+                                                        <p>日期</p>
+                                                </div>
+                                            </section>
+                                        </textarea>
+
+                                    <?php else: ?>
+                                        <div>无可以打印的合同!</div>
+                                    <?php endif; ?>
+                                                                  
+                                </div>
+                            </div>                          
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT-->
+                </div>
+                <!-- END PAGE CONTAINER-->
+            </div>
+            <!-- END PAGE -->
+        </div>
+        <!-- END CONTAINER -->
+
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <div class="footer-inner">
+                2013 &copy; Metronic by keenthemes.
+            </div>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="icon-angle-up"></i>
+                </span>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+
+        
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+        <script src="/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+        <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+        <script src="/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+        <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="/js/jquery.blockui.min.js" type="text/javascript"></script>  
+        <script src="/js/jquery.cookie.min.js" type="text/javascript"></script>
+        <script src="/js/jquery.uniform.min.js" type="text/javascript" ></script>
+        <script type="text/javascript" src="/js/select2.min.js"></script>
+
+
+        <!-- 富文本编译器的JS 开始 -->
+        <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"></script>
+        <!-- 富文本编译器的JS 结束 -->
+        
+        
+        <!-- 本方法的JS -->
+<!--        <script src="/script/contract_make.js"></script>-->
+        <script src="/script/jquery-messager.js"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                //App.init();
+                //TableManaged.init();
+            });
+        </script>
+
+    </body>
+
+<!-- END BODY -->
+</html>
+
+<!-- 实例富文本编辑器 -->
+<script>
+    var editors = [];
+
+    $(document).ready(function(){
+    	<?php for ($j=1; $j<=$ecnt; $j++):?>
+        var editor_<?php echo $j;?> = new baidu.editor.ui.Editor(); 
+        editor_<?php echo $j;?>.render("editor_<?php echo $j;?>");
+        editors.push(editor_<?php echo $j;?>)
+        <?php endfor;?>
+
+    })
+    
+	function myprint() {
+    		var html = '';
+    		for (var i in editors) {
+    			var editor = editors[i]
+    			html += editor.getContent()
+    		}
+    		var content = "<html>"+html+"</html>"
+    		var iframe = window.document.createElement('iframe'); 
+    		iframe.id = "iframe_print"
+    		iframe.name = "iframe_print"
+    		iframe.src="about:blank";
+    		iframe.style="display:none"
+    		document.body.appendChild(iframe);
+    		iframe.contentWindow.document.open();
+    		iframe.contentWindow.document.write(content);
+    		iframe.contentWindow.document.close();
+    		iframe.contentWindow.print()
+        }
+    
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>基本信息</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+<link rel="stylesheet" type="text/css" href="/css/mobiscroll.custom-2.17.0.min.css">
+</head>
+<body>
+<script type="text/javascript" src="/js/rem.js"></script>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal">业务类型</label>
+        <div class="select-box">
+            <select class="select" name="career">
+                <option selected value="二手车以租代购">二手车以租代购</option>
+<!--                <option value="车辆质押">车辆质押</option>
+                <option value="车辆抵押">车辆抵押</option>-->
+            </select>
+        </div>
+    </li>
+</ul>
+<div class="extra-text">客户信息</div>
+<div class="business-add" id="kehuinfo"><a class="business-add-link" data-flag="1" href="javascript:;">添加客户信息</a></div>
+<div class="extra-text">车辆信息</div>
+<div class="business-add" id="carinfo" style="margin-bottom:10px;"><a class="business-add-link" data-flag="2" href="javascript:;">添加车辆信息</a></div>
+<div class="dpn" id="bus-add-input">
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款额度(万元)</label>
+        <input class="input-normal" type="text" maxlength="10" placeholder="请输入贷款额度" name="amount">
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款利率(%)</label>
+        <input class="input-normal" type="text" maxlength="10" placeholder="请输入贷款利率" name="rate">
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款期限(月)</label>
+        <div class="select-box">
+            <select class="select" id="loanaddTime" name="qixian">
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="18">18</option>
+                <option selected value="24">24</option>
+                <option value="36">36</option>
+            </select>
+        </div>
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">分配评估师</label>
+        <div class="select-box">
+            <select class="select" id="loanaddAppraiser" name="pinggushi">
+                <?php if($appraiser):?>
+                    <option selected value="<?php echo $appraiser['id'];?>"><?php echo $appraiser['realname'];?></option>
+                <?php else:?>
+                    <option selected value="0">请选择评估师</option>
+                    <?php foreach($appraisers as $v):?>
+                        <option value="<?php echo $v['id'];?>"><?php echo $v['realname'];?></option>
+                    <?php endforeach;?>
+                <?php endif;?>
+            </select>
+        </div>
+    </li>
+</ul>
+<div class="extra-text" style="margin-top:-.5rem">业务意见</div>
+<textarea class="textarea" name="" placeholder="请在这里输入业务意见"></textarea>
+</div>
+<div class="wrapper">
+    <a class="btn btn-block btn-blue" id="addsub" href="javascript:;">确认并提交</a>
+</div>
+
+<div class="business-add-box dpn" id="businessBox">
+    <div class="business-add-list" id="listBox"></div>
+    <div class="wrapper" id="wrap-more">
+        <a class="btn-more" href="javascript:;">点击获取更多</a>
+    </div>
+    <div class="fixed-add-fill" style="height: 3.3rem"></div>
+    <div class="fixed-add-business">
+        <div class="wrapper wrapper-doublebtn clearfix">
+            <a class="btn btn-block btn-default" id="cancelCheck" href="javascript:;" id="btn-cancel">取消</a>
+            <a class="btn btn-block btn-blue" id="trueCheck" href="javascript:;" id="btn-submit">确定</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/mobiscroll.custom-2.17.0.min.js"></script>
+<script type="text/javascript" src="/js/chedai/loanadd.js"></script>
+</body>
+</html>

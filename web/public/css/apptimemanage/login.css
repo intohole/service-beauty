@@ -1,0 +1,233 @@
+body{
+    background-color: #F0F2F5;
+}
+.bg-color{
+    width:15rem;
+    height:11.65rem;
+    margin:5rem auto;
+    background-color: #C5E0F7;
+    border-radius:5px;
+    text-align:center;
+    position:relative;
+}
+.border{
+    border:.25rem solid #C5E0F7;
+    width:5rem;
+    height:4.9rem;
+    border-radius: 50%;
+    position:absolute;
+    top:-25%;
+    background-color: #fff;
+    margin-left:5rem;
+}
+.border i{
+    display:inline-block;
+    width: 2.25rem;
+    height: 2.75rem;
+    background:url("/image/apptimemanage/logo.png") no-repeat center center;
+    background-size: 100%;
+    margin-top:0.875rem;
+}
+.bg-color input{
+    box-sizing: border-box;
+    width: 14rem;
+    height: 2.25rem;
+    padding-left: .5rem;
+    border: 1px solid #ccc;
+    font-size: .6rem;
+    outline: none;
+}
+ul{
+    padding-top:3rem;
+}
+ul li:first-child input{
+    border-radius:.3rem .3rem 0 0;
+    border-bottom: none;
+}
+ul li:last-child input{
+    border-radius:0 0 .3rem .3rem;
+    border-top:1px solid #e8e8e8;
+    margin-top:-1px;
+}
+.wrapper {
+    position: relative;
+    padding: .5rem;
+}
+.btn-blue {
+    border: 1px solid #2583e3;
+    background: #2583e3;
+}
+.btn-block {
+    display: block;
+}
+.btn {
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    display: inline-block;
+    border-radius: .25rem;
+    line-height: 2.2rem;
+    text-align: center;
+    font-size: .9rem;
+    color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+a {
+    text-decoration: none;
+    color: #2583e3;
+    width:14rem;
+}
+a, button, input {
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+}
+.in-line {
+    position: absolute;
+    bottom: 1rem;
+    margin: 0 auto;
+    width: 100%;
+    font-size: .55rem;
+    color: #999;
+}
+.in-line>p {
+    text-align: center;
+}
+.in-line a {
+    font-size: .55rem;
+    color: #999;
+}
+
+.pop-wrap{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 102;
+    width: 80%;
+    margin-left: -40%;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+}
+.pop-wrap .pop-content{
+    margin: 20px 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+.pop-wrap .pop-content .pop-title{
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.pop-wrap .pop-content .pop-describe{
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+.pop-wrap .pop-content .pop-describe b{
+    color: #f90;
+}
+.pop-wrap .pop-button-box{
+    overflow: hidden;
+}
+.pop-wrap .pop-button-box .pop-button{
+    float: left;
+    margin: 10px 0;
+    font-size: 17px;
+    color: #2583e3;
+}
+.pop-wrap .pop-button-box .pop-button-single{
+    width: 100%;
+}
+.pop-wrap .pop-button-box .pop-button-double{
+    width: 50%;
+    border-left: 1px solid #ccc;
+    margin-left: -1px;
+}
+
+.pop-wrap-error{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    z-index: 102;
+    height: 12px;
+    line-height: 12px;
+    padding: 20px 15px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    white-space:nowrap;
+    text-align: center;
+    display: none;
+}
+
+.pop-loading{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    padding: 30px 40px;
+    color: #fff;
+    z-index: 99;
+    text-align: center;
+    background: rgba(0,0,0,.8);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.pop-loading p{
+    line-height: 30px;
+    height: 30px;
+}
+.pop-loading .pop-loading-effect{
+    width: 90px;
+    margin: 0 auto;
+}
+.pop-loading .pop-loading-effect > i {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.pop-loading .pop-loading-effect .bounce1 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+.pop-loading .pop-loading-effect .bounce2 {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.pop-loading .pop-loading-effect .bounce3 {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+.pop-loading .pop-loading-effect .bounce4 {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+.pop-loading .pop-loading-effect .bounce5 {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+.pop-loading .pop-loading-effect .bounce6 {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 40% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}

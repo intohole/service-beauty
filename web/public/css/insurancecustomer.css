@@ -1,0 +1,124 @@
+body{
+  font-family: "微软雅黑";
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+/*header>img{
+    display: inline-block;
+    width:60px;
+    height:60px;
+    position: absolute;
+    left: 270px;
+}*/
+#header{
+  position:relative;
+}
+header>i{
+    display: inline-block;
+    background: url(/image/insurance/image003.png) no-repeat center center;
+    width:60px;
+    height:60px;
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    background-size: 60px 60px;
+}
+.content{
+  width:750px;
+  margin:0 auto;
+}
+.head{
+  text-align: center;
+}
+.bg{
+  background-color: #999;
+}
+.hd{
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size:14px;
+  border:1px solid #333;
+  border-top:none;
+  border-bottom:none;
+  box-sizing: border-box;
+}
+.details{
+  padding-bottom:10px;
+  padding-top:10px;
+  font-size: 15px;
+  text-align: justify;
+  border:1px solid #333;
+  box-sizing: border-box;
+}
+table{
+  border-collapse: collapse;
+}
+table td{
+  box-sizing: border-box;
+  border:1px solid #333;
+  text-align: center;
+  font-size: 13px;
+}
+input{
+  border:none;
+  width:80%;
+  text-align: center;
+}
+.noborder td{
+  border-top:none;
+}
+.special{
+  height:100px;
+  border:1px solid #333;
+  box-sizing: border-box;
+}
+.specalspan{
+  display: inline-block;
+  width:280px;
+}
+.special p{
+  margin-top:8px;
+}
+.appointment{
+  height:140px;
+}
+.appointment p{
+  font-size:14px;
+  font-weight: 600;
+}
+.date{
+  display: inline-block;
+  width:450px;
+  text-align: right;
+}
+.suggest{
+  height:340px;
+}
+.suggest p{
+  margin:0;
+  padding-top:10px;
+}
+.suggest div{
+  float:left;
+  height:100%;
+  width:50%;
+  box-sizing: border-box;
+  border-right:1px solid #333;
+}
+.suggest .date{
+  width:300px;
+  text-align: right;
+}
+.foot{
+  margin-top:20px;
+}
+.date3{
+  display: inline-block;
+  width:600px;
+  text-align: right;
+}
+.teshu{
+  height:220px;
+}

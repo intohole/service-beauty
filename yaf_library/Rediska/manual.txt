@@ -1,0 +1,1 @@
+SEE: http://rediska.geometria-lab.net/documentation/integration-with-frameworks/zend-framework/

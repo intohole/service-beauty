@@ -1,0 +1,201 @@
+.five_activity{
+	/*width:16rem;
+	height:25.2rem;*/
+	background:url("/image/activity/five/five_bg.gif") no-repeat #2e3553;
+	background-size: 16rem 25.2rem;
+	color:#fff;
+	position: relative;
+}
+.five_bg_small{
+	width:11.625rem;
+	height:1.3rem;
+	position: absolute;
+	top:3.15rem;
+	left:1.5rem;
+	background:url("/image/activity/five/five_all.png") no-repeat -8.5rem 0;
+	background-size: 11.625rem 23.25rem;
+}
+.four_head_bg{
+	width:11.625rem;
+	height:5.2rem;
+	margin:0 auto;
+	background:url("/image/activity/five/five_all.png") no-repeat 0 -5.825rem;
+	background-size: 11.625rem 23.25rem;
+	z-index: 10;
+}
+.four_head_bg2{
+	width:11.625rem;
+	height:2.5rem;
+	position: absolute;
+	top:5.175rem;
+	left:2.1825rem;
+	background:url("/image/activity/five/five_all.png") no-repeat 0 -11rem;
+	background-size: 11.625rem 23.25rem;
+	z-index: -10;
+}
+.four_head_ma{
+	width:6.85rem;
+	height:1.45rem;
+	background:url("/image/activity/five/five_all.png") no-repeat;
+	background-size: 11.625rem 23.25rem;
+	position: absolute;
+	top:1.3rem;
+	left:4.65rem;
+	animation: pulse .5s linear .2s both;
+    -webkit-animation: pulse .5s linear .2s both;
+    z-index: 30;
+}
+.four_head_cont{
+	width:10rem;
+	height:2.8rem;
+	background:url("/image/activity/five/five_all.png") no-repeat 0 -2.55rem;
+	background-size: 11.625rem 23.25rem;
+	position: absolute;
+	top:5.2rem;
+	left:3rem;
+	animation: money_font_bt 1s linear .5s both;
+    -webkit-animation: money_font_bt 1s linear .5s both;
+    z-index: -1;
+}
+.four_head_floor{
+	position: absolute;
+	top:2.85rem;
+	left:5rem;
+	font-size: .6rem;
+	color:#333;
+	animation: pulse .5s linear .7s both;
+    -webkit-animation: pulse .5s linear .7s both;
+    z-index: 30;
+
+}
+.active_floor{
+	position: absolute;
+	top:9rem;
+	left:.45rem;
+	width:6rem;
+	height:1.3rem;
+	background:url("/image/activity/five/five_all.png") no-repeat 0 -21.7rem;
+	background-size: 11.625rem 23.25rem;
+	font-size: .55rem;
+	color:#000;
+	text-align: center;
+	line-height: 1.3rem;
+	animation: fadeInLeft .5s linear 1.2s both;
+    -webkit-animation: fadeInLeft .5s linear 1.2s both;
+}
+.active_floor_head>i{
+	display: block;
+	position: absolute;
+	top:10.8rem;
+	left:1rem;
+	width:2rem;
+	height:1.4rem;
+	background:url("/image/activity/five/five_all.png") no-repeat -.1rem -14rem;
+	background-size: 11.625rem 23.25rem;
+}
+.active_floor_one>.active_floor_head>i{
+	animation: fadeInRight .5s linear 1.5s both;
+    -webkit-animation: fadeInRight .5s linear 1.5s both;
+}
+.active_floor_one>.active_floor_head>h3{
+	animation: fadeInRight .5s linear 1.85s both;
+    -webkit-animation: fadeInRight .5s linear 1.85s both;
+}
+.active_floor_head>h3{
+	position: absolute;
+	top:11.1rem;
+	left:3.75rem;
+	font-size: .55rem;
+	color:#fff;
+	font-weight: normal;
+}
+.active_floor_two>.active_floor_head>i{
+	top:20.9rem;
+	background-position: -2.6rem -14rem;
+}
+.active_floor_two>.active_floor_head>h3{
+	top:21.3rem;
+}
+.active_floor_one_call>i,
+.active_floor_one_phto>i{
+	display: block;
+	position: absolute;
+	top:13rem;
+	left:2rem;
+	width:4.65rem;
+	height:4.75rem;
+	background:url("/image/activity/five/five_all.png") no-repeat 0 -15.85rem;
+	background-size: 11.625rem 23.25rem;
+}
+.active_floor_one_call>i{
+	animation: fadeInLeft .5s linear 2.1s both;
+    -webkit-animation: fadeInLeft .5s linear 2.1s both;
+}
+.active_floor_one_phto>i{
+	animation: fadeInLeft .5s linear 2.35s both;
+    -webkit-animation: fadeInLeft .5s linear 2.35s both;
+}
+.active_floor_one_call>span{
+	animation: fadeInLeft .5s linear 2.35s both;
+    -webkit-animation: fadeInLeft .5s linear 2.35s both;
+}
+.active_floor_one_phto>span{
+	animation: fadeInLeft .5s linear 2.5s both;
+    -webkit-animation: fadeInLeft .5s linear 2.5s both;
+}
+.active_floor_two>.active_floor_head>i{
+	animation: fadeInRight .5s linear 2.75s both;
+    -webkit-animation: fadeInRight .5s linear 2.75s both;
+}
+.active_floor_two>.active_floor_head>h3{
+	animation: fadeInRight .5s linear 3s both;
+    -webkit-animation: fadeInRight .5s linear 3s both;
+}
+
+.active_floor_one_call>span,
+.active_floor_one_phto>span{
+	font-size: .55rem;
+	color: #9cceff;
+	position: absolute;
+	top:18.35rem;
+	left:1.45rem;
+}
+.active_floor_one_phto>span{
+	left:9.15rem;
+}
+.active_floor_one_phto>i{
+	left:9.7rem;
+	background-position: -5.275rem -15.85rem;
+}
+.active_foot{
+	position: absolute;
+	top:24rem;
+	left:4.5rem;
+	font-size: .5rem;
+	color:#acaeb6;
+}
+
+@keyframes money_font_bt{
+	0% {
+	    opacity: 0;
+	    -webkit-transform: translate3d(0, -100%, 0);
+	    transform: translate3d(0, -100%, 0);
+	}
+	100% {
+	    opacity: 1;
+	    -webkit-transform: none;
+	    transform: none;
+	}
+}
+@-webkit-keyframes money_font_bt{
+	0% {
+	    opacity: 0;
+	    -webkit-transform: translate3d(0, -100%, 0);
+	    transform: translate3d(0, -100%, 0);
+	}
+	100% {
+	    opacity: 1;
+	    -webkit-transform: none;
+	    transform: none;
+	}
+}

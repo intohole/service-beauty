@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>业务选择</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body>
+<script type="text/javascript" src="/js/rem.js"></script>
+<div class="salesman-choose">
+    <a href="/chedai/salesman_before">
+        <i class="car"></i>
+        <strong>车辆业务</strong>
+    </a>
+    <a href="<?php echo ini_get('yaf.environ')=='test' ? 'http://fk.fangwudiya.com/credit/login' : 'http://fk.yianjinrong.com/credit/login';?>">
+        <?php /*?>
+        <i class="house"></i>
+        <?php */?>
+        <i class="credit"></i>
+        <strong>个人征信</strong>
+    </a>
+    <a href="javascript:;">
+        <i class="others"></i>
+        <strong>基金业务</strong>
+    </a>
+    <a href="javascript:;">
+        <i class="money"></i>
+        <strong>基金业务</strong>
+    </a>
+</div>
+<?php new Ui_Common_Chedai_Nav(1); ?>
+</body>
+</html>

@@ -1,0 +1,321 @@
+/*保单1*/
+
+.content{
+  width:1200px;
+  margin:0 auto;
+}
+.head div,.head p{
+        text-align: center;
+}
+.head p{
+  font-size: 15px
+}
+section{
+  margin-top:30px !important;
+}
+section>p{
+  font-size:18px;
+  text-align: center;
+}
+section>div{
+  border:1px double #333;
+  box-sizing:border-box;
+  padding: 1px;
+  border-bottom:none;
+}
+section>div>div{
+  border:1px double #333;
+  box-sizing:border-box;
+  padding: 5px;
+  border-bottom:none;
+}
+/*table*/
+table td{
+  box-sizing: border-box;
+  border:1px solid #333;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 13px;
+  padding:10px 5px;
+}
+.table1 .section1 td{
+  border-bottom:none;
+}
+.table1 .section1 td:nth-of-type(4){
+  width:50%;
+}
+.table1 .section1 td:nth-of-type(1),.section1 td:nth-of-type(2){
+  width:16.45%;
+}
+.table1 .section1 td:nth-of-type(2) input{
+  width:80%;
+  height:90%;
+  border:none;
+  outline: none;
+  text-align: center;
+  /*background-color: #FAFAFA;*/
+  font-size: 14px;
+}
+/*    .section2 td{
+  height:200px;
+}*/
+.bg{
+  background-color: #888;
+}
+.table2 .section1 td:nth-of-type(1){
+  width:8%;
+}
+.table2 .section1 td:nth-of-type(2){
+  width:8.1%;
+}
+.table2 .section1 td:nth-of-type(3){
+  width:7.1%;
+}
+.table2 .section1 td:nth-of-type(3) input,.table2 .section1 td:nth-of-type(5) input{
+  width:90%;
+  border:none;
+  outline: none;
+  text-align: center;
+  /*background-color: #FAFAFA;*/
+  font-size: 14px;
+}
+.table2 .section1 td:nth-of-type(4){
+  width:9%;
+}
+.table2 .section3 td:nth-of-type(2) input,.table2 .section3 td:nth-of-type(4) input,.table2 .section3 td:nth-of-type(6) input,.table2 .section4 td:nth-of-type(2) input,.table2 .section4 td:nth-of-type(4) input,.table2 .section5 td:nth-of-type(2) input,.table2 .section6 td:nth-of-type(2) input{
+  width:90%;
+  border:none;
+  outline: none;
+  text-align: center;
+  /*background-color: #FAFAFA;*/
+  font-size: 14px;
+}
+.table2 .section6 td:nth-of-type(4) input,.table2 .section6 td:nth-of-type(6) input{
+  width:80%;
+  border:none;
+  outline: none;
+  text-align: center;
+  /*background-color: #FAFAFA;*/
+  font-size: 14px;
+}
+/*.table3 .section1 td:nth-of-type(5) input{
+  width:3%;
+}*/
+/*非table*/
+.box{
+  overflow: hidden;
+  box-sizing:border-box;
+}
+.lf{
+  float:left;
+  height:180px;
+  width:100px;
+  border:1px solid #333;
+  box-sizing:border-box;
+  padding: 5px;
+  text-align: center;
+  padding-top:80px;
+}
+.rt{
+  float:left;
+  width:1100px;
+  height:30px;
+  box-sizing:border-box;
+}
+.box div{
+  font-size: 13px;
+  box-sizing:border-box;
+}
+.box span{display: inline-block;box-sizing:border-box;text-align: center;line-height: 29px;}
+.wd50{width:50px;}
+.wd100{width:100px;}
+.wd150{width:150px;}
+.wd200{width:200px;}
+.wd300{width:300px;}
+.wd400{width:400px;}
+.wd500{width:500px;}
+.wd600{width:600px;}
+.wd700{width:700px;}
+.wd1100{width:1100px;}
+.input100{width:90%;height:80%;text-align: center;border:none;outline: none;}
+.input80{width:80%;text-align: center;border:none;outline: none;}
+.box span{
+  border-bottom:1px solid #333;
+  border-right: 1px solid #333;
+}
+.bordertop{
+  border-top:1px solid #333;
+}
+.border-special span{
+  border-top:1px solid #333;
+}
+.divborder{
+  height:10px;
+  border-left:1px solid #333;border-right:1px solid #333;
+  width:1200px;
+  margin:0 auto;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+/*保单2*/
+    body{
+  height: auto;
+  padding-bottom:30px;
+}
+.content{
+  width:1200px;
+  margin:0 auto;
+  overflow: hidden;
+}
+.bg{
+  background-color: #888;
+}
+/*非table*/
+.box{
+  overflow: hidden;
+  box-sizing:border-box;
+}
+.lf{
+  float:left;
+  height:149px;
+  width:100px;
+  border:1px solid #333;
+  box-sizing:border-box;
+  padding: 5px;
+  text-align: center;
+}
+.rt{
+  float:left;
+  width:1100px;
+  height:30px;
+  box-sizing:border-box;
+}
+.box div{
+  font-size: 13px;
+  box-sizing:border-box;
+}
+.box span{display: inline-block;box-sizing:border-box;text-align: center;;line-height: 28px;}
+.wd50{width:50px;}
+.wd100{width:100px;}
+.wd150{width:150px;}
+.wd200{width:200px;}
+.wd300{width:300px;}
+.wd400{width:400px;}
+.wd500{width:500px;}
+.wd600{width:600px;}
+.wd700{width:700px;}
+.wd950{width:950px;}
+.wd1000{width:1000px;}
+.wd1100{width:1100px;}
+.input100{width:90%;height:80%;text-align: center;border:none;outline: none;}
+.input80{width:80%;text-align: center;border:none;outline: none;}
+
+.special input{width:60px;text-align: center;border:none;outline: none;}
+.box span{
+  border-bottom:1px solid #333;
+  border-right: 1px solid #333;
+}
+.bordertop{
+  border-top:1px solid #333;
+}
+ul.ul>li{
+  width:100px;
+  height:160px;
+  float:left;
+  border:1px solid #333;
+  font-size: 14px;
+  box-sizing:border-box;
+  padding:5px;
+  padding-top:20px;
+}
+.btm,.btm2{
+  width:500px;
+  height:440px;
+  padding:5px;
+  padding-top:20px;
+  font-size:14px;
+  box-sizing: border-box;
+  border:1px solid #333;
+  float:left;
+}
+.btm{
+  border-top:none;
+}
+.btm2{
+  width:700px;
+  border-top:none;
+  border-left:none;
+}
+b{
+  font-weight: 600;
+}
+.btm3,.btm4{
+  width:650px;
+  height:170px;
+  padding:5px;
+  padding-top:20px;
+  font-size:14px;
+  box-sizing: border-box;
+  border:1px solid #333;
+  float:left;
+  border-top:none;
+}
+.btm4{
+  width:550px;
+  border-left:none;
+}
+.btm3 p{
+  text-align: right
+}
+.btm3 input,.btm4 input{
+  width:80px;text-align: center;border:none;outline: none;
+}
+.btm5,.btm6{
+  width:200px;
+  height:30px;
+  padding:5px;
+  font-size:14px;
+  box-sizing: border-box;
+  border:1px solid #333;
+  float:left;
+  text-align: center;
+}
+.btm6{
+  width:1000px;
+}
+.divborder{
+  height:10px;
+  border-left:1px solid #333;border-right:1px solid #333;
+  width:1200px;
+  margin:0 auto;
+  box-sizing: border-box;
+}
+.width29{
+  height:30px;
+  border-top:none;
+}
+
+input:focus{
+  outline: none;
+}
+input[type=radio]:checked::after {
+  outline: none;
+  border: none;
+  content: url(https://dn-ybk-static.qbox.me/img/pc/ico-radio.png?v=20141022);
+}
+input:focus{
+  outline: none;
+}
+input[type=checkbox]:checked::after {
+  outline: none;
+  border: none;
+  content: url(https://dn-ybk-static.qbox.me/img/pc/ico-checkbox.png);
+}

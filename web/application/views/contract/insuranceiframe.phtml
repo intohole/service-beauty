@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/insurance_reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/insurance_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/insurance_index2.css">
+    <style>
+        label{
+            display: inline;
+            font-size: 13px;
+        }
+       /* #header2 input{
+            padding:0;
+            border:none;
+            outline: none;
+            height:25px;
+            margin:0;
+            background-color: #fff;
+            box-shadow: none;
+        }
+        #header2 label span{
+            border:none;
+        }
+        .btm3 input, .btm4 input {
+            background-color: #888 !important;
+        }*/
+        .section100 input{
+            width:50px !important;
+            border:none;
+            text-align: center;
+        }
+        .wdbg{
+            width:80px !important;
+            background-color: #888;
+        }
+        .wdbg2{
+            width:150px !important;
+            background-color: #888;
+        }
+        .wdbg3{
+            width:100px !important;
+            background-color: #888;
+        }
+        .widt50{
+            width:50px !important;
+        }
+        table{
+            margin-bottom:5px !important;
+        }
+        .table1{
+            margin-bottom:0 !important;
+        }
+        #header{
+            margin-top:20px;
+        }
+        .input50{
+            width:50px !important;
+            border:none;
+        }
+        .btm3 input,.btm4 input{
+            background-color: #888 !important;
+        }
+        header>img{
+            display: inline-block;
+            width:60px;
+            height:60px;
+            position: absolute;
+            left: 270px;
+        }
+        th, td, caption {
+            vertical-align: middle;
+        }
+        table td {
+            padding: 9.5px 5px;
+        }
+        /*@media print{
+            .table5 {page-break-inside:avoid;}
+        }*/
+        .fenye1{
+            height:100px;
+        }
+        .fenye2{
+            height:100px;
+        }
+        .fenye3{
+            height:100px;
+        }
+        .bot2{
+            margin-bottom:60px;
+        }
+    </style>
+</head>
+<?php $i=1;?>
+<body class="page-header-fixed">
+<!-- <div align="center" ><button onclick="printDanbao()">打印</button></div> -->
+
+<!---------------------   投保单1    ------------------------>
+    <header id="header" class="head content" >
+        <img src="/image/insurance/image003.png" alt="">
+        <!-- <i></i> -->
+        <div>
+            <h1>长安责任保险股份有限责任公司</h1>
+            <p>CHANGAN PROPERTY & LIABILITY INSUNRANCE LTD.</p>
+        </div>
+    </header>
+    <section class="content">
+        <p>贷款履约保证保险投保单</p>
+        <div>
+            <div>
+                <p>投保须知</p>
+                <p>1.本投保单和《贷款履约保证保险条款》是保险合同的组成部分，请仔细阅读，尤其是关于免除保险人责任的条款，投保人及被保险人义务的规定。</p>
+                <p>2.请如实填写投保单，如果不履行如实告知义务，本公司有权依法解除保险合同并不承担保险责任，对已支付的赔款，本公司有权要求退还。</p>
+                <p>3.请按本保险合同的约定及时缴纳保险费。</p>
+            </div>
+        </div>
+    </section>
+<div class="bdr content">
+    <table class="content table1">
+        <caption></caption>
+        <thead>
+            <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="section1">
+                <td class="bg">申请贷款金额</td>
+                <td><input type="text" name="" value="<?php echo (int)$insurance['loan'];?>">元</td>
+                <td class="bg">申请贷款期限*</td>
+                <td><label><input type="radio" name="daikuan<?php echo $i;?>" value="">贷款期限 ≤ 6个月</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="daikuan<?php echo $i;?>" value="" checked="true">6个月<贷款期限 ≤ 12个月</label></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <table class="content table2">
+        <tbody>
+            <tr class="section1">
+                <td style="width:100px;text-align: center;" rowspan="6" class="bg">投保人基本信息</td>
+                <td class="bg">姓名</td>
+                <td><input type="text" value="<?php echo $app['name'];?>"></td>
+                <td class="bg">身份证号码</td>
+                <td colspan="2"><input type="text" name="" value="<?php echo $app['idcard'];?>"></td>
+                <td class="bg">性别</td>
+                <td><label><input type="radio" name="sex<?php echo $i;?>" value="" <?php if($app['gender']==1) echo "checked";?>>男</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="sex<?php echo $i;?>" value="" <?php if($app['gender']==0) echo "checked";?>>女</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="bg">学历</td>
+                <td colspan="4">
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="4" <?php if($app['edu']==4) echo "checked"?>>硕士及以上</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="3" <?php if($app['edu']==3) echo "checked"?>>本科</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="2" <?php if($app['edu']==2) echo "checked"?>>大专</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="1" <?php if($app['edu']==1) echo "checked"?>>中专/技校/高中</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="0" <?php if($app['edu']==0) echo "checked"?>>高中以下</label>
+                </td>
+                <td class="bg">婚姻状况</td>
+                <td>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="0" <?php if($app['marriage']==0) echo "checked";?>>未婚</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="1" <?php if($app['marriage']==1) echo "checked";?>>已婚无子女</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="2" <?php if($app['marriage']==2) echo "checked";?>>已婚有子女</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="3" <?php if($app['marriage']==3) echo "checked";?>>其他(丧偶、离异等)</label>
+                </td>
+            </tr>
+            <tr class="section3">
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input type="text" name="" value="<?php echo $app['phone'];?>"></td>
+                <td class="bg">住宅电话</td>
+                <td><input type="text" name="" value=""></td>
+                <td class="bg">电子邮箱</td>
+                <td><input type="text" value="<?php echo $app['email'];?>"></td>
+            </tr>
+            <tr class="section4">
+                <td class="bg">住宅地址</td>
+                <td colspan="4"><input type="text" name="" value="<?php echo $app['temp_address'];?>"></td>
+                <td class="bg">邮政编码</td>
+                <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="bg" colspan="3">投保前三年有无信用卡逾期或银行贷款逾期</td>
+                <td colspan="4"><input type="text" name="" value=""></td>
+            </tr>
+            <tr class="section6">
+                <td class="bg" colspan="2">本址起始居住时间</td>
+                <td><input style="width:40px" type="text" name="" value="">年<input style="width:30px" type="text" name="" value="">月</td>
+                <td class="bg">投保人来投保城市年限</td>
+                <td><input type="text" name="" value="">年</td>
+                <td class="bg">供养亲属人数</td>
+                <td><input type="text" name="" value="">人</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table3">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="6" headers="">用款企业信息</td>
+                <td class="wdbg3">名称</td>
+                <td colspan="2"></td>
+                <td colspan="2" class="bg">投保前三年有无拖欠银行贷款情况</td>
+                <td><label><input type="radio" name="has<?php echo $i;?>" value="">有</label><label><input type="radio" name="has<?php echo $i;?>" value="">无</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">组织机构代码</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">投保经营时间</td>
+                <td colspan="2">自<input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月--<input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月 共<input class="input50" type="text" name="" value="">年</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">固定详细生产/经营地址</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">生产/经营地址电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">企业类型</td>
+                <td colspan="3"><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">集体</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">民营</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">私营</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">个体</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">其他</label></td>
+                <td class="bg">所属行业</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">注册资本</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">贷款用途</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">法定代表人</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section6">
+                <td class="wdbg3">用工人数</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">上年销售额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">法定代表人身份证号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="5" headers="">投保人房产/资产信息</td>
+                <td class="wdbg3">房产类别</td>
+                <td colspan="6"><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">商业按揭贷款</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">无按揭购房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">公积金按揭购房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">自建房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">租用</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">暂住</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">亲属住房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">单位住房</label></td>
+                <td class="bg" colspan="2">每月房租/按揭还款金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">购买时间</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月</td>
+                <td class="bg" colspan="3">购买价格</td>
+                <td><input class="input50" type="text" name="" value="">元</td>
+                <td class="bg">建筑面积</td>
+                <td  colspan="2"><input class="input50" type="text" name="" value="">m<sup>2</sup></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">房产地址</td>
+                <td><label><input type="radio" name="fangchandizhi" value="">同住宅地址</label></td>
+                <td colspan="6"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">邮政编码</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">是否有私家车</td>
+                <td><label><input type="radio" name="sijiache<?php echo $i;?>" value="">有</label><label><input type="radio" name="sijiache<?php echo $i;?>" value="">无</label></td>
+                <td class="bg" colspan="2">是否有社保/公积金</td>
+                <td><label><input type="radio" name="gongjijin<?php echo $i;?>" value="">有</label><input type="radio" name="gongjijin<?php echo $i;?>" value="">无</label></td>
+                <td class="bg" colspan="2">在银行开立存款账户(多选)</td>
+                <td colspan="3"><label><input type="checkbox" name="cunkuanzhanghu" value="">活期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">定期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">信用卡</label><label><input type="checkbox" name="cunkuanzhanghu" value="">其他</label></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">银行总资产</td>
+                <td colspan="3"><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5000元以下</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5000-1万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">1万-3万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">3万-5万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5万-10万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">10万-20万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">20万以上</label></td>
+                <td class="bg" colspan="3">投资账户余额(股票、基金等)</td>
+                <td colspan="3"><label><input type="radio" name="bankyue<?php echo $i;?>" value="">0</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5000元以下</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5000-1万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">1万-3万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">3万-5万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5万-10万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">10万-20万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">20万以上</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="8" headers="">投保人职业信息</td>
+                <td class="wdbg3">工作单位</td>
+                <td colspan="4"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">单位性质</td>
+                <td colspan="4"><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">机关事业</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">国有股份</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">外资</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">合资</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">私营</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">个体</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">社会团体及其他</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">所属行业</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">任职部门</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">单位/职务</td>
+                <td colspan="4"><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">高管人员</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">中层管理</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">基层管理</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">员工</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">销售/中介/业务代表</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">营业员/职务员</label></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">单位地址</td>
+                <td colspan="6"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">邮政编码</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">单位电话</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">区号</td>
+                <td>分机</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">本单位工作起始时间</td>
+                <td colspan="4"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月<input class="input50" type="text" name="" value="">日</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">每月基本薪金</td>
+                <td><input style="width:30px;border:none" type="text">元(税后)</td>
+                <td class="bg">其他收入</td>
+                <td colspan="2">月均约<input class="input50" type="text">元</td>
+                <td class="bg">每月总收入</td>
+                <td><input class="input50" type="text">元(税后)</td>
+                <td class="bg">每月支薪日</td>
+                <td colspan="2"><input class="input80" type="text">日</td>
+            </tr>
+            <tr class="section4">
+                <td colspan="10"><input style="text-align: left" class="input100" type="text" value="如申请人为私营业主请补充以下资料"></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">私营企业类型</td>
+                <td colspan="6"><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">个体</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营独资</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营合伙</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营有限责任公司</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营股份有限公司</label></td>
+                <td class="bg">成立时间</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月<input class="input50" type="text" name="" value="">日</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">股权占比</td>
+                <td><input class="input100" type="text" name="" value="">%</td>
+                <td class="bg">经营场所</td>
+                <td colspan="3"><label><input type="radio" name="jingyingchangsuo<?php echo $i;?>" value="">租用</label><label><input type="radio" name="jingyingchangsuo<?php echo $i;?>" value="">自有资产</label></td>
+                <td class="bg">员工人数</td>
+                <td colspan="3"><input class="input50" type="text" name="" value="">人</td>
+            </tr>
+        </tbody>   
+    </table>
+    <table>
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="7" headers="">联系人信息</td>
+                <td class="wdbg3">配偶</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">其他联系方式</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">父亲</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">目前工作单位或离退休单位</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">母亲</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">目前工作单位或离退休单位</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+           <tr class="section1">
+                <td class="wdbg3">直系亲属</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="fenye1"></p>
+    <table class="content table5">
+        <tbody>
+            <tr>
+                <td class="wdbg"></td>
+                <td class="wdbg3">家人是否知晓此贷款</td>
+                <td><label><input type="radio" name="shifouzhixiao" value="">是</label><label><input type="radio" name="shifouzhixiao" value="">否</label></td>
+                <td class="bg">邮寄地址</td>
+                <td colspan="5"><label><input checked="true" type="radio" name="youjidizhi<?php echo $i;?>" value="">单位地址</label><label><input type="radio" name="youjidizhi<?php echo $i;?>" value="">住宅地址【如未勾选，默认为单位地址】</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table6">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="5" headers="">贷款担保方式信息</td>
+                <td class="wdbg3">担保人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">担保合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">组织机构代码/身份证</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">许可/资质情况</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">抵押物名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">质押物名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">质押合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">抵(质)押授权人名称</td>
+                <td colspan="7"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">备注:</td>
+                <td colspan="7"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="section1">
+                <td style="padding-top:20px" class="wdbg" colspan="" rowspan="2" headers="">被保险人信息</td>
+                <td class="wdbg3">被保险人名称</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">借款合同编号</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">联系人</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">固定电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">详细地址</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">身份证号码</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款期间</td>
+                <td colspan="7" headers=""><input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">保险期间</td>
+                <td colspan="7" headers=""><input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">约定期限</td>
+                <td colspan="7" headers=""><input value="365" type="text"/>天</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款利息</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['rate_cp_1'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['rate1'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款本金</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['amount_cp_1'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['amount1'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">保险金额</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['baoxian_cp_1'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['baoxian1'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款利率</td>
+                <td colspan="7" headers=""><input style="width:100%;" class="input100" type="text" name="" value="<?php echo $insurance['show_rate'];?>">%</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">还本付息方式</td>
+                <td colspan="7" headers=""><input style="width:200px !important;text-align: center" type="text" name="" value="等本等息"></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">总保费</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:700px !important" value="<?php echo $insurance['total_cp_1'];?>" type="text"/>￥<input style="width:200px" value="<?php echo $insurance['total1'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">逾期罚息</td>
+                <td colspan="7" headers=""><input style="width:100%;" class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg3" colspan="6" headers="">请特别注意：本保险金额是否包含贷款本金、贷款利息、逾期罚息。未说明，本保险金额仅包含贷款本金</td>
+                <td colspan="3" headers=""><input style="width:100%;" class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">免赔率(额)</td>
+                <td colspan="7" headers=""><input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔率为损失的<input class="input100" type="text" name="" value="">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔额为（人民币）:<input class="input100" type="text" name="" value="">%</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table7" style="margin-bottom:0 !important;">
+        <tbody>
+            <tr>
+                <td style="width:180px !important" class="wdbg2" colspan="" rowspan="2" headers="">贷&nbsp;&nbsp;&nbsp;&nbsp;款<br/>用&nbsp;&nbsp;&nbsp;&nbsp;途</td>
+                <td style="width:700px !important;text-align: left" colspan="" rowspan="3" headers="">本人了解并声明：<br/>A、本人申请贷款用途为本人真实意愿表达；B贷款用途保证符合国家监管部门和贵公司的以下规定与要求：a).贷款资金不会以任何形式进入证券市场，或用于股本权益性投资；b).贷款资金不会不会用于国家明令禁止或限制的经营活动；c).贷款资金不会用于房地产项目开发；C、该笔贷款发放账户未开通第三方存管功能（即该结算账户为开通用于股票、基金、期权、期货等资金往来结算功能）<br/>其他请说明____________</td>
+                <td class="wdbg" colspan="" headers="">争<br/>议<br/>处<br/>理<br/>方<br/>式</td>
+                <td colspan="" rowspan="2" headers="" style="text-align: left !important;">因履行本保险合同发生的争议，由当事人协商解决，协商解决不曾的当事人可约定采取下列法师之一解决：<br/><br>
+            <input style="width:20px" type="checkbox" name="" value="">向被告住所地人民法院提起诉讼<br/><input style="width:20px" type="checkbox" name="" value="">___________仲裁委员会仲裁</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="content">
+        <div class="btm">
+            特别约定<br/>
+            1.请投保人/被保险人收到保单后，及时核对保单信息是否正确，所条款是否齐全，如有问题，请立即与本公司联系。同时仔细阅读条款，特别是条款中注明的责任免除及限制性条款等内容。<br/>
+            2.本保险适用《长安责任保险股份有限公司贷款履约保证保险条款（2014版）》。<br/>
+            3.当投保人拖欠任何一期的应偿而未偿还贷款本金或利息达到保险合同约定期限，保险人同意对实际被保险人的实际损失在保险金额的范围内进行全额赔付。<br/>
+            4.本保单一经发出未征得被保险人同意不得退保。<br/>
+        </div>
+        <div class="btm2">
+            <b>投保人承诺声明</b><br/>
+            本人作如下声明：<br/>
+            1.本申请表内所载一切资料均发属真实、正确及完整。<br/>
+            2.长安责任保险股份有限公司已向本人详细介绍其《贷款履约保证条款》，并对其中免除保险人责任的条款和关于投保人、被保险人义务的规定进行了明确说明。本人接受上述内容，自愿投保本保险。<br/>
+            3.本人已取得本投保单中联系人同意，提供他们之资料作为此项保险申请之用。<br/>
+            4.本人已清楚长安责任保险股份有限公司不会授权给任何人或单位收取保险合同约定之外的任何费用。<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>信息收集及使用授权</b><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;本人同意并授权长安责任保险股份有限公司（以下简称“贵公司”）可：<br/>
+            1.向任何征信机构、银行、财务机构或其他资料来源透露和交换本投保单内有关本人之一切资料，以为本人提供保险服务。<br/>
+            2.接触有关征集机构查阅本人食用信息及索取有关报告以作此项保险申请审查之用，包括但不限于本人其所向贵公司以电话、网上、传真或其他贵公司认可之什么再交申请保险或对贵公司已承担或理赔的保险进行之用。<br/>
+            3.有权批核或拒绝本人之保险申请而无须提出任何理由及无须退回有关申请文件之副本予本人。<br/>
+            4.收集本人的有关资料以作为本次保险申请之用。<br/>
+            5.本人同意提供给长安责任保险股份有限公司推诿上，及本人享受长安责任保险股份有限公司金融服务产生的信息（包括本单证签署之前提供和产生的），可用于长安责任保险股份有限公司及因服务必要而委托的第三方为本人提供服务及推荐产品，法律禁止的除外，长安责任保险股份有限公司及其委托的第三言对上述信息钢梁有保密义务。<br/><br/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>以上承诺、声明及授权自本投保单签署时生效，不受合同成产及效力状态变化的影响。</b>
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="btm3 bg">
+            投保人签署<br/>
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;本人具有完全民事行为能力签署本投保单并承担相应责任。本公司及授权代表人已阅读并完全同意遵守及履行本投保单所载之所有承诺、申明及条款。本人完全同意投保单中的所有授权，特此确认。</b><br/><br/><br/><br/>
+            <p>投保人签名<input type="text">日期：<input type="text">年 <input type="text" name="" value="">月<input type="text">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </div>
+        <div class="btm4 bg">
+            <br/><br/>
+            &nbsp;&nbsp;见证人签名：<br/><br/><br/>
+            &nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">年 <input type="text" name="" value="">月<input type="text">日
+        </div>
+    </div>
+</div>
+    <div class="divborder"></div>
+    <div class="content bot<?php echo $i;?>" style="margin-bottom:117px">
+        <div class="btm5">
+            获悉产品渠道:
+        </div>
+        <div class="btm6 bg">
+            <label><input type="radio" name="bankzichan<?php echo $i;?>" value="">朋友介绍</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">宣传单页</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">推广活动</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">外部媒体短信</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">网络</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">其他____________</label>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-------------------   第二份 ------------------>
+
+
+
+
+<?php $i=2;?>
+
+<?php if($cnt>1):?>
+<header id="header" class="head content" >
+        <img src="/image/insurance/image003.png" alt="">
+        <!-- <i></i> -->
+        <div>
+            <h1>长安责任保险股份有限责任公司</h1>
+            <p>CHANGAN PROPERTY & LIABILITY INSUNRANCE LTD.</p>
+        </div>
+    </header>
+    <section class="content">
+        <p>贷款履约保证保险投保单</p>
+        <div>
+            <div>
+                <p>投保须知</p>
+                <p>1.本投保单和《贷款履约保证保险条款》是保险合同的组成部分，请仔细阅读，尤其是关于免除保险人责任的条款，投保人及被保险人义务的规定。</p>
+                <p>2.请如实填写投保单，如果不履行如实告知义务，本公司有权依法解除保险合同并不承担保险责任，对已支付的赔款，本公司有权要求退还。</p>
+                <p>3.请按本保险合同的约定及时缴纳保险费。</p>
+            </div>
+        </div>
+    </section>
+<div class="bdr content">
+    <table class="content table1">
+        <caption></caption>
+        <thead>
+            <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="section1">
+                <td class="bg">申请贷款金额</td>
+                <td><input type="text" name="" value="<?php echo (int)$insurance['loan'];?>">元</td>
+                <td class="bg">申请贷款期限*</td>
+                <td><label><input type="radio" name="daikuan<?php echo $i;?>" value="">贷款期限 ≤ 6个月</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="daikuan<?php echo $i;?>" value="" checked="true">6个月<贷款期限 ≤ 12个月</label></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <table class="content table2">
+        <tbody>
+            <tr class="section1">
+                <td style="width:100px;text-align: center;" rowspan="6" class="bg">投保人基本信息</td>
+                <td class="bg">姓名</td>
+                <td><input type="text" value="<?php echo $app['name'];?>"></td>
+                <td class="bg">身份证号码</td>
+                <td colspan="2"><input type="text" name="" value="<?php echo $app['idcard'];?>"></td>
+                <td class="bg">性别</td>
+                <td><label><input type="radio" name="sex<?php echo $i;?>" value="" <?php if($app['gender']==1) echo "checked";?>>男</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="sex<?php echo $i;?>" value="" <?php if($app['gender']==0) echo "checked";?>>女</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="bg">学历</td>
+                <td colspan="4">
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="4" <?php if($app['edu']==4) echo "checked"?>>硕士及以上</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="3" <?php if($app['edu']==3) echo "checked"?>>本科</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="2" <?php if($app['edu']==2) echo "checked"?>>大专</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="1" <?php if($app['edu']==1) echo "checked"?>>中专/技校/高中</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="0" <?php if($app['edu']==0) echo "checked"?>>高中以下</label>
+                </td>
+                <td class="bg">婚姻状况</td>
+                <td>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="0" <?php if($app['marriage']==0) echo "checked";?>>未婚</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="1" <?php if($app['marriage']==1) echo "checked";?>>已婚无子女</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="2" <?php if($app['marriage']==2) echo "checked";?>>已婚有子女</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="3" <?php if($app['marriage']==3) echo "checked";?>>其他(丧偶、离异等)</label>
+                </td>
+            </tr>
+            <tr class="section3">
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input type="text" name="" value="<?php echo $app['phone'];?>"></td>
+                <td class="bg">住宅电话</td>
+                <td><input type="text" name="" value=""></td>
+                <td class="bg">电子邮箱</td>
+                <td><input type="text" value="<?php echo $app['email'];?>"></td>
+            </tr>
+            <tr class="section4">
+                <td class="bg">住宅地址</td>
+                <td colspan="4"><input type="text" name="" value="<?php echo $app['temp_address'];?>"></td>
+                <td class="bg">邮政编码</td>
+                <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="bg" colspan="3">投保前三年有无信用卡逾期或银行贷款逾期</td>
+                <td colspan="4"><input type="text" name="" value=""></td>
+            </tr>
+            <tr class="section6">
+                <td class="bg" colspan="2">本址起始居住时间</td>
+                <td><input style="width:40px" type="text" name="" value="">年<input style="width:30px" type="text" name="" value="">月</td>
+                <td class="bg">投保人来投保城市年限</td>
+                <td><input type="text" name="" value="">年</td>
+                <td class="bg">供养亲属人数</td>
+                <td><input type="text" name="" value="">人</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table3">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="6" headers="">用款企业信息</td>
+                <td class="wdbg3">名称</td>
+                <td colspan="2"></td>
+                <td colspan="2" class="bg">投保前三年有无拖欠银行贷款情况</td>
+                <td><label><input type="radio" name="has<?php echo $i;?>" value="">有</label><label><input type="radio" name="has<?php echo $i;?>" value="">无</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">组织机构代码</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">投保经营时间</td>
+                <td colspan="2">自<input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月--<input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月 共<input class="input50" type="text" name="" value="">年</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">固定详细生产/经营地址</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">生产/经营地址电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">企业类型</td>
+                <td colspan="3"><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">集体</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">民营</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">私营</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">个体</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">其他</label></td>
+                <td class="bg">所属行业</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">注册资本</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">贷款用途</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">法定代表人</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section6">
+                <td class="wdbg3">用工人数</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">上年销售额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">法定代表人身份证号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="5" headers="">投保人房产/资产信息</td>
+                <td class="wdbg3">房产类别</td>
+                <td colspan="6"><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">商业按揭贷款</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">无按揭购房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">公积金按揭购房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">自建房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">租用</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">暂住</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">亲属住房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">单位住房</label></td>
+                <td class="bg" colspan="2">每月房租/按揭还款金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">购买时间</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月</td>
+                <td class="bg" colspan="3">购买价格</td>
+                <td><input class="input50" type="text" name="" value="">元</td>
+                <td class="bg">建筑面积</td>
+                <td  colspan="2"><input class="input50" type="text" name="" value="">m<sup>2</sup></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">房产地址</td>
+                <td><label><input type="radio" name="fangchandizhi" value="">同住宅地址</label></td>
+                <td colspan="6"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">邮政编码</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">是否有私家车</td>
+                <td><label><input type="radio" name="sijiache<?php echo $i;?>" value="">有</label><label><input type="radio" name="sijiache<?php echo $i;?>" value="">无</label></td>
+                <td class="bg" colspan="2">是否有社保/公积金</td>
+                <td><label><input type="radio" name="gongjijin<?php echo $i;?>" value="">有</label><input type="radio" name="gongjijin<?php echo $i;?>" value="">无</label></td>
+                <td class="bg" colspan="2">在银行开立存款账户(多选)</td>
+                <td colspan="3"><label><input type="checkbox" name="cunkuanzhanghu" value="">活期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">定期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">信用卡</label><label><input type="checkbox" name="cunkuanzhanghu" value="">其他</label></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">银行总资产</td>
+                <td colspan="3"><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5000元以下</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5000-1万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">1万-3万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">3万-5万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5万-10万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">10万-20万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">20万以上</label></td>
+                <td class="bg" colspan="3">投资账户余额(股票、基金等)</td>
+                <td colspan="3"><label><input type="radio" name="bankyue<?php echo $i;?>" value="">0</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5000元以下</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5000-1万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">1万-3万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">3万-5万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5万-10万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">10万-20万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">20万以上</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="8" headers="">投保人职业信息</td>
+                <td class="wdbg3">工作单位</td>
+                <td colspan="4"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">单位性质</td>
+                <td colspan="4"><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">机关事业</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">国有股份</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">外资</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">合资</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">私营</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">个体</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">社会团体及其他</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">所属行业</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">任职部门</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">单位/职务</td>
+                <td colspan="4"><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">高管人员</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">中层管理</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">基层管理</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">员工</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">销售/中介/业务代表</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">营业员/职务员</label></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">单位地址</td>
+                <td colspan="6"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">邮政编码</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">单位电话</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">区号</td>
+                <td>分机</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">本单位工作起始时间</td>
+                <td colspan="4"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月<input class="input50" type="text" name="" value="">日</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">每月基本薪金</td>
+                <td><input style="width:30px;border:none" type="text">元(税后)</td>
+                <td class="bg">其他收入</td>
+                <td colspan="2">月均约<input class="input50" type="text">元</td>
+                <td class="bg">每月总收入</td>
+                <td><input class="input50" type="text">元(税后)</td>
+                <td class="bg">每月支薪日</td>
+                <td colspan="2"><input class="input80" type="text">日</td>
+            </tr>
+            <tr class="section4">
+                <td colspan="10"><input style="text-align: left" class="input100" type="text" value="如申请人为私营业主请补充以下资料"></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">私营企业类型</td>
+                <td colspan="6"><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">个体</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营独资</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营合伙</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营有限责任公司</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营股份有限公司</label></td>
+                <td class="bg">成立时间</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月<input class="input50" type="text" name="" value="">日</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">股权占比</td>
+                <td><input class="input100" type="text" name="" value="">%</td>
+                <td class="bg">经营场所</td>
+                <td colspan="3"><label><input type="radio" name="jingyingchangsuo<?php echo $i;?>" value="">租用</label><label><input type="radio" name="jingyingchangsuo<?php echo $i;?>" value="">自有资产</label></td>
+                <td class="bg">员工人数</td>
+                <td colspan="3"><input class="input50" type="text" name="" value="">人</td>
+            </tr>
+        </tbody>   
+    </table>
+    <table>
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="7" headers="">联系人信息</td>
+                <td class="wdbg3">配偶</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">其他联系方式</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">父亲</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">目前工作单位或离退休单位</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">母亲</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">目前工作单位或离退休单位</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+           <tr class="section1">
+                <td class="wdbg3">直系亲属</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="fenye2"></p>
+    <table class="content table5">
+        <tbody>
+            <tr>
+                <td class="wdbg"></td>
+                <td class="wdbg3">家人是否知晓此贷款</td>
+                <td><label><input type="radio" name="shifouzhixiao" value="">是</label><label><input type="radio" name="shifouzhixiao" value="">否</label></td>
+                <td class="bg">邮寄地址</td>
+                <td colspan="5"><label><input checked="true" type="radio" name="youjidizhi<?php echo $i;?>" value="">单位地址</label><label><input type="radio" name="youjidizhi<?php echo $i;?>" value="">住宅地址【如未勾选，默认为单位地址】</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table6">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="5" headers="">贷款担保方式信息</td>
+                <td class="wdbg3">担保人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">担保合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">组织机构代码/身份证</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">许可/资质情况</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">抵押物名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">质押物名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">质押合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">抵(质)押授权人名称</td>
+                <td colspan="7"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">备注:</td>
+                <td colspan="7"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="section1">
+                <td style="padding-top:20px" class="wdbg" colspan="" rowspan="2" headers="">被保险人信息</td>
+                <td class="wdbg3">被保险人名称</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">借款合同编号</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">联系人</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">固定电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">详细地址</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">身份证号码</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款期间</td>
+                <td colspan="7" headers=""><input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">保险期间</td>
+                <td colspan="7" headers=""><input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">约定期限</td>
+                <td colspan="7" headers=""><input value="365" type="text"/>天</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款利息</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['rate_cp_2'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['rate2'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款本金</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['amount_cp_2'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['amount2'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">保险金额</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['baoxian_cp_2'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['baoxian2'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款利率</td>
+                <td colspan="7" headers=""><input style="width:100%;" class="input100" type="text" name="" value="<?php echo $insurance['show_rate'];?>">%</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">还本付息方式</td>
+                <td colspan="7" headers=""><input style="width:200px !important;text-align: center" type="text" name="" value="等本等息"></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">总保费</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:700px !important" value="<?php echo $insurance['total_cp_2'];?>" type="text"/>￥<input style="width:200px" value="<?php echo $insurance['total2'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">逾期罚息</td>
+                <td colspan="7" headers=""><input style="width:100%;" class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg3" colspan="6" headers="">请特别注意：本保险金额是否包含贷款本金、贷款利息、逾期罚息。未说明，本保险金额仅包含贷款本金</td>
+                <td colspan="3" headers=""><input style="width:100%;" class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">免赔率(额)</td>
+                <td colspan="7" headers=""><input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔率为损失的<input class="input100" type="text" name="" value="">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔额为（人民币）:<input class="input100" type="text" name="" value="">%</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table7" style="margin-bottom:0 !important;">
+        <tbody>
+            <tr>
+                <td style="width:180px !important" class="wdbg2" colspan="" rowspan="2" headers="">贷&nbsp;&nbsp;&nbsp;&nbsp;款<br/>用&nbsp;&nbsp;&nbsp;&nbsp;途</td>
+                <td style="width:700px !important;text-align: left" colspan="" rowspan="3" headers="">本人了解并声明：<br/>A、本人申请贷款用途为本人真实意愿表达；B贷款用途保证符合国家监管部门和贵公司的以下规定与要求：a).贷款资金不会以任何形式进入证券市场，或用于股本权益性投资；b).贷款资金不会不会用于国家明令禁止或限制的经营活动；c).贷款资金不会用于房地产项目开发；C、该笔贷款发放账户未开通第三方存管功能（即该结算账户为开通用于股票、基金、期权、期货等资金往来结算功能）<br/>其他请说明____________</td>
+                <td class="wdbg" colspan="" headers="">争<br/>议<br/>处<br/>理<br/>方<br/>式</td>
+                <td colspan="" rowspan="2" headers="" style="text-align: left !important;">因履行本保险合同发生的争议，由当事人协商解决，协商解决不曾的当事人可约定采取下列法师之一解决：<br/><br>
+            <input style="width:20px" type="checkbox" name="" value="">向被告住所地人民法院提起诉讼<br/><input style="width:20px" type="checkbox" name="" value="">___________仲裁委员会仲裁</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="content">
+        <div class="btm">
+            特别约定<br/>
+            1.请投保人/被保险人收到保单后，及时核对保单信息是否正确，所条款是否齐全，如有问题，请立即与本公司联系。同时仔细阅读条款，特别是条款中注明的责任免除及限制性条款等内容。<br/>
+            2.本保险适用《长安责任保险股份有限公司贷款履约保证保险条款（2014版）》。<br/>
+            3.当投保人拖欠任何一期的应偿而未偿还贷款本金或利息达到保险合同约定期限，保险人同意对实际被保险人的实际损失在保险金额的范围内进行全额赔付。<br/>
+            4.本保单一经发出未征得被保险人同意不得退保。<br/>
+        </div>
+        <div class="btm2">
+            <b>投保人承诺声明</b><br/>
+            本人作如下声明：<br/>
+            1.本申请表内所载一切资料均发属真实、正确及完整。<br/>
+            2.长安责任保险股份有限公司已向本人详细介绍其《贷款履约保证条款》，并对其中免除保险人责任的条款和关于投保人、被保险人义务的规定进行了明确说明。本人接受上述内容，自愿投保本保险。<br/>
+            3.本人已取得本投保单中联系人同意，提供他们之资料作为此项保险申请之用。<br/>
+            4.本人已清楚长安责任保险股份有限公司不会授权给任何人或单位收取保险合同约定之外的任何费用。<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>信息收集及使用授权</b><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;本人同意并授权长安责任保险股份有限公司（以下简称“贵公司”）可：<br/>
+            1.向任何征信机构、银行、财务机构或其他资料来源透露和交换本投保单内有关本人之一切资料，以为本人提供保险服务。<br/>
+            2.接触有关征集机构查阅本人食用信息及索取有关报告以作此项保险申请审查之用，包括但不限于本人其所向贵公司以电话、网上、传真或其他贵公司认可之什么再交申请保险或对贵公司已承担或理赔的保险进行之用。<br/>
+            3.有权批核或拒绝本人之保险申请而无须提出任何理由及无须退回有关申请文件之副本予本人。<br/>
+            4.收集本人的有关资料以作为本次保险申请之用。<br/>
+            5.本人同意提供给长安责任保险股份有限公司推诿上，及本人享受长安责任保险股份有限公司金融服务产生的信息（包括本单证签署之前提供和产生的），可用于长安责任保险股份有限公司及因服务必要而委托的第三方为本人提供服务及推荐产品，法律禁止的除外，长安责任保险股份有限公司及其委托的第三言对上述信息钢梁有保密义务。<br/><br/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>以上承诺、声明及授权自本投保单签署时生效，不受合同成产及效力状态变化的影响。</b>
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="btm3 bg">
+            投保人签署<br/>
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;本人具有完全民事行为能力签署本投保单并承担相应责任。本公司及授权代表人已阅读并完全同意遵守及履行本投保单所载之所有承诺、申明及条款。本人完全同意投保单中的所有授权，特此确认。</b><br/><br/><br/><br/>
+            <p>投保人签名<input type="text">日期：<input type="text">年 <input type="text" name="" value="">月<input type="text">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </div>
+        <div class="btm4 bg">
+            <br/><br/>
+            &nbsp;&nbsp;见证人签名：<br/><br/><br/>
+            &nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">年 <input type="text" name="" value="">月<input type="text">日
+        </div>
+    </div>
+</div>
+    <div class="divborder"></div>
+    <div class="content bot<?php echo $i;?>" style="margin-bottom:132px">
+        <div class="btm5">
+            获悉产品渠道:
+        </div>
+        <div class="btm6 bg">
+            <label><input type="radio" name="bankzichan<?php echo $i;?>" value="">朋友介绍</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">宣传单页</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">推广活动</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">外部媒体短信</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">网络</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">其他____________</label>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+
+
+
+
+
+
+
+
+
+
+<!---------------------       第三份      -------------------------->
+
+
+
+
+
+
+<?php $i=3;?>
+
+<?php if($cnt>2):?>
+<header id="header" class="head content" >
+        <img src="/image/insurance/image003.png" alt="">
+        <!-- <i></i> -->
+        <div>
+            <h1>长安责任保险股份有限责任公司</h1>
+            <p>CHANGAN PROPERTY & LIABILITY INSUNRANCE LTD.</p>
+        </div>
+    </header>
+    <section class="content">
+        <p>贷款履约保证保险投保单</p>
+        <div>
+            <div>
+                <p>投保须知</p>
+                <p>1.本投保单和《贷款履约保证保险条款》是保险合同的组成部分，请仔细阅读，尤其是关于免除保险人责任的条款，投保人及被保险人义务的规定。</p>
+                <p>2.请如实填写投保单，如果不履行如实告知义务，本公司有权依法解除保险合同并不承担保险责任，对已支付的赔款，本公司有权要求退还。</p>
+                <p>3.请按本保险合同的约定及时缴纳保险费。</p>
+            </div>
+        </div>
+    </section>
+<div class="bdr content">
+    <table class="content table1">
+        <caption></caption>
+        <thead>
+            <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="section1">
+                <td class="bg">申请贷款金额</td>
+                <td><input type="text" name="" value="<?php echo (int)$insurance['loan'];?>">元</td>
+                <td class="bg">申请贷款期限*</td>
+                <td><label><input type="radio" name="daikuan<?php echo $i;?>" value="">贷款期限 ≤ 6个月</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="daikuan<?php echo $i;?>" value="" checked="true">6个月<贷款期限 ≤ 12个月</label></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <table class="content table2">
+        <tbody>
+            <tr class="section1">
+                <td style="width:100px;text-align: center;" rowspan="6" class="bg">投保人基本信息</td>
+                <td class="bg">姓名</td>
+                <td><input type="text" value="<?php echo $app['name'];?>"></td>
+                <td class="bg">身份证号码</td>
+                <td colspan="2"><input type="text" name="" value="<?php echo $app['idcard'];?>"></td>
+                <td class="bg">性别</td>
+                <td><label><input type="radio" name="sex<?php echo $i;?>" value="" <?php if($app['gender']==1) echo "checked";?>>男</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="sex<?php echo $i;?>" value="" <?php if($app['gender']==0) echo "checked";?>>女</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="bg">学历</td>
+                <td colspan="4">
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="4" <?php if($app['edu']==4) echo "checked"?>>硕士及以上</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="3" <?php if($app['edu']==3) echo "checked"?>>本科</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="2" <?php if($app['edu']==2) echo "checked"?>>大专</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="1" <?php if($app['edu']==1) echo "checked"?>>中专/技校/高中</label>
+                <label><input type="radio" name="xueli<?php echo $i;?>" value="0" <?php if($app['edu']==0) echo "checked"?>>高中以下</label>
+                </td>
+                <td class="bg">婚姻状况</td>
+                <td>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="0" <?php if($app['marriage']==0) echo "checked";?>>未婚</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="1" <?php if($app['marriage']==1) echo "checked";?>>已婚无子女</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="2" <?php if($app['marriage']==2) echo "checked";?>>已婚有子女</label>
+                <label><input type="radio" name="hunyin<?php echo $i;?>" value="3" <?php if($app['marriage']==3) echo "checked";?>>其他(丧偶、离异等)</label>
+                </td>
+            </tr>
+            <tr class="section3">
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input type="text" name="" value="<?php echo $app['phone'];?>"></td>
+                <td class="bg">住宅电话</td>
+                <td><input type="text" name="" value=""></td>
+                <td class="bg">电子邮箱</td>
+                <td><input type="text" value="<?php echo $app['email'];?>"></td>
+            </tr>
+            <tr class="section4">
+                <td class="bg">住宅地址</td>
+                <td colspan="4"><input type="text" name="" value="<?php echo $app['temp_address'];?>"></td>
+                <td class="bg">邮政编码</td>
+                <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="bg" colspan="3">投保前三年有无信用卡逾期或银行贷款逾期</td>
+                <td colspan="4"><input type="text" name="" value=""></td>
+            </tr>
+            <tr class="section6">
+                <td class="bg" colspan="2">本址起始居住时间</td>
+                <td><input style="width:40px" type="text" name="" value="">年<input style="width:30px" type="text" name="" value="">月</td>
+                <td class="bg">投保人来投保城市年限</td>
+                <td><input type="text" name="" value="">年</td>
+                <td class="bg">供养亲属人数</td>
+                <td><input type="text" name="" value="">人</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table3">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="6" headers="">用款企业信息</td>
+                <td class="wdbg3">名称</td>
+                <td colspan="2"></td>
+                <td colspan="2" class="bg">投保前三年有无拖欠银行贷款情况</td>
+                <td><label><input type="radio" name="has<?php echo $i;?>" value="">有</label><label><input type="radio" name="has<?php echo $i;?>" value="">无</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">组织机构代码</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">投保经营时间</td>
+                <td colspan="2">自<input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月--<input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月 共<input class="input50" type="text" name="" value="">年</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">固定详细生产/经营地址</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">生产/经营地址电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">企业类型</td>
+                <td colspan="3"><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">集体</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">民营</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">私营</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">个体</label><label><input type="radio" name="qiyeleixing<?php echo $i;?>" value="">其他</label></td>
+                <td class="bg">所属行业</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">注册资本</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">贷款用途</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">法定代表人</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section6">
+                <td class="wdbg3">用工人数</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">上年销售额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="wdbg3">法定代表人身份证号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="5" headers="">投保人房产/资产信息</td>
+                <td class="wdbg3">房产类别</td>
+                <td colspan="6"><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">商业按揭贷款</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">无按揭购房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">公积金按揭购房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">自建房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">租用</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">暂住</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">亲属住房</label><label><input type="radio" name="fangchanleibie<?php echo $i;?>" value="">单位住房</label></td>
+                <td class="bg" colspan="2">每月房租/按揭还款金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">购买时间</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月</td>
+                <td class="bg" colspan="3">购买价格</td>
+                <td><input class="input50" type="text" name="" value="">元</td>
+                <td class="bg">建筑面积</td>
+                <td  colspan="2"><input class="input50" type="text" name="" value="">m<sup>2</sup></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">房产地址</td>
+                <td><label><input type="radio" name="fangchandizhi" value="">同住宅地址</label></td>
+                <td colspan="6"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">邮政编码</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">是否有私家车</td>
+                <td><label><input type="radio" name="sijiache<?php echo $i;?>" value="">有</label><label><input type="radio" name="sijiache<?php echo $i;?>" value="">无</label></td>
+                <td class="bg" colspan="2">是否有社保/公积金</td>
+                <td><label><input type="radio" name="gongjijin<?php echo $i;?>" value="">有</label><input type="radio" name="gongjijin<?php echo $i;?>" value="">无</label></td>
+                <td class="bg" colspan="2">在银行开立存款账户(多选)</td>
+                <td colspan="3"><label><input type="checkbox" name="cunkuanzhanghu" value="">活期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">定期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">信用卡</label><label><input type="checkbox" name="cunkuanzhanghu" value="">其他</label></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">银行总资产</td>
+                <td colspan="3"><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5000元以下</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5000-1万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">1万-3万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">3万-5万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">5万-10万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">10万-20万</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">20万以上</label></td>
+                <td class="bg" colspan="3">投资账户余额(股票、基金等)</td>
+                <td colspan="3"><label><input type="radio" name="bankyue<?php echo $i;?>" value="">0</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5000元以下</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5000-1万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">1万-3万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">3万-5万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">5万-10万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">10万-20万</label><label><input type="radio" name="bankyue<?php echo $i;?>" value="">20万以上</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="8" headers="">投保人职业信息</td>
+                <td class="wdbg3">工作单位</td>
+                <td colspan="4"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">单位性质</td>
+                <td colspan="4"><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">机关事业</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">国有股份</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">外资</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">合资</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">私营</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">个体</label><label><input type="radio" name="danweixingzhi<?php echo $i;?>" value="">社会团体及其他</label></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">所属行业</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">任职部门</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">单位/职务</td>
+                <td colspan="4"><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">高管人员</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">中层管理</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">基层管理</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">员工</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">销售/中介/业务代表</label><label><input type="radio" name="zhiwei<?php echo $i;?>" value="">营业员/职务员</label></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">单位地址</td>
+                <td colspan="6"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">邮政编码</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">单位电话</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">区号</td>
+                <td>分机</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">本单位工作起始时间</td>
+                <td colspan="4"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月<input class="input50" type="text" name="" value="">日</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">每月基本薪金</td>
+                <td><input style="width:30px;border:none" type="text">元(税后)</td>
+                <td class="bg">其他收入</td>
+                <td colspan="2">月均约<input class="input50" type="text">元</td>
+                <td class="bg">每月总收入</td>
+                <td><input class="input50" type="text">元(税后)</td>
+                <td class="bg">每月支薪日</td>
+                <td colspan="2"><input class="input80" type="text">日</td>
+            </tr>
+            <tr class="section4">
+                <td colspan="10"><input style="text-align: left" class="input100" type="text" value="如申请人为私营业主请补充以下资料"></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">私营企业类型</td>
+                <td colspan="6"><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">个体</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营独资</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营合伙</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营有限责任公司</label><label><input type="radio" name="siyingleixing<?php echo $i;?>" value="">私营股份有限公司</label></td>
+                <td class="bg">成立时间</td>
+                <td colspan="2"><input class="input50" type="text" name="" value="">年<input class="input50" type="text" name="" value="">月<input class="input50" type="text" name="" value="">日</td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">股权占比</td>
+                <td><input class="input100" type="text" name="" value="">%</td>
+                <td class="bg">经营场所</td>
+                <td colspan="3"><label><input type="radio" name="jingyingchangsuo<?php echo $i;?>" value="">租用</label><label><input type="radio" name="jingyingchangsuo<?php echo $i;?>" value="">自有资产</label></td>
+                <td class="bg">员工人数</td>
+                <td colspan="3"><input class="input50" type="text" name="" value="">人</td>
+            </tr>
+        </tbody>   
+    </table>
+    <table>
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="7" headers="">联系人信息</td>
+                <td class="wdbg3">配偶</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">其他联系方式</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">父亲</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">目前工作单位或离退休单位</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">母亲</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg" colspan="2">目前工作单位或离退休单位</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+           <tr class="section1">
+                <td class="wdbg3">直系亲属</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section1">
+                <td class="wdbg3">其他联系人</td>
+                <td class="widt50">姓名</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">关系</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">移动电话</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">住宅电话</td>
+                <td style="width:300px !important" colspan="2"><input class="input50" type="text" name="" value="">（区号）<input class="input50" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="fenye3"></p>
+    <table class="content table5">
+        <tbody>
+            <tr>
+                <td class="wdbg"></td>
+                <td class="wdbg3">家人是否知晓此贷款</td>
+                <td><label><input type="radio" name="shifouzhixiao" value="">是</label><label><input type="radio" name="shifouzhixiao" value="">否</label></td>
+                <td class="bg">邮寄地址</td>
+                <td colspan="5"><label><input checked="true" type="radio" name="youjidizhi<?php echo $i;?>" value="">单位地址</label><label><input type="radio" name="youjidizhi<?php echo $i;?>" value="">住宅地址【如未勾选，默认为单位地址】</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table6">
+        <tbody>
+            <tr class="section1">
+                <td class="wdbg" colspan="" rowspan="5" headers="">贷款担保方式信息</td>
+                <td class="wdbg3">担保人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">担保合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">组织机构代码/身份证</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">许可/资质情况</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">抵押物名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section3">
+                <td class="wdbg3">质押物名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">质押合同号</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估金额</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">抵押物评估人名称</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section4">
+                <td class="wdbg3">抵(质)押授权人名称</td>
+                <td colspan="7"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section5">
+                <td class="wdbg3">备注:</td>
+                <td colspan="7"><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="section1">
+                <td style="padding-top:20px" class="wdbg" colspan="" rowspan="2" headers="">被保险人信息</td>
+                <td class="wdbg3">被保险人名称</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">借款合同编号</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">联系人</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section2">
+                <td class="wdbg3">固定电话</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">详细地址</td>
+                <td colspan="2"><input class="input100" type="text" name="" value=""></td>
+                <td class="bg">身份证号码</td>
+                <td><input class="input100" type="text" name="" value=""></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款期间</td>
+                <td colspan="7" headers=""><input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">保险期间</td>
+                <td colspan="7" headers=""><input value="" type="text"/>个月，自<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日&nbsp;&nbsp;&nbsp;&nbsp;-0时起至<input value="" type="text"/>年<input value="" type="text"/>月<input value="" type="text"/>日 -24时止</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">约定期限</td>
+                <td colspan="7" headers=""><input value="365" type="text"/>天</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款利息</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['rate_cp_3'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['rate3'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款本金</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['amount_cp_3'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['amount3'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">保险金额</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:600px !important" value="<?php echo $insurance['baoxian_cp_3'];?>" type="text"/>￥<input style="width:200px !important" value="<?php echo $insurance['baoxian3'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">贷款利率</td>
+                <td colspan="7" headers=""><input style="width:100%;" class="input100" type="text" name="" value="<?php echo $insurance['show_rate'];?>">%</td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">还本付息方式</td>
+                <td colspan="7" headers=""><input style="width:200px !important;text-align: center" type="text" name="" value="等本等息"></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">总保费</td>
+                <td colspan="7" headers="">人民币(大写)<input style="width:700px !important" value="<?php echo $insurance['total_cp_3'];?>" type="text"/>￥<input style="width:200px" value="<?php echo $insurance['total3'];?>" type="text"/></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">逾期罚息</td>
+                <td colspan="7" headers=""><input style="width:100%;" class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg3" colspan="6" headers="">请特别注意：本保险金额是否包含贷款本金、贷款利息、逾期罚息。未说明，本保险金额仅包含贷款本金</td>
+                <td colspan="3" headers=""><input style="width:100%;" class="input100" type="text" name="" value=""></td>
+            </tr>
+            <tr class="section100">
+                <td class="wdbg2" colspan="2" headers="">免赔率(额)</td>
+                <td colspan="7" headers=""><input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔率为损失的<input class="input100" type="text" name="" value="">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="width:20px" type="checkbox" name="" value="">每次事故绝对免赔额为（人民币）:<input class="input100" type="text" name="" value="">%</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="content table7" style="margin-bottom:0 !important;">
+        <tbody>
+            <tr>
+                <td style="width:180px !important" class="wdbg2" colspan="" rowspan="2" headers="">贷&nbsp;&nbsp;&nbsp;&nbsp;款<br/>用&nbsp;&nbsp;&nbsp;&nbsp;途</td>
+                <td style="width:700px !important;text-align: left" colspan="" rowspan="3" headers="">本人了解并声明：<br/>A、本人申请贷款用途为本人真实意愿表达；B贷款用途保证符合国家监管部门和贵公司的以下规定与要求：a).贷款资金不会以任何形式进入证券市场，或用于股本权益性投资；b).贷款资金不会不会用于国家明令禁止或限制的经营活动；c).贷款资金不会用于房地产项目开发；C、该笔贷款发放账户未开通第三方存管功能（即该结算账户为开通用于股票、基金、期权、期货等资金往来结算功能）<br/>其他请说明____________</td>
+                <td class="wdbg" colspan="" headers="">争<br/>议<br/>处<br/>理<br/>方<br/>式</td>
+                <td colspan="" rowspan="2" headers="" style="text-align: left !important;">因履行本保险合同发生的争议，由当事人协商解决，协商解决不曾的当事人可约定采取下列法师之一解决：<br/><br>
+            <input style="width:20px" type="checkbox" name="" value="">向被告住所地人民法院提起诉讼<br/><input style="width:20px" type="checkbox" name="" value="">___________仲裁委员会仲裁</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="content">
+        <div class="btm">
+            特别约定<br/>
+            1.请投保人/被保险人收到保单后，及时核对保单信息是否正确，所条款是否齐全，如有问题，请立即与本公司联系。同时仔细阅读条款，特别是条款中注明的责任免除及限制性条款等内容。<br/>
+            2.本保险适用《长安责任保险股份有限公司贷款履约保证保险条款（2014版）》。<br/>
+            3.当投保人拖欠任何一期的应偿而未偿还贷款本金或利息达到保险合同约定期限，保险人同意对实际被保险人的实际损失在保险金额的范围内进行全额赔付。<br/>
+            4.本保单一经发出未征得被保险人同意不得退保。<br/>
+        </div>
+        <div class="btm2">
+            <b>投保人承诺声明</b><br/>
+            本人作如下声明：<br/>
+            1.本申请表内所载一切资料均发属真实、正确及完整。<br/>
+            2.长安责任保险股份有限公司已向本人详细介绍其《贷款履约保证条款》，并对其中免除保险人责任的条款和关于投保人、被保险人义务的规定进行了明确说明。本人接受上述内容，自愿投保本保险。<br/>
+            3.本人已取得本投保单中联系人同意，提供他们之资料作为此项保险申请之用。<br/>
+            4.本人已清楚长安责任保险股份有限公司不会授权给任何人或单位收取保险合同约定之外的任何费用。<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>信息收集及使用授权</b><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;本人同意并授权长安责任保险股份有限公司（以下简称“贵公司”）可：<br/>
+            1.向任何征信机构、银行、财务机构或其他资料来源透露和交换本投保单内有关本人之一切资料，以为本人提供保险服务。<br/>
+            2.接触有关征集机构查阅本人食用信息及索取有关报告以作此项保险申请审查之用，包括但不限于本人其所向贵公司以电话、网上、传真或其他贵公司认可之什么再交申请保险或对贵公司已承担或理赔的保险进行之用。<br/>
+            3.有权批核或拒绝本人之保险申请而无须提出任何理由及无须退回有关申请文件之副本予本人。<br/>
+            4.收集本人的有关资料以作为本次保险申请之用。<br/>
+            5.本人同意提供给长安责任保险股份有限公司推诿上，及本人享受长安责任保险股份有限公司金融服务产生的信息（包括本单证签署之前提供和产生的），可用于长安责任保险股份有限公司及因服务必要而委托的第三方为本人提供服务及推荐产品，法律禁止的除外，长安责任保险股份有限公司及其委托的第三言对上述信息钢梁有保密义务。<br/><br/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>以上承诺、声明及授权自本投保单签署时生效，不受合同成产及效力状态变化的影响。</b>
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="btm3 bg">
+            投保人签署<br/>
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;本人具有完全民事行为能力签署本投保单并承担相应责任。本公司及授权代表人已阅读并完全同意遵守及履行本投保单所载之所有承诺、申明及条款。本人完全同意投保单中的所有授权，特此确认。</b><br/><br/><br/><br/>
+            <p>投保人签名<input type="text">日期：<input type="text">年 <input type="text" name="" value="">月<input type="text">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </div>
+        <div class="btm4 bg">
+            <br/><br/>
+            &nbsp;&nbsp;见证人签名：<br/><br/><br/>
+            &nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">年 <input type="text" name="" value="">月<input type="text">日
+        </div>
+    </div>
+</div>
+    <div class="divborder"></div>
+    <div class="content bot<?php echo $i;?>">
+        <div class="btm5">
+            获悉产品渠道:
+        </div>
+        <div class="btm6 bg">
+            <label><input type="radio" name="bankzichan<?php echo $i;?>" value="">朋友介绍</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">宣传单页</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">推广活动</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">外部媒体短信</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">网络</label><label><input type="radio" name="bankzichan<?php echo $i;?>" value="">其他____________</label>
+        </div>
+    </div>
+</div>
+<?php endif;?>
+<script>
+    function printDanbao(){
+        window.print();
+        window.parent.ue.execCommand( 'print' );
+    }
+</script>
+
+    </body>
+
+<!-- END BODY -->
+</html>

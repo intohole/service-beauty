@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>待评估订单/已评估订单</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+<link rel="stylesheet" type="text/css" href="/css/photoswipe.css">
+<link rel="stylesheet" type="text/css" href="/css/default-skin/default-skin.css">
+</head>
+<body>
+<script type="text/javascript" src="/js/rem.js"></script>
+<div class="extra-text">
+    业务信息
+</div>
+<div class="wrap-list-block dpb">
+    <div class="item">
+        <p class="clearfix">
+            <span>业务人员：<b><?php echo $assess_info['realname'];?></b></span>
+            <span>业务类型：
+                <b>
+                    <?php if($assess_info['u_type'] == 1): ?>以租代购
+                    <?php elseif($assess_info['u_type'] == 2): ?>车辆质押
+                    <?php elseif($assess_info['u_type'] == 3): ?>车辆抵押
+                    <?php else: ?>其他
+                    <?php endif; ?>
+                </b>
+            </span>
+        </p>
+    </div>
+</div>
+
+<!-- 未评估详情 -->
+<?php if($assess_info['flow'] == 2): ?>
+    <div class="extra-text">
+        基本信息
+    </div>
+    <ul class="wrap-list">
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">车辆状况</span>
+                <span class="list-item-value">
+                    <?php if($assess_info['type'] == 1): ?>新车
+                    <?php elseif($assess_info['type'] == 2): ?>二手车
+                    <?php elseif($assess_info['type'] == 0): ?>
+                    <?php else: ?>其他
+                    <?php endif; ?>
+                </span>
+            </div>
+        </li>
+        <li class="clearfix">
+            <a class="item item-link three-item" href="javascript:;">
+                <p class="clearfix">
+                    <span class="list-item-key">车辆类型</span>
+                    <b><?php echo $assess_info['brand_name'];?></b>
+                    <b><?php echo $assess_info['series_name'];?></b>
+                </p>
+                <p class="clearfix">
+                    <span class="list-item-key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <b><?php echo $assess_info['style_name'];?></b>
+                </p>
+            </a>
+            </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">行驶里程</span>
+                <span class="list-item-value">
+                    <?php
+                            echo $assess_info['drive_record'];
+                    ?>
+                    万公里
+                </span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">车辆颜色</span>
+                <span class="list-item-value"><?php echo $assess_info['color_name'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">上牌日期</span>
+                <span class="list-item-value"><?php echo $assess_info['sp_date'];?></span>
+            </div>
+        </li>
+        <!-- <li>
+            <div class="list-item">
+                <span class="list-item-key">上路日期</span>
+                <span class="list-item-value"><?php echo $assess_info['sl_date'];?></span>
+            </div>
+        </li> -->
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">车架号</span>
+                <!-- <span class="list-item-value"><?php echo $assess_info['frame_id'];?></span> -->
+                <span class="list-item-value"><?php echo $assess_info['auto_id'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">发动机号</span>
+                <!-- <span class="list-item-value"><?php echo $assess_info['auto_id'];?></span> -->
+                <span class="list-item-value"><?php echo $assess_info['frame_id'];?></span>
+            </div>
+        </li>
+        
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">排量</span>
+                <span class="list-item-value"><?php echo $assess_info['displacement'];?> <?php if($launch!=2) echo 'L';?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">车辆来源</span>
+                <span class="list-item-value"><?php echo $assess_info['source_income'];?></span>
+            </div>
+        </li>
+        <li>
+            <div class="list-item">
+                <span class="list-item-key">成交价值</span>
+                <span class="list-item-value"><?php echo $assess_info['trans_amount'];?> 万元</span>
+            </div>
+        </li>
+
+    </ul>
+    <div class="extra-text">
+        证件及相关照片
+    </div>
+    <ul class="wrap-list " style="padding:0;">
+        <li class="clearfix no-bt list-img">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $assess_info['license_path'];?>" data-size="<?php echo $assess_info['license_path_size'];?>" data-author="行驶证">
+                    <img src="<?php echo $assess_info['license_path'];?>" alt="行驶证" data-src="">
+                    </a>
+                </div>
+                <p class="tac">行驶证</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $assess_info['registration_path'];?>" data-size="<?php echo $assess_info['registration_path_size'];?>" data-author="行驶证">
+                    <img src="<?php echo $assess_info['registration_path'];?>" alt="登记证" data-src="">
+                    </a>
+                </div>
+                <p class="tac">登记证</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $assess_info['invoice_path'];?>" data-size="<?php echo $assess_info['invoice_path_size'];?>" data-author="行驶证">
+                    <img src="<?php echo $assess_info['invoice_path'];?>" alt="购车发票" data-src="">
+                    </a>
+                </div>
+                <p class="tac">购车发票</p>
+            </div>
+        </li>
+    </ul>
+    <div class="extra-text">
+        车辆照片
+    </div>
+    <!-- <ul class="wrap-list clearfix list-img" style="padding:0;margin-bottom:0;">
+        <?php if(!empty($assess_info['photos'])): ?>
+            <?php foreach($assess_info['photos'] as $v):?>
+                <li class="img-uploader">
+                    <div class="img-uploader-box">
+                        <a href="<?php echo $v['path'];?>" data-size="<?php echo $v['path_size'];?>" data-author="<?php echo $v['name'];?>">
+                        <img src="<?php echo $v['path'];?>" alt="" data-src="">
+                        </a>
+                    </div>
+                    <p class="tac"><?php echo $v['name'];?></p>
+                </li>
+            <?php endforeach;?>
+        <?php endif;?>
+    </ul> -->
+
+    <ul class="wrap-list clearfix list-img" style="padding:0;margin:0;">
+        <?php foreach($assess_info['car_photos'] as $v):?>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <a href="<?php echo $v['src'];?>" data-size="<?php echo $v['size'];?>" data-author="车辆照片">
+                    <img src="<?php echo $v['src'];?>" alt="" data-src="">
+                    </a>
+                </div>
+                <p class="tac"><?php echo $v['name'];?></p>
+            </li>
+        <?php endforeach;?>
+    </ul>
+
+    <ul class="wrap-list" style="padding:0;">
+        <li>
+            <?php if(!empty($assess_info['photos'])): ?>
+                <a href="/chedai/salesman_carinfophoto?id=<?php echo $assess_info['id'];?>" class="more-photo">点击查看更多照片<i class=""></i></a>
+            <?php else: ?>
+                <a href="#" class="more-photo">无照片<i class=""></i></a>
+            <?php endif;?>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <a class="btn btn-block btn-blue" href="/chedai/appraiser_report?id=<?php echo $assess_info['app_id'];?>">填写评估报告</a>
+    </div>
+
+
+<!-- 已评估详情 -->
+<?php else: ?>
+    <div class="extra-text">
+        车辆信息
+    </div>
+    <div class="wrap-list-block dpb">
+        <a class="item item-link" href="/chedai/salesman_carinfo?id=<?php echo $assess_info['id'];?>">
+            <p class="clearfix">
+                <span>客户编号：<b><?php echo $assess_info['customer'];?></b></span>
+                <span>录入时间：<b><?php echo date("Y-m-d",$assess_info['created']);?></b></span>
+            </p>
+            <p class="clearfix">
+                <span>车辆品牌：<b><?php echo $assess_info['brand_name'];?></b></span>
+                <span>车辆车系：<b><?php echo $assess_info['series_name'];?></b></span>
+            </p>
+            <p class="clearfix">
+                <span>车辆型号：<b><?php echo $assess_info['style_name'];?></b></span>
+            </p>
+            <p class="clearfix">
+                <!-- <span>车架号：<b><?php echo $assess_info['frame_id'];?></b></span> -->
+                <span>车架号：<b><?php echo $assess_info['auto_id'];?></b></span>
+            </p>
+        </a>
+    </div>
+    <ul class="form">
+    </ul>
+    <ul class="form">
+        <li>
+            <div class="list-item clearfix">
+                <label class="label-normal">成交价值</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="万元" name="assessable" style="color: #f90" readonly value="<?php echo $assess_info['trans_amount'];?>万元">
+            </div>
+        </li>
+        <li>
+            <div class="list-item clearfix">
+                <label class="label-normal">该车价值评估</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="万元" name="assessable" style="color: #f90" readonly value="<?php echo $assess_info['estimate_total'];?>万元">
+            </div>
+        </li>
+    </ul>
+    <!-- <div class="extra-text">
+        手续、规费情况
+    </div>
+    <div class="textarea-show">
+        <?php echo $assess_info['estimate_sx'];?>
+    </div>
+    <div class="extra-text">
+        配置情况
+    </div>
+    <div class="textarea-show">
+        <?php echo $assess_info['estimate_pz'];?>
+    </div>
+    <div class="extra-text">
+        静态检测
+    </div>
+    <div class="textarea-show">
+        <?php echo $assess_info['estimate_jt'];?>
+    </div>
+    <div class="extra-text">
+        动态检查
+    </div>
+    <div class="textarea-show">
+        <?php echo $assess_info['estimate_dt'];?>
+    </div> -->
+    <div class="extra-text">
+        综合评定
+    </div>
+    <div class="textarea-show">
+        <?php echo $assess_info['estimate_zh'];?>
+    </div>
+
+<?php endif; ?>
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <!-- <button class="pswp__button pswp__button--share" title="Share"></button> -->
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+<script src="/js/photoscale.js"></script>
+</body>
+</html>

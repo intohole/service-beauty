@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>车辆信息详情</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+<link rel="stylesheet" type="text/css" href="/css/mobiscroll.custom-2.17.0.min.css">
+<link rel="stylesheet" type="text/css" href="/css/choose.css">
+</head>
+<body data-id="<?php echo $id;?>" class="caradd">
+<script type="text/javascript" src="/js/rem.js"></script>
+<input type='hidden' name='launch' value="<?php echo $launch;?>">
+<div class="extra-text">
+    基本信息
+</div>
+<!-----厦门 开始-- ---->
+<div <?php if($launch == 2) echo 'class="dpn"';?>>
+    <?php if($id):?>
+    <form class="xiamen">
+        <ul class="form clearfix">
+            <li class="clearfix">
+                <label class="label-normal">车辆状况</label>
+                <div class="select-box">
+                    <select class="select" name="type">
+                        <option <?php if($data['type'] == '新车') echo "selected";?> value="1">新车</option>
+                        <option <?php if($data['type'] == '二手车') echo "selected";?> value="2">二手车</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆信息</label>
+                <a id="carName" class="siftdd brand carName" href="javascript:;" data-relation="block-brand" data-role="aside" data-url="" data-title="品牌" sid="<?php echo $data['series'];?>" specid="<?php echo $data['item'];?>" bid="<?php echo $data['brand'];?>">
+                <?php echo $data['brand_name'];?><br><b><?php echo $data['series_name'];?></b><?php echo $data['style_name'];?><i class="iconfont icon-arrow-right"></i>
+               </a>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆产地</label>
+                <div class="select-box">
+                    <select class="select" name="orgin">
+                        <option value="0" <?php if($data['product_place'] == 0) echo "selected";?>>国产</option>
+                        <option value="1" <?php if($data['product_place'] == 1) echo "selected";?>>进口</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车档</label>
+                <div class="select-box">
+                    <select class="select" name="gear">
+                        <option value="1" <?php if($data['mode'] == 1) echo "selected";?>>自动</option>
+                        <option value="0" <?php if($data['mode'] == 0) echo "selected";?>>手动</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆颜色</label>
+                <div class="select-box">
+                    <select class="select" name="color">
+                        <option <?php if($data['color'] == '黑色') echo "selected";?> value="1">黑色</option>
+                        <option <?php if($data['color'] == '白色') echo "selected";?> value="2">白色</option>
+                        <option <?php if($data['color'] == '银色') echo "selected";?> value="3">银色</option>
+                        <option <?php if($data['color'] == '咖啡色') echo "selected";?> value="4">咖啡色</option>
+                        <option <?php if($data['color'] == '红色') echo "selected";?> value="5">红色</option>
+                        <option <?php if($data['color'] == '灰色') echo "selected";?> value="7">灰色</option>
+                        <option <?php if($data['color'] == '其它') echo "selected";?> value="6">其它</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">行驶里程</label>
+                    <input class="input-normal" type="tel" maxlength="8" placeholder="行驶公里数" name="kilo" value="<?php echo $data['drive_record'];?>万公里">
+                    <div class="form-extra">
+                        <span>万公里</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">排量</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入排量" name="litre" value="<?php echo $data['displacement'];?>">
+                    <div class="form-extra">
+                        <span>L</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">成交价值</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入成交价值" name="dealvalue" value="<?php echo $data['trans_amount'];?>">
+                    <div class="form-extra">
+                        <span> 万元</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">上牌日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="请选择上牌日期" name="check-day"  value="<?php echo $data['sp_date'];?>">
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车辆来源</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车辆来源" name="car-source" value="<?php echo $data['source_income'];?>">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车架号</label>
+                    <!-- <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="<?php echo $data['frame_id'];?>"> -->
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="<?php echo $data['auto_id'];?>">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">发动机号</label>
+                    <!-- <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="<?php echo $data['auto_id'];?>"> -->
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="<?php echo $data['frame_id'];?>">
+                </div>
+            </li>
+            <li class="no-border">
+                <div class="extra-text">
+                    证件及相关照片
+                </div>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['license_url'];?>" alt="行驶证" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i>  -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-1" value="<?php echo $data['license'];?>">
+                <p class="tac">行驶证</p>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['registration_url'];?>" alt="登记证" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i>  -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-2" value="<?php echo $data['registration'];?>">
+                <p class="tac">登记证</p>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['invoice_url'];?>" alt="购车发票" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-3" value="<?php echo $data['invoice'];?>">
+                <p class="tac">购车发票</p>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" id="next-step2">下一步</a>
+        </div>
+                <!-- start 品牌 -->
+          <div class="mask fn-hide"></div>
+          <aside class="aside block-brand" data-is-close="true" >
+            <nav class="nav-final">
+              <p>品牌</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main categoryShow" id="categoryShow">
+            </section>
+          </aside>
+          <!-- end 品牌 -->
+          <!-- start 车系 -->
+          <aside class="aside block-cartype cartype-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p>车系</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main seriesShow" id="seriesShow"></section>
+          </aside>
+           <!-- end 车系 -->
+           <!-- start 车型 -->
+          <aside class="aside block-cartype cartype-sub-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p id="specTitle">车型</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main specShow" id="specShow"></section>   
+          </aside>
+          <!-- end 车型 -->
+            <input type="hidden" id="hfHideHeadFoot" value="0">
+    </form>
+    <?php elseif($redis_info):?>
+    <form class="xiamen">
+        <ul class="form clearfix">
+            <li class="clearfix">
+                <label class="label-normal">车辆状况</label>
+                <div class="select-box">
+                    <select class="select" name="type">
+                        <option <?php if($redis_info['type'] == '1') echo "selected";?> value="1">新车</option>
+                        <option <?php if($redis_info['type'] == '2') echo "selected";?> value="2">二手车</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆信息</label>
+                <a id="carName" class="siftdd brand carName" href="javascript:;" data-relation="block-brand" data-role="aside" data-url="" data-title="品牌" sid="<?php echo $redis_info['carNameSid'];?>" specid="<?php echo $redis_info['carNameSpecid'];?>" bid="<?php echo $redis_info['carNameBid'];?>">
+                <?php echo $redis_info['carBrand']['brand_name'];?><br><b><?php echo $redis_info['carBrand']['series_name'];?></b><?php echo $redis_info['carBrand']['style_name'];?><i class="iconfont icon-arrow-right"></i>
+               </a>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆产地</label>
+                <div class="select-box">
+                    <select class="select" name="orgin">
+                        <option value="0" <?php if($redis_info['orgin'] == 0) echo "selected";?>>国产</option>
+                        <option value="1" <?php if($redis_info['orgin'] == 1) echo "selected";?>>进口</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车档</label>
+                <div class="select-box">
+                    <select class="select" name="gear">
+                        <option value="1" <?php if($redis_info['gear'] == 1) echo "selected";?>>自动</option>
+                        <option value="0" <?php if($redis_info['gear'] == 0) echo "selected";?>>手动</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆颜色</label>
+                <div class="select-box">
+                    <select class="select" name="color">
+                        <option <?php if($redis_info['color'] == 1) echo "selected";?> value="1">黑色</option>
+                        <option <?php if($redis_info['color'] == 2) echo "selected";?> value="2">白色</option>
+                        <option <?php if($redis_info['color'] == 3) echo "selected";?> value="3">银色</option>
+                        <option <?php if($redis_info['color'] == 4) echo "selected";?> value="4">咖啡色</option>
+                        <option <?php if($redis_info['color'] == 5) echo "selected";?> value="5">红色</option>
+                        <option <?php if($redis_info['color'] == 7) echo "selected";?> value="7">灰色</option>
+                        <option <?php if($redis_info['color'] == 6) echo "selected";?> value="6">其它</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">行驶里程</label>
+                    <input class="input-normal" type="tel" maxlength="8" placeholder="行驶公里数" name="kilo" value="<?php echo $redis_info['kilo'];?>">
+                    <div class="form-extra">
+                        <span>万公里</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">排量</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入排量" name="litre" value="<?php echo $redis_info['litre'];?>">
+                    <div class="form-extra">
+                        <span>L</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">成交价值</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入成交价值" name="dealvalue" value="<?php echo $redis_info['dealvalue'];?>">
+                    <div class="form-extra">
+                        <span> 万元</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">上牌日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="请选择上牌日期" name="check-day"  value="<?php echo $redis_info['check-day'];?>">
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车辆来源</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车辆来源" name="car-source" value="<?php echo $redis_info['car-source'];?>">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车架号</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="<?php echo $redis_info['car-numb1'];?>">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">发动机号</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="<?php echo $redis_info['car-numb2'];?>">
+                </div>
+            </li>
+            <li class="no-border">
+                <div class="extra-text">
+                    证件及相关照片
+                </div>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['car-page-1_src'];?>" alt="行驶证" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-1" value="<?php echo $redis_info['car-page-1'];?>">
+                <p class="tac">行驶证</p>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['car-page-2_src'];?>" alt="登记证" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-2" value="<?php echo $redis_info['car-page-2'];?>">
+                <p class="tac">登记证</p>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['car-page-3_src'];?>" alt="购车发票" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-3" value="<?php echo $redis_info['car-page-3'];?>">
+                <p class="tac">购车发票</p>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" id="next-step2">下一步</a>
+        </div>
+                <!-- start 品牌 -->
+          <div class="mask fn-hide"></div>
+          <aside class="aside block-brand" data-is-close="true" >
+            <nav class="nav-final">
+              <p>品牌</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main categoryShow" id="categoryShow">
+            </section>
+          </aside>
+          <!-- end 品牌 -->
+          <!-- start 车系 -->
+          <aside class="aside block-cartype cartype-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p>车系</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main seriesShow" id="seriesShow"></section>
+          </aside>
+           <!-- end 车系 -->
+           <!-- start 车型 -->
+          <aside class="aside block-cartype cartype-sub-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p id="specTitle">车型</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main specShow" id="specShow"></section>   
+          </aside>
+          <!-- end 车型 -->
+            <input type="hidden" id="hfHideHeadFoot" value="0">
+    </form>
+    <?php else:?>
+    <form class="xiamen">
+        <ul class="form clearfix">
+            <li class="clearfix">
+                <label class="label-normal">车辆状况</label>
+                <div class="select-box">
+                    <select class="select" name="type">
+                        <option selected value="1">新车</option>
+                        <option value="2">二手车</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆信息</label>
+                <a id="carName" class="siftdd brand carName" href="javascript:;" data-relation="block-brand" data-role="aside" data-url="" data-title="品牌">选择车型
+                    <i class="iconfont icon-arrow-right"></i>
+               </a>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆产地</label>
+                <div class="select-box">
+                    <select class="select" name="orgin">
+                        <option selected value="0">国产</option>
+                        <option value="1">进口</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车档</label>
+                <div class="select-box">
+                    <select class="select" name="gear">
+                        <option selected value="1">自动</option>
+                        <option value="0">手动</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆颜色</label>
+                <div class="select-box">
+                    <select class="select" name="color">
+                        <option selected value="1">黑色</option>
+                        <option value="2">白色</option>
+                        <option value="3">银色</option>
+                        <option value="4">咖啡色</option>
+                        <option value="5">红色</option>
+                        <option value="7">灰色</option>
+                        <option value="6">其它</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">行驶里程</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入行驶里程" name="kilo">
+                    <div class="form-extra">
+                        <span>万公里</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">排量</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入排量" name="litre">
+                    <div class="form-extra">
+                        <span>L</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">成交价值</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入成交价值" name="dealvalue">
+                    <div class="form-extra">
+                        <span>万元</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">上牌日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="请选择上牌日期" name="check-day" >
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车辆来源</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车辆来源" name="car-source">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车架号</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">发动机号</label>
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2">
+                </div>
+            </li>
+            <li class="no-border">
+                <div class="extra-text">
+                    证件及相关照片
+                </div>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="" alt="行驶证" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-1">
+                <p class="tac">行驶证</p>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="" alt="登记证" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-2">
+                <p class="tac">登记证</p>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="" alt="购车发票" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-3">
+                <p class="tac">购车发票</p>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" id="next-step2">下一步</a>
+        </div>
+                <!-- start 品牌 -->
+          <div class="mask fn-hide"></div>
+          <aside class="aside block-brand" data-is-close="true" >
+            <nav class="nav-final">
+              <p>品牌</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main categoryShow" id="categoryShow">
+            </section>
+          </aside>
+          <!-- end 品牌 -->
+          <!-- start 车系 -->
+          <aside class="aside block-cartype cartype-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p>车系</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main seriesShow" id="seriesShow"></section>
+          </aside>
+           <!-- end 车系 -->
+           <!-- start 车型 -->
+          <aside class="aside block-cartype cartype-sub-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p id="specTitle">车型</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main specShow" id="specShow"></section>   
+          </aside>
+          <!-- end 车型 -->
+            <input type="hidden" id="hfHideHeadFoot" value="0">
+    </form>
+    <?php endif;?>
+</div>
+<!-----厦门 结束-- ---->
+
+<!-----全国 开始-- ---->
+<div <?php if($launch == 1) echo 'class="dpn"';?>>
+    <?php if($id):?>
+    <form class="national">
+        <ul class="form clearfix">
+            <li class="clearfix">
+                <label class="label-normal">车辆信息</label>
+                <a id="carName" class="siftdd brand carName" href="javascript:;" data-relation="block-brand" data-role="aside" data-url="" data-title="品牌" sid="<?php echo $data['series'];?>" specid="<?php echo $data['item'];?>" bid="<?php echo $data['brand'];?>">
+                <?php echo $data['brand_name'];?><br><b><?php echo $data['series_name'];?></b><?php echo $data['style_name'];?><i class="iconfont icon-arrow-right"></i>
+               </a>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆颜色</label>
+                <div class="select-box">
+                    <select class="select" name="color">
+                        <option <?php if($data['color'] == '黑色') echo "selected";?> value="1">黑色</option>
+                        <option <?php if($data['color'] == '白色') echo "selected";?> value="2">白色</option>
+                        <option <?php if($data['color'] == '银色') echo "selected";?> value="3">银色</option>
+                        <option <?php if($data['color'] == '咖啡色') echo "selected";?> value="4">咖啡色</option>
+                        <option <?php if($data['color'] == '红色') echo "selected";?> value="5">红色</option>
+                        <option <?php if($data['color'] == '灰色') echo "selected";?> value="7">灰色</option>
+                        <option <?php if($data['color'] == '其它') echo "selected";?> value="6">其它</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">行驶里程</label>
+                    <input class="input-normal" type="tel" maxlength="8" placeholder="行驶公里数" name="kilo" value="<?php echo $data['drive_record'];?>">
+                    <div class="form-extra">
+                        <span>万公里</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">成交价值</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入成交价值" name="dealvalue" value="<?php echo $data['trans_amount'];?>">
+                    <div class="form-extra">
+                        <span> 万元</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">上牌日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="请选择上牌日期" name="check-day"  value="<?php echo $data['sp_date'];?>">
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车架号</label>
+                    <!-- <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="<?php echo $data['frame_id'];?>"> -->
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="<?php echo $data['auto_id'];?>">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">发动机号</label>
+                    <!-- <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="<?php echo $data['auto_id'];?>"> -->
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="<?php echo $data['frame_id'];?>">
+                </div>
+            </li>
+            <li class="no-border">
+                <div class="extra-text">
+                    证件及相关照片
+                </div>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['license_url'];?>" alt="行驶证" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i>  -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-1" value="<?php echo $data['license'];?>">
+                <p class="tac">行驶证</p>
+            </li>
+            <!-- <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['registration_url'];?>" alt="登记证" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-2" value="<?php echo $data['registration'];?>">
+                <p class="tac">登记证</p>
+            </li> -->
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['invoice_url'];?>" alt="购车发票" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-3" value="<?php echo $data['invoice'];?>">
+                <p class="tac">购车发票</p>
+            </li>
+            <li class="no-border registration-certificate" style="clear:both">
+                <div class="extra-text">
+                    登记证相关照片
+                </div>
+            </li>
+                <?php if($data['registration_info']):?>
+                        <?php foreach($data['registration_info'] as $k=>$v):?>
+                        <li class="img-uploader wrap-reply-wait">
+                            <div class="img-uploader-box">
+                                <img src="<?php echo $v['url'];?>" alt="登记证" data-src=""  class="active">
+                                <div class="img-uploader-btn">
+                                </div>
+                            </div>
+                            <input type="hidden" name="car-page-2"  value="<?php echo $v['id'];?>">
+                            </li>
+                        <?php endforeach;?>
+                <?php else:?>
+                     <li class="img-uploader">
+                    <div class="img-uploader-box wrap-reply-wait">
+                        <img src="<?php echo $data['registration_url'];?>" alt="登记证" data-src=""  class="active">
+                        <div class="img-uploader-btn">
+                        </div>
+                    </div>
+                    <input type="hidden" name="car-page-2"  value="<?php echo $data['registration'];?>">
+            </li>
+                <?php endif;?>
+            <li id="moreImg" class="img-uploader" >
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['registration_url'];?>" alt="登记证" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                    </div>
+                    <input class="input-file" multiple="multiple" type="file">
+                </div>
+                <input type="hidden" name="car-page-2"  value="<?php echo $data['registration'];?>">
+            </li>
+        </ul>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" id="next-step">下一步</a>
+        </div>
+                <!-- start 品牌 -->
+          <div class="mask fn-hide"></div>
+          <aside class="aside block-brand" data-is-close="true" >
+            <nav class="nav-final">
+              <p>品牌</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main categoryShow" id="categoryShow">
+            </section>
+          </aside>
+          <!-- end 品牌 -->
+          <!-- start 车系 -->
+          <aside class="aside block-cartype cartype-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p>车系</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main seriesShow" id="seriesShow"></section>
+          </aside>
+           <!-- end 车系 -->
+           <!-- start 车型 -->
+          <aside class="aside block-cartype cartype-sub-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p id="specTitle">车型</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main specShow" id="specShow"></section>   
+          </aside>
+          <!-- end 车型 -->
+            <input type="hidden" id="hfHideHeadFoot" value="0">
+    </form>
+    <?php else:?>
+    <form class="national">
+        <ul class="form clearfix">
+            <li class="clearfix">
+                <label class="label-normal">车辆信息</label>
+                <a id="carName" class="siftdd brand carName" href="javascript:;" data-relation="block-brand" data-role="aside" data-url="" data-title="品牌" sid="" specid="" bid="">
+                <i class="iconfont icon-arrow-right"></i>
+               </a>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">车辆颜色</label>
+                <div class="select-box">
+                    <select class="select" name="color">
+                        <option value="1">黑色</option>
+                        <option value="2">白色</option>
+                        <option value="3">银色</option>
+                        <option value="4">咖啡色</option>
+                        <option value="5">红色</option>
+                        <option value="7">灰色</option>
+                        <option value="6">其它</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">行驶里程</label>
+                    <input class="input-normal" type="tel" maxlength="8" placeholder="行驶公里数" name="kilo" value="">
+                    <div class="form-extra">
+                        <span>万公里</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">成交价值</label>
+                    <input class="input-normal" type="text" maxlength="8" placeholder="请输入成交价值" name="dealvalue" value="">
+                    <div class="form-extra">
+                        <span> 万元</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">上牌日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="请选择上牌日期" name="check-day"  value="">
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">车架号</label>
+                    <!-- <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="<?php echo $data['frame_id'];?>"> -->
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写车架号" name="car-numb1" value="">
+                </div>
+            </li>
+            <li>
+                <div class="list-item clearfix">
+                    <label class="label-normal">发动机号</label>
+                    <!-- <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="<?php echo $data['auto_id'];?>"> -->
+                    <input class="input-normal" type="text" maxlength="30" placeholder="填写发动机号" name="car-numb2" value="">
+                </div>
+            </li>
+            <li class="no-border">
+                <div class="extra-text">
+                    证件及相关照片
+                </div>
+            </li>
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="" alt="行驶证" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-1">
+                <p class="tac">行驶证</p>
+            </li>
+            <!-- <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="" alt="登记证" data-src="">
+                    <div class="img-uploader-btn">
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-2">
+                <p class="tac">登记证</p>
+            </li> -->
+            <li class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="" alt="购车发票" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 请上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="car-page-3">
+                <p class="tac">购车发票</p>
+            </li>
+            <li class="no-border registration-certificate" style="clear:both">
+                <div class="extra-text">
+                    登记证相关照片
+                </div>
+            </li>
+            <li id="moreImg" class="img-uploader" style="clear:both">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['registration_url'];?>" alt="登记证" data-src=""  class="active">
+                    <div class="img-uploader-btn">
+                    </div>
+                    <input class="input-file" multiple="multiple" type="file">
+                </div>
+                <input type="hidden" name="car-page-2"  value="<?php echo $data['registration'];?>">
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" id="next-step">下一步</a>
+        </div>
+                <!-- start 品牌 -->
+          <div class="mask fn-hide"></div>
+          <aside class="aside block-brand" data-is-close="true" >
+            <nav class="nav-final">
+              <p>品牌</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main categoryShow" id="categoryShow">
+            </section>
+          </aside>
+          <!-- end 品牌 -->
+          <!-- start 车系 -->
+          <aside class="aside block-cartype cartype-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p>车系</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main seriesShow" id="seriesShow"></section>
+          </aside>
+           <!-- end 车系 -->
+           <!-- start 车型 -->
+          <aside class="aside block-cartype cartype-sub-sub fn-hide" data-is-close="true">
+            <nav class="nav-final">
+              <p id="specTitle">车型</p>
+              <a class="back" href="javascript:;"><i class="iconfont icon-arrow-left"></i></a>
+            </nav>
+            <section class="aside-main specShow" id="specShow"></section>   
+          </aside>
+          <!-- end 车型 -->
+            <input type="hidden" id="hfHideHeadFoot" value="0">
+    </form>
+    <?php endif;?>
+</div>
+<div class="managerinfo_image_big" style="display: none">
+    <div class="managerinfo_image_box">
+        <span></span>
+        <img src="http://image.fangwudiya.com/fk/report/20160623/48d963fed187e583a9605c4119c176d728f511bf1466661382.png" alt="">
+    </div>
+    <div class="managerinfo_image_box_c">
+       <p><span>删除照片</span><i></i></p>
+    </div>
+    <div class="managerinfo_image_box_que">
+        <p>确定要删除这张照片吗？</p>
+        <a class="managerinfo_image_box_que_submit" href="javaScript:;">删除</a>
+        <a class="managerinfo_image_box_que_bottom" href="javaScript:;">取消</a>
+    </div>
+</div>
+<!-----全国 结束-- ---->
+<script src="/js/lrz.all.bundle.js"></script>
+<script type="text/javascript" src="/js/mobiscroll.custom-2.17.0.min.js"></script>
+<script type="text/javascript" src="/js/chedai/caradd.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>评估报告</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body data-id="<?php echo $id; ?>">
+<script type="text/javascript" src="/js/rem.js"></script>
+<form>
+    <!-- <div class="extra-text">
+        手续、规费情况
+    </div>
+    <textarea class="textarea" name="procedures" placeholder="请在这里输入手续、规费情况"></textarea>
+    <div class="extra-text">
+        配置情况
+    </div>
+    <textarea class="textarea" name="config" placeholder="请在这里输入配置情况"></textarea>
+    <div class="extra-text">
+        静态检测
+    </div>
+    <textarea class="textarea" name="static" placeholder="请在这里输入静态检查"></textarea>
+    <div class="extra-text">
+        动态检查
+    </div>
+    <textarea class="textarea" name="dynamic" placeholder="请在这里输入动态检测"></textarea> -->
+    <div class="extra-text">
+        综合评定
+    </div>
+    <textarea class="textarea" name="synthesis" placeholder="请在这里输入综合评定"></textarea>
+    <ul class="form">
+    </ul>
+    <ul class="form">
+        <li>
+            <div class="list-item clearfix">
+                <label class="label-normal">该车价值评估</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="单位万元" name="assessable" style="color: #f90">
+            </div>
+        </li>
+    </ul>
+</form>
+<div class="wrapper">
+    <a class="btn btn-blue btn-block" href="javascript:;" id="btn-submit">确认提交</a>
+</div>
+<script type="text/javascript" src="/js/chedai/appraiserreport.js"></script>
+</body>
+</html>

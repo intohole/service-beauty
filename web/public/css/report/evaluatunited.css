@@ -1,0 +1,127 @@
+h3,h4,h5,ul,li,p{
+    padding:0;
+    margin:0;
+}
+ul,li{
+    list-style: none;
+}
+.containt{
+     width:960px;
+	 padding:100px 80px 140px;
+     box-sizing: border-box;
+     /*padding:0 40px;*/
+     margin:0 auto;
+     background-color: #fff;
+     color:#333;
+}
+ .evaluat-head{
+     width:100%;
+     margin:20px auto 0;
+     height:40px;
+}
+.evaluat-head>li{
+    float:left;
+    width:45%;
+    margin:0 auto;
+    text-align: right;
+}
+.evaluat-head>li:nth-of-type(2){
+    float: right;
+    text-align: left;
+}
+.evaluat-head>li>a{
+    text-decoration: none;
+    display: inline-block;
+    width:70px;
+    text-align: center;
+    height:25px;
+    line-height: 25px;
+    border:1px solid #ddd;
+    border-radius: 6px;
+    color:#333;
+}
+.evaluat-logo{
+    width:200px;
+    height:48px;
+    background:url("/image/report/evaluat-logo.png") no-repeat;
+    box-sizing: border-box;
+    position: relative;
+    left:600px;
+}
+h3{
+    font-size: 34px;
+    text-align: center;
+    margin:20px 0 40px;
+    color:#333;
+    font-weight: 700;
+}
+h4{
+    font-size: 28px;
+    line-height: 60px;
+    color:#333;
+    font-weight: 700;
+}
+.evaluat-containt-t1{
+    font-size: 24px;
+    line-height: 36px;
+    text-indent:2em;
+}
+.evaluat-containt-t1>b,
+.containt>h5>b{
+    font-weight: normal;
+    /*color:red;*/
+}
+table{
+    border:1px solid #000;
+    width:100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 22px;
+    margin-top: 28px;
+    margin-bottom: 40px;
+}
+caption{
+    text-align: left;
+    font-weight: 800;
+    line-height: 70px;
+    font-size: 24px;
+}
+td,th{
+    text-align: center;
+    vertical-align: middle;
+    border:1px solid #000;
+    width:23%;
+    box-sizing: border-box;
+    padding:12px 5px;
+}
+td:nth-of-type(1){
+    width:34%;
+}
+td{
+    /*color:red;*/
+}
+.evaluat-footer{
+    margin-bottom: 60px;
+}
+.evaluat-footer>h4{
+    line-height: 60px;
+    font-size: 24px;
+}
+.evaluat-footer li{
+    font-size: 20px;
+    line-height: 30px;
+}
+.evaluat-footer li li{
+    margin-left:1em;
+}
+.containt>h5{
+    font-size: 26px;
+    font-weight: 800px;
+    text-align: right;
+    line-height: 36px;
+}
+.table-head{
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 50px;
+}

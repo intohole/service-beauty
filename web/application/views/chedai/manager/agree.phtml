@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>同意原因</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body data-id="<?php echo $id;?>" data-auditid="<?php echo $auditid;?>">
+<script type="text/javascript" src="/js/rem.js"></script>
+<form>
+<textarea class="textarea textarea-big textarea-margin" placeholder="请在这里输入同意原因" name="reason"></textarea>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款额度(万元)</label>
+        <input class="input-normal" name="amount" value="">
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款利率(%)</label>
+        <input class="input-normal" name="rate" value="">
+    </li>
+</ul>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal text-red">贷款期限(月)</label>
+        <input class="input-normal" name="deadline" value="">
+    </li>
+</ul>
+</form>
+<div class="wrapper">
+    <a class="btn btn-block btn-blue" href="javascript:;" id="btn-submit">确定</a>
+</div>
+<script type="text/javascript" src="/js/chedai/manageragree.js"></script>
+</body>
+</html>

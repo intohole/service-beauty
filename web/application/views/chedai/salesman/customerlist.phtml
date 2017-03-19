@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>客户信息管理</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body class="customerinfo-page">
+<script type="text/javascript" src="/js/rem.js"></script>
+<div class="wrapper">
+    <ul class="tabs clearfix">
+        <li class="active">待发起</li>
+        <li>发起中</li>
+        <li>已完成</li>
+    </ul>
+</div>
+<section class="wrap-list-block">
+</section>
+<section class="wrap-list-block">
+</section>
+<section class="wrap-list-block">
+</section>
+<div class="wrapper dpn" id="wrap-more">
+    <a class="btn-more" href="javascript:;">点击获取更多</a>
+</div>
+<div class="wrapper tac dpn" id="wrap-empty">
+    暂无此项记录
+</div>
+<div class="fixed-add-fill"></div>
+<div class="fixed-add">
+    <a href="/chedai/salesman_customeradd">添加用户信息</a>
+</div>
+<script type="text/javascript" src="/js/chedai/tabs.js"></script>
+<script type="text/javascript" src="/js/chedai/customerlist.js"></script>
+<?php new Ui_Common_Chedai_Nav(); ?>
+</body>
+</html>

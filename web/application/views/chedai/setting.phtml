@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>设置</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body class="chedai-user">
+<script type="text/javascript" src="/js/rem.js"></script>
+<ul class="wrap-list" style="margin-top: .5rem">
+    <li>
+        <a class="list-item list-link" href="/chedai/changepassword">
+            <span class="list-item-key">修改密码</span>
+            <span class="list-item-value"></span>
+        </a>
+    </li>
+</ul>
+<input type="hidden" name="share_url" id="share_url" value="<?php echo $share_url;?>" />
+<input type="hidden" name="user_id" id="user_id" value="<?php echo $id;?>" />
+<a class="btn-signout" href="/chedai/logout">退出登录</a>
+<div class="fill-2rem"></div>
+<div class="qrcode"></div>
+<div class="hot-line">
+	<p>如有问题及建议请拨打</p>
+	<p>客服电话：<a href="tel:440-245-4343">440-245-4343</a></p>
+</div>
+<?php new Ui_Common_Chedai_Nav(2); ?>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/js/share.js"></script>
+<script type="text/javascript">
+    // var share_url = $("#share_url").val();
+    var share_url = window.document.getElementById("share_url").value;
+    var id = window.document.getElementById("user_id").value;
+
+    var datas = {
+        title: '全新购车模式-轻松把车开回家',
+        desc: '审核快，车型广，车价优，服务好。买车找我就对了，很荣幸为您服务。',
+        shareUrl: '//' + location.host + '/chedai/landing?id=' + id,
+        imgUrl: 'https://mmbiz.qlogo.cn/mmbiz/nzhlVibVGiaaIEF0OicEkKiaJEQhehXnqia24bicNRxDIo4gqiajR6S9TIEpEtR6y9G93cBvUUaZpjcQJqBP578CAic1gA/0?wx_fmt=jpeg'
+    }
+    share(datas);
+</script>
+</body>
+</html>

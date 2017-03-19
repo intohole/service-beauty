@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>保单</title>
+
+	<style media=print>
+        .pButton{
+            margin-left:auto;
+            margin-right:auto;
+            display:none;
+        }
+    </style>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/insurance_reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/insurance_style.css">
+	<link rel="stylesheet" type="text/css" href="/css/insurance_index.css">
+	<script type="text/javascript" src="https://dn-ybk-static.qbox.me/js/common/jquery-1.8.0.min.js"></script>
+</head>
+
+<body>
+<p align="center" class="pButton" > 
+        <BUTTON id="batch_print" name="batch_print" title=打印 onclick="printDate()">打印</BUTTON>      
+    </p> 
+	<header id="header" class="head content">
+		<i></i>
+		<div>
+			<h1>长安责任保险股份有限责任公司</h1>
+			<p>CHANGAN PROPERTY & LIABILITY INSUNRANCE LTD.</p>
+		</div>
+	</header>
+	<section class="content">
+		<p>贷款履约保证保险投保单</p>
+		<div>
+			<div>
+				<p>投保须知</p>
+				<p>1.本投保单和《贷款履约保证保险条款》是保险合同的组成部分，请仔细阅读，尤其是关于免除保险人责任的条款，投保人及被保险人义务的规定。</p>
+				<p>2.请如实填写投保单，如果不履行如是告知义务，本公司有权依法解除保险合同并不承担保险责任，对已支付的赔款，本公司有权要求退还。</p>
+				<p>3.请按本保险合同的约定及时缴纳保险费。</p>
+			</div>
+		</div>
+	</section>
+<div class="bdr content">
+	<table class="content table1">
+		<caption></caption>
+		<thead>
+			<tr>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="section1">
+				<td>申请贷款金额</td>
+				<td><input type="text" name="" value="<?php echo $data['loan'];?>">元</td>
+				<td>申请贷款期限*</td>
+				<td><label><input type="radio" name="daikuan" value="">贷款期限 ≤ 6个月</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="daikuan" value="" checked="true">6个月<贷款期限 ≤ 12个月</label></td>
+			</tr>
+			
+		</tbody>
+	</table>
+	<table class="content table2">
+		<tbody>
+			<tr class="section1">
+				<td style="width:100px;text-align: center;padding-top:70px" rowspan="6" class="bg">投保人基本信息</td>
+				<td>姓名</td>
+				<td><input type="text" value="<?php echo $app['name'];?>"></td>
+				<td>身份证号码</td>
+				<td colspan="2"><input type="text" name="" value="<?php echo $app['idcard'];?>"></td>
+				<td>性别</td>
+				<td><label><input type="radio" name="sex" value="" <?php if($app['gender']==1) echo "checked";?>>男</label><label>&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="" <?php if($app['gender']==0) echo "checked";?>>女</label></td>
+			</tr>
+			<tr class="section2">
+				<td>学历</td>
+				<td colspan="4"><label><input type="radio" name="xueli" value="">硕士及以上</label><label><input type="radio" name="xueli" value="">本科</label><label><input type="radio" name="xueli" value="">大专</label><label><input type="radio" name="xueli" value="">中专/技校/高中以下</label><label><input type="radio" name="xueli" value="">男</label></td>
+				<td>婚姻状况</td>
+				<td><label><input type="radio" name="hunyin" value="">未婚</label><label><input type="radio" name="hunyin" value="">已婚无子女</label><label><input type="radio" name="hunyin" value="">已婚有子女</label><label><input type="radio" name="hunyin" value="">其他(丧偶、离异等)</label></td>
+			</tr>
+			<tr class="section3">
+				<td>移动电话</td>
+				<td colspan="2"><input type="text" name="" value="<?php echo $app['phone'];?>"></td>
+				<td>住宅电话</td>
+				<td><input type="text" name="" value=""></td>
+				<td>电子邮箱</td>
+				<td><input type="text" value="<?php echo $app['email'];?>"></td>
+			</tr>
+			<tr class="section4">
+				<td>住宅地址</td>
+				<td colspan="4"><input type="text" name="" value="<?php echo $app['temp_address'];?>"></td>
+				<td>邮政编码</td>
+				<td><input type="text" name="" value=""></td>
+			</tr>
+			<tr class="section5">
+				<td colspan="3">投保前三年有无信用卡逾期或银行贷款逾期</td>
+				<td colspan="4"><input type="text" name="" value=""></td>
+			</tr>
+			<tr class="section6">
+				<td colspan="2">本址起始居住时间</td>
+				<td><input type="text" name="" value=""></td>
+				<td>投保人来投保城市年限</td>
+				<td><input type="text" name="" value="">年</td>
+				<td>供养亲属人数</td>
+				<td><input type="text" name="" value="">人</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="divborder"></div>
+	<div class="box content">
+		<div class="lf bg"  style="height:179px;padding-top:75px">用款企业信息</div>
+		<div class="rt border-special">
+			<span class="wd100 bg">名称</span><span class="wd400"><input class="input100" type="text" name="" value=""></span><span class="wd300 bg">投保前三年有无拖欠银行贷款情况</span><span class="wd300"><label><input type="radio" name="has" value="">有</label><label><input type="radio" name="has" value="">无</label></span>
+		</div>
+		<div class="rt">
+			<span class="wd200 bg">组织机构代码</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">投保经营时间</span><span class="wd600"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd200 bg">固定详细生产/经营地址</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd200 bg">生产/经营地址电话</span><span class="wd400"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">企业类型</span><span class="wd400"><label><input type="radio" name="qiyeleixing" value="">集体</label><label><input type="radio" name="qiyeleixing" value="">民营</label><label><input type="radio" name="qiyeleixing" value="">私营</label><label><input type="radio" name="qiyeleixing" value="">个体</label><label><input type="radio" name="qiyeleixing" value="">其他</label></span><span class="wd200 bg">所属行业</span><span class="wd400"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">注册资本</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">贷款用途</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">法定代表人</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">用工人数</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">上年销售额</span><span class="wd300"><input class="input100" type="text" name="" value=""></span><span class="wd200 bg">法定代表人身份证号</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+	</div>
+	<div class="box content">
+		<div class="lf bg" style="height:179px;padding-top:60px">投保人房产/资产信息</div>
+		<div class="rt">
+			<span class="wd100 bg">房产类别</span><span class="wd600"><label><input type="radio" name="fangchanleibie" value="">商业按揭贷款</label><label><input type="radio" name="fangchanleibie" value="">无按揭购房</label><label><input type="radio" name="fangchanleibie" value="">公积金按揭购房</label><label><input type="radio" name="fangchanleibie" value="">自建房</label><label><input type="radio" name="fangchanleibie" value="">租用</label><label><input type="radio" name="fangchanleibie" value="">暂住</label><label><input type="radio" name="fangchanleibie" value="">亲属住房</label><label><input type="radio" name="fangchanleibie" value="">单位住房</label></span><span class="wd200 bg">每月房租/按揭还款金额</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">购买时间</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">购买价格</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">建筑面积</span><span class="wd400"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">房产地址</span><span class="wd100"><label><input type="radio" name="fangchandizhi" value="">同住宅地址</label></span><span class="wd600"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">邮政编码</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">是否有私家车</span><span class="wd100"><label><input type="radio" name="sijiache" value="">有</label><label><input type="radio" name="sijiache" value="">无</label></span><span class="wd200 bg">是否有社保/公积金</span><span class="wd100"><label><input type="radio" name="gongjijin" value="">有</label><input type="radio" name="gongjijin" value="">无</label></span><span class="wd200 bg">在银行开立存款账户(多选)</span><span class="wd400"><label><input type="checkbox" name="cunkuanzhanghu" value="">活期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">定期存款</label><label><input type="checkbox" name="cunkuanzhanghu" value="">信用卡</label><label><input type="checkbox" name="cunkuanzhanghu" value="">其他</label></span>
+		</div>
+		<div class="rt" style="height:60px;">
+			<span style="height:59px;position:relative;top:-14px;line-height: 60px" class="wd100 bg">银行总资产</span><span class="wd300"><label><input type="radio" name="bankzichan" value="">5000元以下</label><label><input type="radio" name="bankzichan" value="">5000-1万</label><label><input type="radio" name="bankzichan" value="">1万-3万</label><label><input type="radio" name="bankzichan" value="">3万-5万</label><label><input type="radio" name="bankzichan" value="">5万-10万</label><label><input type="radio" name="bankzichan" value="">10万-20万</label><label><input type="radio" name="bankzichan" value="">20万以上</label></span><span style="height:59px;position:relative;top:-14px;line-height: 60px" class="wd300 bg">投资账户余额(股票、基金等)</span><span class="wd400" ><label><input type="radio" name="bankyue" value="">0</label><label><input type="radio" name="bankyue" value="">5000元以下</label><label><input type="radio" name="bankyue" value="">5000-1万</label><label><input type="radio" name="bankyue" value="">1万-3万</label><label><input type="radio" name="bankyue" value="">3万-5万</label><label><input type="radio" name="bankyue" value="">5万-10万</label><label><input type="radio" name="bankyue" value="">10万-20万</label><label><input type="radio" name="bankyue" value="">20万以上</label></span>
+		</div>
+	</div>
+	<div class="divborder"></div>
+	<div class="box content" style="height:240px">
+		<div style="height:240px;padding-top:100px" class="lf bg">投保人职业信息</div>
+		<div class="rt border-special">
+			<span class="wd100 bg">工作单位</span><span class="wd400"><input class="input100" type="text"></span><span class="wd100 bg">单位性质</span><span class="wd500"><label><input type="radio" name="danweixingzhi" value="">机关事业</label><label><input type="radio" name="danweixingzhi" value="">国有股份</label><label><input type="radio" name="danweixingzhi" value="">外资</label><label><input type="radio" name="danweixingzhi" value="">私营</label><label><input type="radio" name="danweixingzhi" value="">个体</label><label><input type="radio" name="danweixingzhi" value="">社会团体及其他</label></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">所属行业</span><span class="wd100"><input class="input100" type="text"></span><span class="wd100 bg">任职部门</span><span class="wd200"><input class="input100" type="text"></span><span class="wd100 bg">单位/职务</span><span class="wd500"><label><input type="radio" name="zhiwei" value="">高管人员</label><label><input type="radio" name="zhiwei" value="">中层管理</label><label><input type="radio" name="zhiwei" value="">基层管理</label><label><input type="radio" name="zhiwei" value="">员工</label><label><input type="radio" name="zhiwei" value="">销售/中介/业务代表</label><label><input type="radio" name="zhiwei" value="">职务员</label></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">单位电话</span><span class="wd700"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">邮政编码</span><span class="wd200"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">单位地址</span><span class="wd200"><input class="input100" type="text" name="" value="<?php echo $app['work_address'];?>"></span><span class="wd100">分机</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd200 bg">本单位工作起始时间</span><span class="wd400"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">每月基本薪金</span><span class="wd100"><input class="input100" type="text"></span><span class="wd100 bg">其他收入</span><span class="wd200"><input class="input100" type="text"></span><span class="wd100 bg">每月总收入</span><span class="wd200">月均约<input style="width:140px;border:none;outline:none;text-align: center;" type="text">元</span><span class="wd100 bg">每月支薪日</span><span class="wd200"><input class="input100" type="text"></span>
+		</div>
+		<div class="rt">
+			<span class="wd1100"><input style="text-align: left" class="input100" type="text" value="如申请人为私营业主请补充以下资料"></span>
+		</div>
+		<div class="rt">
+			<span class="wd100">私营企业类型</span><span class="wd600"><label><input type="radio" name="siyingleixing" value="">个体</label><label><input type="radio" name="siyingleixing" value="">私营独资</label><label><input type="radio" name="siyingleixing" value="">私营合伙</label><label><input type="radio" name="siyingleixing" value="">私营有限责任公司</label><label><input type="radio" name="siyingleixing" value="">私营股份有限公司</label></span><span class="wd100 bg">成立时间</span><span class="wd300"><input class="input100" type="text"></span>
+		</div>
+		<div class="rt">
+			<span class="wd100 bg">股权占比</span><span class="wd100"><input class="input80" type="text">%</span><span class="wd100 bg">经营场所</span><span class="wd300"><label><input type="radio" name="jingyingchangsuo" value="">租用</label><label><input type="radio" name="jingyingchangsuo" value="">自有资产</label></span><span class="wd100 bg">员工人数</span><span class="wd400"><input class="input80" type="text">人</span>
+		</div>
+	</div>
+	<div class="divborder"></div>
+	<div class="box content" style="height:210px">
+		<div style="height:210px;padding-top:100px" class="lf bg">联人信息</div>
+		<div class="rt border-special">
+            <span class="wd100">配偶</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd200 bg">其他联系方式</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+            <span class="wd100">父亲</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd200 bg">目前工作单位或离退休单位</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+            <span class="wd100">母亲</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd200"><input class="input100" type="text" name="" value=""></span><span class="wd200 bg">目前工作单位或离退休单位</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+            <span class="wd100">直系亲属</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">关系</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">住宅电话</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+            <span class="wd100">其他联系人</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">关系</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">住宅电话</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+            <span class="wd100">其他联系人</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">关系</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">住宅电话</span><span class="wd300"><input class="input100" type="text" name="" value=""></span>
+		</div>
+		<div class="rt">
+            <span class="wd100">其他联系人</span><span class="wd50">姓名</span><span class="wd150"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">关系</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">移动电话</span><span class="wd100"><input class="input100" type="text" name="" value=""></span><span class="wd100 bg">住宅电话</span><span class="wd300"><input class="input100" type="text" name="" value="（区号）"></span>
+		</div>
+	</div>
+</div>
+	<br><br><br>
+</body>
+</html>
+<script>
+    function printDate(){
+        window.print();
+        
+    }
+</script>

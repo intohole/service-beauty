@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>驳回原因</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body data-id="<?php echo $id;?>">
+<script type="text/javascript" src="/js/rem.js"></script>
+<form>
+    <textarea class="textarea textarea-big textarea-margin" placeholder="请在这里输入驳回原因" name="reason"></textarea>
+    <?php if($user_role==$role_six):?>
+        <ul class="form">
+            <li class="clearfix">
+            <label class="label-normal">驳回至</label>
+                <div class="select-box">
+                    <select class="select" name="reject">
+                        <option selected value="1">分公司业务员</option>
+                        <option value="4">分公司风控经理</option>
+                        <option value="5">分公司总经理</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    <?php elseif(($user_role==$role_seven)):?>
+        <ul class="form">
+            <li class="clearfix">
+            <label class="label-normal">驳回至</label>
+                <div class="select-box">
+                    <select class="select" name="reject">
+                        <option selected value="1">分公司业务员</option>
+                        <option value="4">分公司风控经理</option>
+                        <option value="5">分公司总经理</option>
+                        <option value="6">总公司风控总监</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    <?php endif;?>
+</form>
+<div class="wrapper">
+    <a class="btn btn-block btn-blue" href="javascript:;" id="btn-submit">确定</a>
+</div>
+<script type="text/javascript" src="/js/chedai/managerreject.js"></script>
+</body>
+</html>

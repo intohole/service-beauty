@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>基本信息</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+<link rel="stylesheet" type="text/css" href="/css/mobiscroll.custom-2.17.0.min.css">
+</head>
+<body data-edit="<?php echo $uid; ?>" data-unit="<?php echo $data['work_cate'];echo $redis_info['unit'];?>" data-position="<?php echo $data['work_level'];echo $redis_info['position'];?>" class="customeradd-page">
+<script type="text/javascript" src="/js/rem.js"></script>
+<input type='hidden' name='launch' value="<?php echo $launch;?>" />
+<?php if($uid):?>
+
+
+<!----------------- 厦门 重新编辑  -------------------->
+<form <?php if($launch == 2) echo 'class="dpn"';?>>
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">业务类型</label>
+            <div class="select-box">
+                <select class="select" name="type">
+                    <option <?php if($data['type'] == '以租代购') echo "selected";?> value="以租代购">以租代购</option>
+                    <option <?php if($data['type'] == '车辆质押') echo "selected";?>  value="车辆质押">车辆质押</option>
+                    <option <?php if($data['type'] == '车辆抵押') echo "selected";?> value="车辆抵押">车辆抵押</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">姓名</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="" value="<?php echo $data['name'];?>" name="username">
+        </li>
+        <li class="clearfix xiamen">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['idcardfront'];?>" alt="身份证正面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardfront" value="<?php echo $data['idcard_positive_fileid'];?>">
+                <p class="tac">身份证正面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['idcardback'];?>" alt="身份证背面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardback" value="<?php echo $data['idcard_reverse_fileid'];?>">
+                <p class="tac">身份证背面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['drivinglicence'];?>" alt="驾驶证照片" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="drivinglicence" value="<?php echo $data['drivinglicence_fileid'];?>">
+                <p class="tac">驾驶证照片</p>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">性别</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="sexual" value="男" <?php if($data['gender'] == '男') echo "checked='checked'";?>><span>男</span></label>
+                <label><input type="radio" name="sexual" value="女" <?php if($data['gender'] == '女') echo "checked='checked'";?>><span>女　</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">身份证号码</label>
+            <input class="input-normal" type="text" maxlength="18" placeholder="请输入您的身份证号码" name="idcard" value="<?php echo $data['idcard'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">出生日期</label>
+            <input class="input-normal" type="text" maxlength="10" placeholder="" name="birthday" class="birthday" value="<?php echo $data['birthday'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">婚姻状况</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="marry" value="已婚" <?php if($data['marriage'] == '已婚') echo "checked='checked'";?>><span>已婚</span></label>
+                <label><input type="radio" name="marry" value="未婚" <?php if($data['marriage'] == '未婚') echo "checked='checked'";?>><span>未婚</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">手机号码</label>
+            <input class="input-normal" type="tel" maxlength="11" placeholder="" value="<?php echo $data['phone'];?>" name="phone">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">常用邮箱</label>
+            <input class="input-normal" type="email" maxlength="30" placeholder="" value="<?php echo $data['email'];?>" name="email">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">最高学历</label>
+            <div class="select-box">
+                <select class="select" name="education">
+                    <option <?php if($data['edu'] == '研究生以上') echo "selected";?> value="研究生以上">研究生以上</option>
+                    <option <?php if($data['edu'] == '本科') echo "selected";?> value="本科">本科</option>
+                    <option <?php if($data['edu'] == '大专') echo "selected";?> value="大专">大专</option>
+                    <option <?php if($data['edu'] == '中专、高中') echo "selected";?> value="中专、高中">中专、高中</option>
+                    <option <?php if($data['edu'] == '其他') echo "selected";?> value="其他">其他</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">工作单位</label>
+            <input class="input-normal" type="text" maxlength="20" placeholder="请输入您的工作单位的名称" name="company" value="<?php echo $data['work_address'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">户籍地址</label>
+            <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的户籍地址" name="registeraddress" value="<?php echo $data['census_register'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">户口性质</label>
+            <div class="select-box">
+                <select class="select" name="household">
+                    <option <?php if($data['hukou_type'] == '本地城镇户口') echo "selected";?> value="本地城镇户口">本地城镇户口</option>
+                    <option <?php if($data['hukou_type'] == '本地农村户口') echo "selected";?> value="本地农村户口">本地农村户口</option>
+                    <option <?php if($data['hukou_type'] == '外地城镇户口') echo "selected";?> value="外地城镇户口">外地城镇户口</option>
+                    <option <?php if($data['hukou_type'] == '外地农村户口') echo "selected";?> value="外地农村户口">外地农村户口</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">暂住地址</label>
+            <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的暂住地址" name="livingaddress" value="<?php echo $data['temp_address'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">驾龄</label>
+            <div class="select-box">
+                <select class="select" name="driving">
+                    <option <?php if($data['driving_years'] == '5年以上') echo "selected";?> value="5年以上">5年以上</option>
+                    <option <?php if($data['driving_years'] == '3~5年') echo "selected";?> value="3~5年">3~5年</option>
+                    <option <?php if($data['driving_years'] == '1~3年') echo "selected";?> value="1~3年">1~3年</option>
+                    <option <?php if($data['driving_years'] == '1年') echo "selected";?> value="1年">1年</option>
+                    <option <?php if($data['driving_years'] == '0年') echo "selected";?> value="0年">0年</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(2, 1)">下一步</a>
+    </div>
+</form>
+<form class="dpn">
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">是否为我司员工</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="employee" value="是" <?php if($data['isstaff'] == '是') echo "checked='checked'";?>><span>是</span></label>
+                <label><input type="radio" name="employee" value="否" <?php if($data['isstaff'] == '否') echo "checked='checked'";?>><span>否</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">是否为我司客户</label>
+            <div class="select-box">
+                <select class="select" name="client">
+                    <option <?php if($data['isclient'] == '优质老客户') echo "selected";?> value="优质老客户">优质老客户</option>
+                    <option <?php if($data['isclient'] == '有逾期老客户') echo "selected";?> value="有逾期老客户">有逾期老客户</option>
+                    <option <?php if($data['isclient'] == '未结清老客户') echo "selected";?> value="未结清老客户">未结清老客户</option>
+                    <option <?php if($data['isclient'] == '非我司老客户') echo "selected";?> value="非我司老客户">非我司老客户</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">信用记录</label>
+            <div class="select-box">
+                <select class="select" name="credit">
+                    <option <?php if($data['credit'] == '无逾期') echo "selected";?> value="无逾期">无逾期</option>
+                    <option <?php if($data['credit'] == '1次逾期') echo "selected";?> value="1次逾期">1次逾期</option>
+                    <option <?php if($data['credit'] == '两次及以上逾期') echo "selected";?> value="两次及以上逾期">两次及以上逾期</option>
+                    <option <?php if($data['credit'] == '无记录') echo "selected";?> value="无记录">无记录</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">诉讼执行记录</label>
+            <div class="select-box">
+                <select class="select" name="litigation">
+                    <option <?php if($data['sue'] == '涉执行') echo "selected";?> value="涉执行">涉执行</option>
+                    <option <?php if($data['sue'] == '涉诉讼') echo "selected";?> value="涉诉讼">涉诉讼</option>
+                    <option <?php if($data['sue'] == '无') echo "selected";?> value="无">无</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">犯罪记录</label>
+            <div class="select-box">
+                <select class="select" name="sin">
+                    <option <?php if($data['crime'] == '涉犯罪') echo "selected";?> value="涉犯罪">涉犯罪</option>
+                    <option <?php if($data['crime'] == '无') echo "selected";?> value="无">无</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">面谈主观印象</label>
+            <div class="select-box">
+                <select class="select" name="impression">
+                    <option <?php if($data['interview'] == '6分') echo "selected";?> value="6分">6分</option>
+                    <option <?php if($data['interview'] == '5分') echo "selected";?> value="5分">5分</option>
+                    <option <?php if($data['interview'] == '4分') echo "selected";?> value="4分">4分</option>
+                    <option <?php if($data['interview'] == '3分') echo "selected";?> value="3分">3分</option>
+                    <option <?php if($data['interview'] == '2分') echo "selected";?> value="2分">2分</option>
+                    <option <?php if($data['interview'] == '1分') echo "selected";?> value="1分">1分</option>
+                    <option <?php if($data['interview'] == '0分') echo "selected";?> value="0分">0分</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" onclick="goTo(1)">上一步</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(3, 1)">下一步</a>
+    </div>
+</form>
+<form class="dpn">
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">职业类型</label>
+            <div class="select-box">
+                <select class="select" name="career">
+                    <option <?php if($data['work_type'] == '公务员') echo "selected";?> value="公务员">公务员</option>
+                    <option <?php if($data['work_type'] == '科研教育机构') echo "selected";?> value="科研教育机构">科研教育机构</option>
+                    <option <?php if($data['work_type'] == '金融电信电力') echo "selected";?> value="金融电信电力">金融电信电力</option>
+                    <option <?php if($data['work_type'] == '注册事务所') echo "selected";?> value="注册事务所">注册事务所</option>
+                    <option <?php if($data['work_type'] == '邮政交通公用') echo "selected";?> value="邮政交通公用">邮政交通公用</option>
+                    <option <?php if($data['work_type'] == '媒体文艺体育') echo "selected";?> value="媒体文艺体育">媒体文艺体育</option>
+                    <option <?php if($data['work_type'] == '工业商业贸易') echo "selected";?> value="工业商业贸易">工业商业贸易</option>
+                    <option <?php if($data['work_type'] == '其他') echo "selected";?> value="其他">其他</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">现单位工作年限</label>
+            <div class="select-box">
+                <select class="select" name="agelimit">
+                    <option <?php if($data['work_years'] == '5年以上') echo "selected";?> value="5年以上">5年以上</option>
+                    <option <?php if($data['work_years'] == '3~5年') echo "selected";?> value="3~5年">3~5年</option>
+                    <option <?php if($data['work_years'] == '1~3年') echo "selected";?> value="1~3年">1~3年</option>
+                    <option <?php if($data['work_years'] == '1年以内') echo "selected";?> value="1年以内">1年以内</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">现单位性质</label>
+            <div class="select-box">
+                <select class="select" name="unit" id="unit">
+                    <option <?php if($data['work_cate'] == '机关事业单位') echo "selected";?> value="机关事业单位">机关事业单位</option>
+                    <option <?php if($data['work_cate'] == '团体企业单位') echo "selected";?> value="团体企业单位">团体企业单位</option>
+                    <option <?php if($data['work_cate'] == '一般企业单位') echo "selected";?> value="一般企业单位">一般企业单位</option>
+                    <option <?php if($data['work_cate'] == '其它') echo "selected";?> value="其它">其它</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">现单位岗位级别</label>
+            <div class="select-box">
+                <select class="select" name="position" id="position">
+                    <option <?php if($data['work_level'] == '厅局级以上') echo "selected";?> value="厅局级以上">厅局级以上</option>
+                    <option <?php if($data['work_level'] == '处级') echo "selected";?> value="处级">处级</option>
+                    <option <?php if($data['work_level'] == '科级') echo "selected";?> value="科级">科级</option>
+                    <option <?php if($data['work_level'] == '一般干部') echo "selected";?> value="一般干部">一般干部</option>
+                    <option <?php if($data['work_level'] == '其他') echo "selected";?> value="其他">其他</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">个人月收入状况</label>
+            <div class="select-box">
+                <select class="select" name="earning">
+                    <option <?php if($data['income'] == '10000元以上') echo "selected";?> value="10000元以上">10000元以上</option>
+                    <option <?php if($data['income'] == '8000~10000元') echo "selected";?> value="8000~10000元">8000~10000元</option>
+                    <option <?php if($data['income'] == '5000~8000元') echo "selected";?> value="5000~8000元">5000~8000元</option>
+                    <option <?php if($data['income'] == '4000~5000元') echo "selected";?> value="4000~5000元">4000~5000元</option>
+                    <option <?php if($data['income'] == '3000~4000元') echo "selected";?> value="3000~4000元">3000~4000元</option>
+                    <option <?php if($data['income'] == '2000~3000元') echo "selected";?> value="2000~3000元">2000~3000元</option>
+                    <option <?php if($data['income'] == '1000~2000元') echo "selected";?> value="1000~2000元">1000~2000元</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">个人住房状况</label>
+            <div class="select-box">
+                <select class="select" name="house">
+                    <option <?php if($data['house'] == '完全产权房') echo "selected";?> value="完全产权房">完全产权房</option>
+                    <option <?php if($data['house'] == '按揭购房') echo "selected";?> value="按揭购房">按揭购房</option>
+                    <option <?php if($data['house'] == '经济适用房') echo "selected";?> value="经济适用房">经济适用房</option>
+                    <option <?php if($data['house'] == '租房') echo "selected";?> value="租房">租房</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" onclick="goTo(2)">上一步</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(4, 1)">下一步</a>
+    </div>
+</form>
+<!----------------- 厦门结束  -------------------->
+
+<!----------------- 全国 重新编辑  -------------------->
+<form <?php if($launch == 1) echo 'class="dpn"';?>>
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">业务类型</label>
+            <div class="select-box">
+                <select class="select" name="type">
+                    <option <?php if($data['type'] == '以租代购') echo "selected";?> value="以租代购">以租代购</option>
+                    <option <?php if($data['type'] == '车辆质押') echo "selected";?>  value="车辆质押">车辆质押</option>
+                    <option <?php if($data['type'] == '车辆抵押') echo "selected";?> value="车辆抵押">车辆抵押</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">姓名</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="" value="<?php echo $data['name'];?>" name="username">
+        </li>
+        <li class="clearfix national">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['idcardfront'];?>" alt="身份证正面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardfront" value="<?php echo $data['idcard_positive_fileid'];?>">
+                <p class="tac">身份证正面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['idcardback'];?>" alt="身份证背面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardback" value="<?php echo $data['idcard_reverse_fileid'];?>">
+                <p class="tac">身份证背面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $data['drivinglicence'];?>" alt="驾驶证照片" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="drivinglicence" value="<?php echo $data['drivinglicence_fileid'];?>">
+                <p class="tac">驾驶证照片</p>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">性别</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="sexual" value="男" <?php if($data['gender'] == '男') echo "checked='checked'";?>><span>男</span></label>
+                <label><input type="radio" name="sexual" value="女" <?php if($data['gender'] == '女') echo "checked='checked'";?>><span>女　</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">身份证号码</label>
+            <input class="input-normal" type="text" maxlength="18" placeholder="请输入您的身份证号码" name="idcard" value="<?php echo $data['idcard'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">出生日期</label>
+            <input class="input-normal" type="text" maxlength="10" placeholder="" name="birthday" class="birthday" value="<?php echo $data['birthday'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">手机号码</label>
+            <input class="input-normal" type="tel" maxlength="11" placeholder="" value="<?php echo $data['phone'];?>" name="phone">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">常用邮箱</label>
+            <input class="input-normal" type="email" maxlength="30" placeholder="" value="<?php echo $data['email'];?>" name="email">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">工作单位</label>
+            <input class="input-normal" type="text" maxlength="20" placeholder="请输入您的工作单位的名称" name="company" value="<?php echo $data['work_address'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">户籍地址</label>
+            <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的户籍地址" name="registeraddress" value="<?php echo $data['census_register'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">暂住地址</label>
+            <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的暂住地址" name="livingaddress" value="<?php echo $data['temp_address'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">个人月收入状况</label>
+            <div class="select-box">
+                <select class="select" name="earning">
+                    <option <?php if($data['income'] == '10000元以上') echo "selected";?> value="10000元以上">10000元以上</option>
+                    <option <?php if($data['income'] == '8000~10000元') echo "selected";?> value="8000~10000元">8000~10000元</option>
+                    <option <?php if($data['income'] == '5000~8000元') echo "selected";?> value="5000~8000元">5000~8000元</option>
+                    <option <?php if($data['income'] == '4000~5000元') echo "selected";?> value="4000~5000元">4000~5000元</option>
+                    <option <?php if($data['income'] == '3000~4000元') echo "selected";?> value="3000~4000元">3000~4000元</option>
+                    <option <?php if($data['income'] == '2000~3000元') echo "selected";?> value="2000~3000元">2000~3000元</option>
+                    <option <?php if($data['income'] == '1000~2000元') echo "selected";?> value="1000~2000元">1000~2000元</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <!-- <label style="line-height: 1rem;padding-top:.25rem" class="label-normal">&nbsp;&nbsp;&nbsp;信用记录<br/>【违章记录】</label> -->
+            <label class="label-normal">违章记录</label>
+            <input class="input-normal" type="tel" placeholder="请输入违章记录" name="illegal" value="<?php echo $data['illegal'];?>"><span style="position: absolute;right: 1.5rem;">分</span>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">诉讼执行记录</label>
+            <input class="input-normal" type="tel" placeholder="请输入诉讼执行记录" name="litigation_car" value="<?php echo $data['litigation_car'];?>"><span style="position: absolute;right: 1.5rem;">处</span>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">犯罪记录</label>
+            <div class="select-box">
+                <select class="select" name="sin">
+                    <option <?php if($data['crime'] == '涉犯罪') echo "selected";?> value="涉犯罪">涉犯罪</option>
+                    <option <?php if($data['crime'] == '无') echo "selected";?> value="无">无</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(0, 1)">下一步</a>
+    </div>
+</form>
+<!----------------- 全国结束  -------------------->
+<form class="dpn">
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" id="btn-cancel">取消</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" id="btn-submit">确认编辑</a>
+    </div>
+</form>
+<div id="scoring" class="dpn">
+    <div class="wrapper"></div>
+    <ul class="wrap-list no-pd">
+        <li>
+            <div class="list-item list-item-big list-item-big-double">
+                <div class="wrap-col-double clearfix">
+                    <a class="col col-small" href="javascript:;">
+                        <div class="col-text">
+                            <p class="col-text-key">客户综合评分：</p>
+                            <p class="col-text-value"></p>
+                        </div>
+                    </a>
+                    <a class="col col-small" href="javascript:;">
+                        <div class="col-text">
+                            <p class="col-text-key">客户综合评分：</p>
+                            <p class="col-text-value"><strong></strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <a class="btn btn-block btn-blue" href="/chedai/salesman_customerlist">确定</a>
+    </div>
+</div>
+
+
+
+<?php /*上面是修改页面   下面是缓存页面*/?>
+<?php elseif($redis_info):?>
+
+<!-----------------------     厦门 缓存进入        -------------------->
+<form>
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">业务类型</label>
+            <div class="select-box">
+                <select class="select" name="type">
+                    <option <?php if($redis_info['type'] == '以租代购') echo "selected";?> value="以租代购">以租代购</option>
+                    <option <?php if($redis_info['type'] == '车辆质押') echo "selected";?>  value="车辆质押">车辆质押</option>
+                    <option <?php if($redis_info['type'] == '车辆抵押') echo "selected";?> value="车辆抵押">车辆抵押</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">姓名</label>
+            <input class="input-normal" type="text" maxlength="8" placeholder="" value="<?php echo $redis_info['username'];?>" name="username">
+        </li>
+        <li class="clearfix xiamen">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['idcardfront_src'];?>" alt="身份证正面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardfront" value="<?php echo $redis_info['idcardfront'];?>">
+                <p class="tac">身份证正面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['idcardback_src'];?>" alt="身份证背面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardback" value="<?php echo $redis_info['idcardback'];?>">
+                <p class="tac">身份证背面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['drivinglicence_src'];?>" alt="驾驶证照片" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="drivinglicence" value="<?php echo $redis_info['drivinglicence'];?>">
+                <p class="tac">驾驶证照片</p>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">性别</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="sexual" value="男" <?php if($redis_info['sexual']=='男' || !$redis_info['sexual']) echo "checked='checked'";?>><span>男</span></label>
+                <label><input type="radio" name="sexual" value="女" <?php if($redis_info['sexual'] == '女') echo "checked='checked'";?>><span>女　</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">身份证号码</label>
+            <input class="input-normal" type="text" maxlength="18" placeholder="请输入您的身份证号码" name="idcard" value="<?php echo $redis_info['idcard'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">出生日期</label>
+            <input class="input-normal" type="text" maxlength="10" placeholder="" name="birthday" id="birthday" value="<?php echo $redis_info['birthday'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">婚姻状况</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="marry" value="已婚" <?php if($redis_info['marry']=='已婚' || !$redis_info['marry']) echo "checked='checked'";?>><span>已婚</span></label>
+                <label><input type="radio" name="marry" value="未婚" <?php if($redis_info['marry'] == '未婚') echo "checked='checked'";?>><span>未婚</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">手机号码</label>
+            <input class="input-normal" type="tel" maxlength="11" placeholder="" value="<?php echo $redis_info['phone'];?>" name="phone">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">常用邮箱</label>
+            <input class="input-normal" type="email" maxlength="30" placeholder="" value="<?php echo $redis_info['email'];?>" name="email">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">最高学历</label>
+            <div class="select-box">
+                <select class="select" name="education">
+                    <option <?php if($redis_info['education'] == '研究生以上') echo "selected";?> value="研究生以上">研究生以上</option>
+                    <option <?php if($redis_info['education'] == '本科') echo "selected";?> value="本科">本科</option>
+                    <option <?php if($redis_info['education'] == '大专') echo "selected";?> value="大专">大专</option>
+                    <option <?php if($redis_info['education'] == '中专、高中') echo "selected";?> value="中专、高中">中专、高中</option>
+                    <option <?php if($redis_info['education'] == '其他') echo "selected";?> value="其他">其他</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">工作单位</label>
+            <input class="input-normal" type="text" maxlength="20" placeholder="请输入您的工作单位的名称" name="company" value="<?php echo $redis_info['company'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">户籍地址</label>
+            <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的户籍地址" name="registeraddress" value="<?php echo $redis_info['registeraddress'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">户口性质</label>
+            <div class="select-box">
+                <select class="select" name="household">
+                    <option <?php if($redis_info['household'] == '本地城镇户口') echo "selected";?> value="本地城镇户口">本地城镇户口</option>
+                    <option <?php if($redis_info['household'] == '本地农村户口') echo "selected";?> value="本地农村户口">本地农村户口</option>
+                    <option <?php if($redis_info['household'] == '外地城镇户口') echo "selected";?> value="外地城镇户口">外地城镇户口</option>
+                    <option <?php if($redis_info['household'] == '外地农村户口') echo "selected";?> value="外地农村户口">外地农村户口</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">暂住地址</label>
+            <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的暂住地址" name="livingaddress" value="<?php echo $redis_info['livingaddress'];?>">
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">驾龄</label>
+            <div class="select-box">
+                <select class="select" name="driving">
+                    <option <?php if($redis_info['driving'] == '5年以上') echo "selected";?> value="5年以上">5年以上</option>
+                    <option <?php if($redis_info['driving'] == '3~5年') echo "selected";?> value="3~5年">3~5年</option>
+                    <option <?php if($redis_info['driving'] == '1~3年') echo "selected";?> value="1~3年">1~3年</option>
+                    <option <?php if($redis_info['driving'] == '1年') echo "selected";?> value="1年">1年</option>
+                    <option <?php if($redis_info['driving'] == '0年') echo "selected";?> value="0年">0年</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(2, 1)">下一步</a>
+    </div>
+</form>
+<form class="dpn">
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">是否为我司员工</label>
+            <div class="radio-group clearfix">
+                <label><input type="radio" name="employee" value="是" <?php if($redis_info['employee'] == '是') echo "checked='checked'";?>><span>是</span></label>
+                <label><input type="radio" name="employee" value="否" <?php if($redis_info['employee']=='否' || !$redis_info['employee']) echo "checked='checked'";?>><span>否</span></label>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">是否为我司客户</label>
+            <div class="select-box">
+                <select class="select" name="client">
+                    <option <?php if($redis_info['client'] == '优质老客户') echo "selected";?> value="优质老客户">优质老客户</option>
+                    <option <?php if($redis_info['client'] == '有逾期老客户') echo "selected";?> value="有逾期老客户">有逾期老客户</option>
+                    <option <?php if($redis_info['client'] == '未结清老客户') echo "selected";?> value="未结清老客户">未结清老客户</option>
+                    <option <?php if($redis_info['client'] == '非我司老客户') echo "selected";?> value="非我司老客户">非我司老客户</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">信用记录</label>
+            <div class="select-box">
+                <select class="select" name="credit">
+                    <option <?php if($redis_info['credit'] == '无逾期') echo "selected";?> value="无逾期">无逾期</option>
+                    <option <?php if($redis_info['credit'] == '1次逾期') echo "selected";?> value="1次逾期">1次逾期</option>
+                    <option <?php if($redis_info['credit'] == '两次及以上逾期') echo "selected";?> value="两次及以上逾期">两次及以上逾期</option>
+                    <option <?php if($redis_info['credit'] == '无记录') echo "selected";?> value="无记录">无记录</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">诉讼执行记录</label>
+            <div class="select-box">
+                <select class="select" name="litigation">
+                    <option <?php if($redis_info['litigation'] == '涉执行') echo "selected";?> value="涉执行">涉执行</option>
+                    <option <?php if($redis_info['litigation'] == '涉诉讼') echo "selected";?> value="涉诉讼">涉诉讼</option>
+                    <option <?php if($redis_info['litigation'] == '无') echo "selected";?> value="无">无</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">犯罪记录</label>
+            <div class="select-box">
+                <select class="select" name="sin">
+                    <option <?php if($redis_info['sin'] == '涉犯罪') echo "selected";?> value="涉犯罪">涉犯罪</option>
+                    <option <?php if($redis_info['sin'] == '无') echo "selected";?> value="无">无</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">面谈主观印象</label>
+            <div class="select-box">
+                <select class="select" name="impression">
+                    <option <?php if($redis_info['impression'] == '6分') echo "selected";?> value="6分">6分</option>
+                    <option <?php if($redis_info['impression'] == '5分') echo "selected";?> value="5分">5分</option>
+                    <option <?php if($redis_info['impression'] == '4分') echo "selected";?> value="4分">4分</option>
+                    <option <?php if($redis_info['impression'] == '3分') echo "selected";?> value="3分">3分</option>
+                    <option <?php if($redis_info['impression'] == '2分') echo "selected";?> value="2分">2分</option>
+                    <option <?php if($redis_info['impression'] == '1分') echo "selected";?> value="1分">1分</option>
+                    <option <?php if($redis_info['impression'] == '0分') echo "selected";?> value="0分">0分</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" onclick="goTo(1)">上一步</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(3, 1)">下一步</a>
+    </div>
+</form>
+<form class="dpn">
+    <ul class="form">
+        <li class="clearfix">
+            <label class="label-normal">职业类型</label>
+            <div class="select-box">
+                <select class="select" name="career">
+                    <option <?php if($redis_info['career'] == '公务员') echo "selected";?> value="公务员">公务员</option>
+                    <option <?php if($redis_info['career'] == '科研教育机构') echo "selected";?> value="科研教育机构">科研教育机构</option>
+                    <option <?php if($redis_info['career'] == '金融电信电力') echo "selected";?> value="金融电信电力">金融电信电力</option>
+                    <option <?php if($redis_info['career'] == '注册事务所') echo "selected";?> value="注册事务所">注册事务所</option>
+                    <option <?php if($redis_info['career'] == '邮政交通公用') echo "selected";?> value="邮政交通公用">邮政交通公用</option>
+                    <option <?php if($redis_info['career'] == '媒体文艺体育') echo "selected";?> value="媒体文艺体育">媒体文艺体育</option>
+                    <option <?php if($redis_info['career'] == '工业商业贸易') echo "selected";?> value="工业商业贸易">工业商业贸易</option>
+                    <option <?php if($redis_info['career'] == '其他') echo "selected";?> value="其他">其他</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">现单位工作年限</label>
+            <div class="select-box">
+                <select class="select" name="agelimit">
+                    <option <?php if($redis_info['agelimit'] == '5年以上') echo "selected";?> value="5年以上">5年以上</option>
+                    <option <?php if($redis_info['agelimit'] == '3~5年') echo "selected";?> value="3~5年">3~5年</option>
+                    <option <?php if($redis_info['agelimit'] == '1~3年') echo "selected";?> value="1~3年">1~3年</option>
+                    <option <?php if($redis_info['agelimit'] == '1年以内') echo "selected";?> value="1年以内">1年以内</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">现单位性质</label>
+            <div class="select-box">
+                <select class="select" name="unit" id="unit">
+                    <option <?php if($redis_info['unit'] == '机关事业单位') echo "selected";?> value="机关事业单位">机关事业单位</option>
+                    <option <?php if($redis_info['unit'] == '团体企业单位') echo "selected";?> value="团体企业单位">团体企业单位</option>
+                    <option <?php if($redis_info['unit'] == '一般企业单位') echo "selected";?> value="一般企业单位">一般企业单位</option>
+                    <option <?php if($redis_info['unit'] == '其它') echo "selected";?> value="其它">其它</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">现单位岗位级别</label>
+            <div class="select-box">
+                <select class="select" name="position" id="position">
+                    <option <?php if($redis_info['position'] == '厅局级以上') echo "selected";?> value="厅局级以上">厅局级以上</option>
+                    <option <?php if($redis_info['position'] == '处级') echo "selected";?> value="处级">处级</option>
+                    <option <?php if($redis_info['position'] == '科级') echo "selected";?> value="科级">科级</option>
+                    <option <?php if($redis_info['position'] == '一般干部') echo "selected";?> value="一般干部">一般干部</option>
+                    <option <?php if($redis_info['position'] == '其他') echo "selected";?> value="其他">其他</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">个人月收入状况</label>
+            <div class="select-box">
+                <select class="select" name="earning">
+                    <option <?php if($redis_info['earning'] == '10000元以上') echo "selected";?> value="10000元以上">10000元以上</option>
+                    <option <?php if($redis_info['earning'] == '8000~10000元') echo "selected";?> value="8000~10000元">8000~10000元</option>
+                    <option <?php if($redis_info['earning'] == '5000~8000元') echo "selected";?> value="5000~8000元">5000~8000元</option>
+                    <option <?php if($redis_info['earning'] == '4000~5000元') echo "selected";?> value="4000~5000元">4000~5000元</option>
+                    <option <?php if($redis_info['earning'] == '3000~4000元') echo "selected";?> value="3000~4000元">3000~4000元</option>
+                    <option <?php if($redis_info['earning'] == '2000~3000元') echo "selected";?> value="2000~3000元">2000~3000元</option>
+                    <option <?php if($redis_info['earning'] == '1000~2000元') echo "selected";?> value="1000~2000元">1000~2000元</option>
+                </select>
+            </div>
+        </li>
+        <li class="clearfix">
+            <label class="label-normal">个人住房状况</label>
+            <div class="select-box">
+                <select class="select" name="house">
+                    <option <?php if($redis_info['house'] == '完全产权房') echo "selected";?> value="完全产权房">完全产权房</option>
+                    <option <?php if($redis_info['house'] == '按揭购房') echo "selected";?> value="按揭购房">按揭购房</option>
+                    <option <?php if($redis_info['house'] == '经济适用房') echo "selected";?> value="经济适用房">经济适用房</option>
+                    <option <?php if($redis_info['house'] == '租房') echo "selected";?> value="租房">租房</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" onclick="goTo(2)">上一步</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(4, 1)">下一步</a>
+    </div>
+</form>
+<!-----------------------     厦门 结束        -------------------->
+<!-----------------------     全国 缓存进入        -------------------->
+    <form <?php if($launch == 1) echo 'class="dpn"';?>>
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal">业务类型</label>
+                <div class="select-box">
+                    <select class="select" name="type">
+                        <option selected value="以租代购">以租代购</option>
+                        <option  value="车辆质押">车辆质押</option>
+                        <option  value="车辆抵押">车辆抵押</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">姓名</label>
+                <input class="input-normal" type="text" maxlength="8" placeholder="" value="" name="username">
+            </li>
+            <li class="clearfix national">
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['idcardfront_src'];?>" alt="身份证正面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardfront" value="<?php echo $redis_info['idcardfront'];?>">
+                <p class="tac">身份证正面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['idcardback_src'];?>" alt="身份证背面照" data-src="" class="active">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="idcardback" value="<?php echo $redis_info['idcardback'];?>">
+                <p class="tac">身份证背面照</p>
+            </div>
+            <div class="img-uploader">
+                <div class="img-uploader-box">
+                    <img src="<?php echo $redis_info['drivinglicence_src'];?>" alt="驾驶证照片" data-src="">
+                    <div class="img-uploader-btn">
+                        <!-- <i class="icon-plus"></i> 重新上传 -->
+                    </div>
+                    <input class="input-file" type="file">
+                </div>
+                <input type="hidden" name="drivinglicence" value="<?php echo $redis_info['drivinglicence'];?>">
+                <p class="tac">驾驶证照片</p>
+            </div>
+        </li>
+            <li class="clearfix">
+                <label class="label-normal">性别</label>
+                <div class="radio-group clearfix">
+                    <label><input type="radio" name="sexual" value="男" ><span>男</span></label>
+                    <label><input type="radio" name="sexual" value="女" ><span>女　</span></label>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">身份证号码</label>
+                <input class="input-normal" type="text" maxlength="18" placeholder="请输入您的身份证号码" name="idcard" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">出生日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="" name="birthday" class="birthday" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">手机号码</label>
+                <input class="input-normal" type="tel" maxlength="11" placeholder="" value="" name="phone">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">常用邮箱</label>
+                <input class="input-normal" type="email" maxlength="30" placeholder="" value="" name="email">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">工作单位</label>
+                <input class="input-normal" type="text" maxlength="20" placeholder="请输入您的工作单位的名称" name="company" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">户籍地址</label>
+                <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的户籍地址" name="registeraddress" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">暂住地址</label>
+                <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的暂住地址" name="livingaddress" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">个人月收入状况</label>
+                <div class="select-box">
+                    <select class="select" name="earning">
+                        <option  value="10000元以上">10000元以上</option>
+                        <option  value="8000~10000元">8000~10000元</option>
+                        <option  value="5000~8000元">5000~8000元</option>
+                        <option  value="4000~5000元">4000~5000元</option>
+                        <option  value="3000~4000元">3000~4000元</option>
+                        <option  value="2000~3000元">2000~3000元</option>
+                        <option  value="1000~2000元">1000~2000元</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <!-- <label style="line-height: 1rem;padding-top:.25rem" class="label-normal">&nbsp;&nbsp;&nbsp;信用记录<br/>【违章记录】</label> -->
+                <label class="label-normal">违章记录</label>
+                <input class="input-normal" type="tel" placeholder="请输入违章记录" name="illegal" value=""><span style="position: absolute;right: 1.5rem;">分</span>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">诉讼执行记录</label>
+                <input class="input-normal" type="tel" placeholder="请输入诉讼执行记录" name="litigation_car" value=""><span style="position: absolute;right: 1.5rem;">处</span>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">犯罪记录</label>
+                <div class="select-box">
+                    <select class="select" name="sin">
+                        <option  value="无">无</option>
+                        <option  value="涉犯罪">涉犯罪</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(0, 1)">下一步</a>
+        </div>
+    </form>
+    <!-----------------------     全国 结束        -------------------->
+<form class="dpn">
+    <div class="wrapper wrapper-doublebtn clearfix">
+        <a class="btn btn-block btn-default" href="javascript:;" id="btn-cancel">取消</a>
+        <a class="btn btn-block btn-blue" href="javascript:;" id="btn-submit">确认编辑</a>
+    </div>
+</form>
+<div id="scoring" class="dpn">
+    <div class="wrapper"></div>
+    <ul class="wrap-list no-pd">
+        <li>
+            <div class="list-item list-item-big list-item-big-double">
+                <div class="wrap-col-double clearfix">
+                    <a class="col col-small" href="javascript:;">
+                        <div class="col-text">
+                            <p class="col-text-key">客户综合评分：</p>
+                            <p class="col-text-value"></p>
+                        </div>
+                    </a>
+                    <a class="col col-small" href="javascript:;">
+                        <div class="col-text">
+                            <p class="col-text-key">客户综合评分：</p>
+                            <p class="col-text-value"><strong></strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="wrapper">
+        <a class="btn btn-block btn-blue" href="/chedai/salesman_customerlist">确定</a>
+    </div>
+</div>
+
+
+
+<?php else:?>
+    <!-----------------------     厦门 首次进入        -------------------->
+    <form <?php if($launch==2) echo 'class="dpn"';?>>
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal">业务类型</label>
+                <div class="select-box">
+                    <select class="select" name="type">
+                        <option selected value="以租代购">以租代购</option>
+                        <option value="车辆质押">车辆质押</option>
+                        <option value="车辆抵押">车辆抵押</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">姓名</label>
+                <input class="input-normal" type="text" maxlength="8" placeholder="您的真实姓名" name="username">
+            </li>
+            <li class="clearfix no-border">
+                <label class="label-normal">身份证照片</label>
+            </li>
+            <li class="clearfix xiamen">
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <img src="" alt="身份证正面照" data-src="">
+                        <div class="img-uploader-btn">
+                            <!-- <i class="icon-plus"></i> 请上传 -->
+                        </div>
+                        <input class="input-file" type="file">
+                    </div>
+                    <input type="hidden" name="idcardfront">
+                    <p class="tac">身份证正面照</p>
+                </div>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <img src="" alt="身份证背面照" data-src="">
+                        <div class="img-uploader-btn">
+                            <!-- <i class="icon-plus"></i> 请上传 -->
+                        </div>
+                        <input class="input-file" type="file">
+                    </div>
+                    <input type="hidden" name="idcardback">
+                    <p class="tac">身份证背面照</p>
+                </div>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <img src="" alt="驾驶证照片" data-src="">
+                        <div class="img-uploader-btn">
+                            <!-- <i class="icon-plus"></i> 请上传 -->
+                        </div>
+                        <input class="input-file" type="file">
+                    </div>
+                    <input type="hidden" name="drivinglicence">
+                    <p class="tac">驾驶证照片</p>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">性别</label>
+                <div class="radio-group clearfix">
+                    <label><input type="radio" name="sexual" value="男" checked="checked"><span>男</span></label>
+                    <label><input type="radio" name="sexual" value="女"><span>女　</span></label>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">身份证号码</label>
+                <input class="input-normal" type="text" maxlength="18" placeholder="请输入您的身份证号码" name="idcard">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">出生日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="您的出生日期" name="birthday" id="birthday">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">婚姻状况</label>
+                <div class="radio-group clearfix">
+                    <label><input type="radio" name="marry" value="已婚" checked="checked"><span>已婚</span></label>
+                    <label><input type="radio" name="marry" value="未婚"><span>未婚</span></label>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">手机号码</label>
+                <input class="input-normal" type="tel" maxlength="11" placeholder="请输入您的手机号码" name="phone">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">常用邮箱</label>
+                <input class="input-normal" type="email" maxlength="30" placeholder="请输入您的常用邮箱" name="email">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">最高学历</label>
+                <div class="select-box">
+                    <select class="select" name="education">
+                        <option selected value="研究生以上">研究生以上</option>
+                        <option value="本科">本科</option>
+                        <option value="大专">大专</option>
+                        <option value="中专、高中">中专、高中</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">工作单位</label>
+                <input class="input-normal" type="text" maxlength="20" placeholder="请输入您的工作单位的名称" name="company">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">户籍地址</label>
+                <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的户籍地址" name="registeraddress">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">户口性质</label>
+                <div class="select-box">
+                    <select class="select" name="household">
+                        <option selected value="本地城镇户口">本地城镇户口</option>
+                        <option value="本地农村户口">本地农村户口</option>
+                        <option value="外地城镇户口">外地城镇户口</option>
+                        <option value="外地农村户口">外地农村户口</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">暂住地址</label>
+                <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的暂住地址" name="livingaddress">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">驾龄</label>
+                <div class="select-box">
+                    <select class="select" name="driving">
+                        <option selected value="5年以上">5年以上</option>
+                        <option value="3~5年">3~5年</option>
+                        <option value="1~3年">1~3年</option>
+                        <option value="1年">1年</option>
+                        <option value="0年">0年</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(2, 1)">下一步</a>
+        </div>
+    </form>
+    <form class="dpn">
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal">是否为我司员工</label>
+                <div class="radio-group clearfix">
+                    <label><input type="radio" name="employee" value="是"><span>是</span></label>
+                    <label><input type="radio" name="employee" value="否" checked="checked"><span>否</span></label>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">是否为我司客户</label>
+                <div class="select-box">
+                    <select class="select" name="client">
+                        <option selected value="优质老客户">优质老客户</option>
+                        <option value="有逾期老客户">有逾期老客户</option>
+                        <option value="未结清老客户">未结清老客户</option>
+                        <option value="非我司老客户">非我司老客户</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">信用记录</label>
+                <div class="select-box">
+                    <select class="select" name="credit">
+                        <option selected value="无逾期">无逾期</option>
+                        <option value="1次逾期">1次逾期</option>
+                        <option value="两次及以上逾期">两次及以上逾期</option>
+                        <option value="无记录">无记录</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">诉讼执行记录</label>
+                <div class="select-box">
+                    <select class="select" name="litigation">
+                        <option selected value="涉执行">涉执行</option>
+                        <option value="涉诉讼">涉诉讼</option>
+                        <option value="无">无</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">犯罪记录</label>
+                <div class="select-box">
+                    <select class="select" name="sin">
+                        <option selected value="涉犯罪">涉犯罪</option>
+                        <option value="无">无</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">面谈主观印象</label>
+                <div class="select-box">
+                    <select class="select" name="impression">
+                        <option selected value="6分">6分</option>
+                        <option value="5分">5分</option>
+                        <option value="4分">4分</option>
+                        <option value="3分">3分</option>
+                        <option value="2分">2分</option>
+                        <option value="1分">1分</option>
+                        <option value="0分">0分</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <div class="wrapper wrapper-doublebtn clearfix">
+            <a class="btn btn-block btn-default" href="javascript:;" onclick="goTo(1)">上一步</a>
+            <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(3, 1)">下一步</a>
+        </div>
+    </form>
+    <form class="dpn">
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal">职业类型</label>
+                <div class="select-box">
+                    <select class="select" name="career">
+                        <option selected value="公务员">公务员</option>
+                        <option value="科研教育机构">科研教育机构</option>
+                        <option value="金融电信电力">金融电信电力</option>
+                        <option value="注册事务所">注册事务所</option>
+                        <option value="邮政交通公用">邮政交通公用</option>
+                        <option value="媒体文艺体育">媒体文艺体育</option>
+                        <option value="工业商业贸易">工业商业贸易</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">现单位工作年限</label>
+                <div class="select-box">
+                    <select class="select" name="agelimit">
+                        <option selected value="5年以上">5年以上</option>
+                        <option value="3~5年">3~5年</option>
+                        <option value="1~3年">1~3年</option>
+                        <option value="1年以内">1年以内</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">现单位性质</label>
+                <div class="select-box">
+                    <select class="select" name="unit" id="unit">
+                        <option selected value="机关事业单位">机关事业单位</option>
+                        <option value="团体企业单位">团体企业单位</option>
+                        <option value="一般企业单位">一般企业单位</option>
+                        <option value="其它">其它</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">现单位岗位级别</label>
+                <div class="select-box">
+                    <select class="select" name="position" id="position">
+                        <option selected value="厅局级以上">厅局级以上</option>
+                        <option value="处级">处级</option>
+                        <option value="科级">科级</option>
+                        <option value="一般干部">一般干部</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">个人月收入状况</label>
+                <div class="select-box">
+                    <select class="select" name="earning">
+                        <option selected value="10000元以上">10000元以上</option>
+                        <option value="8000~10000元">8000~10000元</option>
+                        <option value="5000~8000元">5000~8000元</option>
+                        <option value="4000~5000元">4000~5000元</option>
+                        <option value="3000~4000元">3000~4000元</option>
+                        <option value="2000~3000元">2000~3000元</option>
+                        <option value="1000~2000元">1000~2000元</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">个人住房状况</label>
+                <div class="select-box">
+                    <select class="select" name="house">
+                        <option selected value="完全产权房">完全产权房</option>
+                        <option value="按揭购房">按揭购房</option>
+                        <option value="经济适用房">经济适用房</option>
+                        <option value="租房">租房</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <div class="wrapper wrapper-doublebtn clearfix">
+            <a class="btn btn-block btn-default" href="javascript:;" onclick="goTo(2)">上一步</a>
+            <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(4, 1)">下一步</a>
+        </div>
+    </form>
+    <!-----------------------     厦门 结束        -------------------->
+
+    <!-----------------------     全国 首次进入        -------------------->
+    <form <?php if($launch == 1) echo 'class="dpn"';?>>
+        <ul class="form">
+            <li class="clearfix">
+                <label class="label-normal">业务类型</label>
+                <div class="select-box">
+                    <select class="select" name="type">
+                        <option selected value="以租代购">以租代购</option>
+                        <option  value="车辆质押">车辆质押</option>
+                        <option  value="车辆抵押">车辆抵押</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">姓名</label>
+                <input class="input-normal" type="text" maxlength="8" placeholder="" value="" name="username">
+            </li>
+            <li class="clearfix no-border">
+                <label class="label-normal">身份证照片</label>
+            </li>
+            <li class="clearfix national">
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <img src="" alt="身份证正面照" data-src="">
+                        <div class="img-uploader-btn">
+                            <!-- <i class="icon-plus"></i> 请上传 -->
+                        </div>
+                        <input class="input-file" type="file">
+                    </div>
+                    <input type="hidden" name="idcardfront">
+                    <p class="tac">身份证正面照</p>
+                </div>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <img src="" alt="身份证背面照" data-src="">
+                        <div class="img-uploader-btn">
+                            <!-- <i class="icon-plus"></i> 请上传 -->
+                        </div>
+                        <input class="input-file" type="file">
+                    </div>
+                    <input type="hidden" name="idcardback">
+                    <p class="tac">身份证背面照</p>
+                </div>
+                <div class="img-uploader">
+                    <div class="img-uploader-box">
+                        <img src="" alt="驾驶证照片" data-src="">
+                        <div class="img-uploader-btn">
+                            <!-- <i class="icon-plus"></i> 请上传 -->
+                        </div>
+                        <input class="input-file" type="file">
+                    </div>
+                    <input type="hidden" name="drivinglicence">
+                    <p class="tac">驾驶证照片</p>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">性别</label>
+                <div class="radio-group clearfix">
+                    <label><input type="radio" name="sexual" value="男" checked="checked" ><span>男</span></label>
+                    <label><input type="radio" name="sexual" value="女" ><span>女　</span></label>
+                </div>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">身份证号码</label>
+                <input class="input-normal" type="text" maxlength="18" placeholder="请输入您的身份证号码" name="idcard" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">出生日期</label>
+                <input class="input-normal" type="text" maxlength="10" placeholder="" name="birthday" class="birthday" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">手机号码</label>
+                <input class="input-normal" type="tel" maxlength="11" placeholder="" value="" name="phone">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">常用邮箱</label>
+                <input class="input-normal" type="email" maxlength="30" placeholder="" value="" name="email">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">工作单位</label>
+                <input class="input-normal" type="text" maxlength="20" placeholder="请输入您的工作单位的名称" name="company" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">户籍地址</label>
+                <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的户籍地址" name="registeraddress" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">暂住地址</label>
+                <input class="input-normal" type="text" maxlength="30" placeholder="请输入您的暂住地址" name="livingaddress" value="">
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">个人月收入状况</label>
+                <div class="select-box">
+                    <select class="select" name="earning">
+                        <option  value="10000元以上">10000元以上</option>
+                        <option  value="8000~10000元">8000~10000元</option>
+                        <option  value="5000~8000元">5000~8000元</option>
+                        <option  value="4000~5000元">4000~5000元</option>
+                        <option  value="3000~4000元">3000~4000元</option>
+                        <option  value="2000~3000元">2000~3000元</option>
+                        <option  value="1000~2000元">1000~2000元</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix">
+                <!-- <label style="line-height: 1rem;padding-top:.25rem" class="label-normal">&nbsp;&nbsp;&nbsp;信用记录<br/>【违章记录】</label> -->
+                <label class="label-normal">违章记录</label>
+                <input class="input-normal" type="tel" placeholder="请输入违章记录" name="illegal" value=""><span style="position: absolute;right: 1.5rem;">分</span>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">诉讼执行记录</label>
+                <input class="input-normal" type="tel" placeholder="请输入诉讼执行记录" name="litigation_car" value=""><span style="position: absolute;right: 1.5rem;">处</span>
+            </li>
+            <li class="clearfix">
+                <label class="label-normal">犯罪记录</label>
+                <div class="select-box">
+                    <select class="select" name="sin">
+                        <option  value="无">无</option>
+                        <option  value="涉犯罪">涉犯罪</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="javascript:;" onclick="goTo(0, 1)">下一步</a>
+        </div>
+    </form>
+    <!-----------------------     全国 结束        -------------------->
+    <form class="dpn form-last">
+        <div class="wrapper wrapper-doublebtn clearfix">
+            <a class="btn btn-block btn-default" href="javascript:;" id="btn-cancel">取消</a>
+            <a class="btn btn-block btn-blue" href="javascript:;" id="btn-submit">提交</a>
+        </div>
+    </form>
+    <div id="scoring" class="dpn">
+        <div class="wrapper"></div>
+        <ul class="wrap-list no-pd">
+            <li>
+                <div class="list-item list-item-big list-item-big-double">
+                    <div class="wrap-col-double clearfix">
+                        <a class="col col-small" href="javascript:;">
+                            <div class="col-text">
+                                <p class="col-text-key">客户综合评分：</p>
+                                <p class="col-text-value"></p>
+                            </div>
+                        </a>
+                        <a class="col col-small" href="javascript:;">
+                            <div class="col-text">
+                                <p class="col-text-key">客户综合评分：</p>
+                                <p class="col-text-value"><strong></strong></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <a class="btn btn-block btn-blue" href="/chedai/salesman_customerlist">确定</a>
+        </div>
+    </div>
+<?php endif;?>
+<script src="/js/lrz.all.bundle.js"></script>
+<script type="text/javascript" src="/js/mobiscroll.custom-2.17.0.min.js"></script>
+<script type="text/javascript" src="/js/checkid.js"></script>
+<script type="text/javascript" src="/js/chedai/customeradd.js"></script>
+</body>
+</html>

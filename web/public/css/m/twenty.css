@@ -1,0 +1,138 @@
+.twenty_activity{
+	height:37.775rem;
+	background:url("/image/activity/five/twenty_bg.gif") no-repeat #2e3553;
+	background-size: 16rem 37.775rem;
+	color:#fff;
+	position: relative;
+	padding-bottom:1rem;
+}
+.four_head_ma{	
+	width:7.2rem;
+	left:4.5rem;
+	background:url("/image/activity/five/twenty_all.png") no-repeat 0 -3.65rem;
+	background-size: 13.825rem 16.7rem;
+}
+.four_head_cont{
+	height:2.5rem;
+	background:url("/image/activity/five/twenty_all.png") no-repeat 0 -.75rem;
+	background-size: 13.825rem 16.7rem;
+}
+.active_twenty_head>i{
+	display: block;
+	position: absolute;
+	top:10.7rem;
+	left:1rem;
+	width:2rem;
+	height:1.4rem;
+	background:url("/image/activity/five/five_all.png") no-repeat -.1rem -14rem;
+	background-size: 11.625rem 23.25rem;
+}
+.active_twenty_head>h3{
+	position: absolute;
+	top:11.1rem;
+	left:3.65rem;
+	font-size: .55rem;
+	color:#fff;
+	font-weight: normal;
+}
+.active_twenty_one>.active_twenty_head>i{
+	animation: fadeInRight .5s linear 1.35s both;
+    -webkit-animation: fadeInRight .5s linear 1.35s both;
+}
+.active_twenty_one>.active_twenty_head>h3{
+	animation: fadeInLeft .5s linear 1.5s both;
+    -webkit-animation: fadeInLeft .5s linear 1.5s both;
+}
+.active_twenty_two>.active_twenty_head>i{
+	top:13.4rem;
+	background-position: -2.6rem -14rem;
+	animation: fadeInRight .5s linear 1.7s both;
+    -webkit-animation: fadeInRight .5s linear 1.7s both;
+}
+.active_twenty_two>.active_twenty_head>h3{
+	top:13.75rem;
+	animation: fadeInRight .5s linear 1.9s both;
+    -webkit-animation: fadeInRight .5s linear 1.9s both;
+}
+.active_twenty_three>.active_twenty_head>h3{
+	top:30.8rem;
+	opacity: 0;
+}
+.active_twenty_three>.active_twenty_head>i{
+	background:url("/image/activity/five/twenty_all.png") no-repeat 0 -5.55rem;
+	background-size: 13.825rem 16.7rem;
+	top:30.75rem;
+	opacity: 0;
+}
+.active_twenty_func>i{
+	display: block;
+	position: absolute;
+	top:15.7rem;
+	left:.9rem;
+	width:6.2rem;
+	height:6.25rem;
+	background:url("/image/activity/five/twenty_all.png") no-repeat 0 -7.25rem;
+	background-size: 13.825rem 16.7rem;
+}
+.active_twenty_func>p{
+	font-size: .55rem;
+	color: #9cceff;
+	position: absolute;
+	top:17.45rem;
+	left:8rem;
+}
+.active_twenty_func1>i{
+	animation: fadeInLeft .5s linear 2s both;
+    -webkit-animation: fadeInLeft .5s linear 2s both;
+}
+.active_twenty_func1>p{
+	animation: fadeInRight .5s linear 2.2s both;
+    -webkit-animation: fadeInRight .5s linear 2.2s both;
+}
+.active_twenty_func2>i{
+	top:23rem;
+	left:8.9rem;
+	background-position: -6.25rem -7.25rem;
+	animation: fadeInRight .5s linear 2.3s both;
+    -webkit-animation: fadeInRight .5s linear 2.3s both;
+}
+.active_twenty_func2>p{
+	top:25.1rem;
+	left:2.4rem;
+	animation: fadeInLeft .5s linear 2.5s both;
+    -webkit-animation: fadeInLeft .5s linear 2.5s both;
+}
+.active_twenty_three i.active{
+	opacity: 1;
+	animation: fadeInRight .5s linear both;
+    -webkit-animation: fadeInRight .5s linear both;
+}
+.active_twenty_three h3.active{
+	opacity: 1;
+	animation: fadeInRight .5s linear 0.5s both;
+    -webkit-animation: fadeInRight .5s linear 0.5s both;
+}
+.onload{
+	display: block;
+	width:13.85rem;
+	height:2.4rem;
+	position: absolute;
+	top:33.55rem;
+	left:1rem;
+	background:url("/image/activity/five/twenty_all.png") no-repeat 0 -13.65rem;
+	background-size: 13.825rem 16.7rem;
+	font-size: .9rem;
+	color:#fff;
+	text-align: center;
+	line-height: 2.4rem;
+}
+
+
+.active_twenty_foot{
+	position: absolute;
+	top:36.6rem;
+	left:4.5rem;
+	font-size: .5rem;
+	color:#acaeb6;
+	height: 1rem;
+}

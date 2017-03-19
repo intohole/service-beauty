@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>业务列表</title>
+<?php new Ui_Common_Chedai_Meta(); ?>
+</head>
+<body>
+<script type="text/javascript" src="/js/rem.js"></script>
+<div class="wrapper">
+    <ul class="tabs clearfix">
+        <li class="active">待评估</li>
+        <li>已评估</li>
+    </ul>
+</div>
+<ul class="form">
+    <li class="clearfix">
+        <label class="label-normal">业务类型</label>
+        <div class="select-box">
+            <select class="select" id="type">
+                <option selected value="以租代购">以租代购</option>
+<!--                <option value="车辆质押">车辆质押</option>
+                <option value="车辆抵押">车辆抵押</option>-->
+            </select>
+        </div>
+    </li>
+</ul>
+<section class="wrap-list-block">
+</section>
+<section class="wrap-list-block">
+</section>
+<div class="wrapper dpn" id="wrap-more">
+    <a class="btn-more" href="javascript:;">点击获取更多</a>
+</div>
+<div class="wrapper tac dpn" id="wrap-empty">
+    暂无此项记录
+</div>
+<script type="text/javascript" src="/js/chedai/tabs.js"></script>
+<script type="text/javascript" src="/js/chedai/appraiserlist.js"></script>
+<?php new Ui_Common_Chedai_Nav(1); ?>
+</body>
+</html>
