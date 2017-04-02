@@ -20,7 +20,7 @@ date_default_timezone_set ( 'PRC' );
 if (version_compare ( PHP_VERSION, '5.3.0', '<' ))
 	die ( 'Your PHP Version is ' . PHP_VERSION . ', But WeiPHP require PHP > 5.3.0 !' );
 
-define ( 'SYSTEM_TOKEN', 'weixin_test_123' );
+define ( 'SYSTEM_TOKEN', 'weixin_test_123' ); 
 /**
  * 微信接入验证
  * 在入口进行验证而不是放到框架里验证，主要是解决验证URL超时的问题
