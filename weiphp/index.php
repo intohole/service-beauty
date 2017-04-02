@@ -6,7 +6,10 @@
 // +----------------------------------------------------------------------
 // | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
 // +----------------------------------------------------------------------
+<<<<<<< HEAD
 echo phpinfo();exit;
+=======
+>>>>>>> 11763996bed49d97b7c87c6c7874f866c9e82593
 error_reporting ( E_ERROR );
 // /调试、找错时请去掉///前空格
 //ini_set ( 'display_errors', true );
@@ -17,7 +20,7 @@ date_default_timezone_set ( 'PRC' );
 if (version_compare ( PHP_VERSION, '5.3.0', '<' ))
 	die ( 'Your PHP Version is ' . PHP_VERSION . ', But WeiPHP require PHP > 5.3.0 !' );
 
-define ( 'SYSTEM_TOKEN', 'weiphp' );
+define ( 'SYSTEM_TOKEN', 'weixin_test_123' );
 /**
  * 微信接入验证
  * 在入口进行验证而不是放到框架里验证，主要是解决验证URL超时的问题
